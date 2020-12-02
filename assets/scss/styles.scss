@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import "./colors.scss";
+@import "./utils.scss";
+// font-family: 'Lato', sans-serif;
+//font-family: 'Poppins', sans-serif;
+
+* {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.container-fluid {
+  max-width: 1250px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 2px;
+}
+
+.no-letter-spacing {
+  letter-spacing: 0px;
+}
+
+//
+a {
+  color: $dark;
+  transition: 128ms;
+  &:hover {
+    transition: 256ms;
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.btn-danger {
+  background-color: $primary;
+}
+
+//
+.form-control {
+  font-size: 13px;
+  border: 1px solid #fff;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus,
+  &:active {
+    border: 1px solid $darker;
+  }
+}
