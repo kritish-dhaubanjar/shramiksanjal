@@ -42,7 +42,7 @@ hr {
 }
 
 .background-image {
-  background-image: url(http://dannci.wpmasters.org/idence/wp-content/uploads/2019/11/street-2805643_1920.jpg);
+  background-image: url("/images/street.jpg");
 }
 
 .btn {
