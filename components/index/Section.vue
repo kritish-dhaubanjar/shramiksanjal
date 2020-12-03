@@ -2,7 +2,7 @@
   <section class="py-5 background-image">
     <div class="container-fluid my-5 pb-5">
       <div class="col-lg-6 offset-lg-6 text-white">
-        <div class="my-5">
+        <div class="my-5 py-5">
           <h1 class="no-letter-spacing font-weight-bold">
             The housing crisis is the most serious issue.
           </h1>
