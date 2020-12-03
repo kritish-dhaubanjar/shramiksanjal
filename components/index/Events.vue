@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 d-md-none d-lg-block">
+        <div class="col-lg-4 d-none d-lg-block">
           <div class="pattern mt-5" />
           <img
             src="https://via.placeholder.com/720x1080"
