@@ -47,6 +47,14 @@
             </div>
           </div>
         </div>
+
+        <div class="col-lg-4 d-md-none d-lg-block">
+          <div class="pattern mt-5" />
+          <img
+            src="https://via.placeholder.com/720x1080"
+            class="img-fluid mt-5"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -80,5 +88,11 @@
   .col-sm:nth-child(3) {
     border-left: 1px solid #e3e3e3;
   }
+}
+
+.pattern {
+  height: 300px;
+  width: 100%;
+  background-image: url("/images/assets/dot.png");
 }
 </style>
