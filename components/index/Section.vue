@@ -14,12 +14,12 @@
           </p>
 
           <button
-            class="btn btn-dark btn-lg is-radiusless mr-3 font-weight-bold p-3"
+            class="btn btn-dark btn-lg is-radiusless mr-3 font-weight-bold p-3 mb-2"
           >
             FIND SOLUTION
           </button>
           <button
-            class="btn btn-dark btn-lg is-radiusless font-weight-bold p-3"
+            class="btn btn-dark btn-lg is-radiusless font-weight-bold p-3 mb-2"
           >
             TOOLS TO HELP ENGAGE
           </button>
