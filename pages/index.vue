@@ -1,9 +1,15 @@
 <template>
-  <div></div>
+  <div>
+    <Section />
+  </div>
 </template>
 
 <script>
+import Section from "@/components/index/Section";
+
 export default {
-  components: {}
-}
+  components: {
+    Section
+  }
+};
 </script>

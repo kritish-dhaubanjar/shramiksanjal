@@ -33,11 +33,11 @@ h3,
 h4,
 h5,
 h6 {
-  letter-spacing: 2px;
+  // letter-spacing: 2px;
 }
 
-.no-letter-spacing {
-  letter-spacing: 0px;
+.letter-spacing {
+  letter-spacing: 2px;
 }
 
 //
@@ -48,6 +48,12 @@ a {
     transition: 256ms;
     color: $primary;
     text-decoration: none;
+  }
+}
+
+.btn-dark {
+  &:hover {
+    background-color: $primary;
   }
 }
 
