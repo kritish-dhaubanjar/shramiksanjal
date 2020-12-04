@@ -44,6 +44,15 @@ h6 {
 a {
   color: $dark;
   transition: 128ms;
+
+  small {
+    color: #6c757d;
+    &:hover {
+      transition: 256ms;
+      color: $primary;
+    }
+  }
+
   &:hover {
     transition: 256ms;
     color: $primary;
