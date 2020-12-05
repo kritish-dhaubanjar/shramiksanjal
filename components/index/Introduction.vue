@@ -12,7 +12,7 @@
 
               <hr class="my-4 mx-auto" />
 
-              <ul class="font-weight-bold mb-5">
+              <ul class="font-weight-bold mb-5 px-0">
                 <li>Fiscal Sponsorship</li>
                 <li>Accounting Assistance</li>
                 <li>Fiscal Sponsorship</li>
