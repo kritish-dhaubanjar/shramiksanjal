@@ -65,8 +65,7 @@
           >
             <h6 class="mb-0">
               <i class="las la-arrow-left" />
-              PREVIOUS SLIDE
-              <!-- <i class="las la-stream"></i> -->
+              <span class="d-none d-md-inline">PREVIOUS SLIDE</span>
             </h6>
           </a>
           <a
@@ -75,8 +74,7 @@
             data-slide="next"
           >
             <h6 class="mb-0">
-              <!-- <i class="las la-stream"></i> -->
-              NEXT SLIDE
+              <span class="d-none d-md-inline">NEXT SLIDE</span>
               <i class="las la-arrow-right" />
             </h6>
           </a>
@@ -122,13 +120,21 @@
   }
 }
 
+@media screen and(max-width: 575px ) {
+  .carousel-indicators {
+    left: 0;
+    right: unset;
+    margin-left: 32px;
+  }
+}
+
 .controls {
   opacity: 0;
   transition: 128ms;
   position: absolute;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: 16;
   a:first-child {
     transition: 128ms;
     left: -64px;
