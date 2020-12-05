@@ -2,7 +2,7 @@
   <section class="bg-light pb-5 mt-5">
     <div class="container-fluid py-5">
       <div class="row">
-        <div class="col-lg-8 pt-5 my-5">
+        <div class="col-md-7 col-lg-8 pt-5 my-5">
           <h1 class="font-weight-bold">
             Institute for Social Change and Sustainability
           </h1>
@@ -11,7 +11,7 @@
           </p>
         </div>
 
-        <div class="col-lg-4 text-center">
+        <div class="col-md-5 col-lg-4 text-center">
           <div class="position-relative">
             <img src="https://via.placeholder.com/300x350" class="img-fluid" />
           </div>
@@ -61,7 +61,7 @@ p {
   line-height: 180%;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   img {
     position: absolute;
     top: -100px;
