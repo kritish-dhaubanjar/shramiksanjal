@@ -1,5 +1,5 @@
 <template>
-  <section class="mb-5 pb-5 overflow-hidden">
+  <section class="overflow-hidden">
     <div
       id="carouselControls"
       class="carousel slide carousel-fade"

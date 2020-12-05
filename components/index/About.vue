@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-light pb-5 mt-5">
+  <section class="bg-light pb-5">
     <div class="container-fluid py-5">
       <div class="row">
         <div class="col-md-7 col-lg-8 pt-5 my-5">
