@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Headerbar />
     <Navbar />
     <nuxt />
     <Footer />
@@ -7,11 +8,13 @@
 </template>
 
 <script>
-import Footer from "@/components/includes/Footer";
+import Headerbar from "@/components/includes/Headerbar";
 import Navbar from "@/components/includes/Navbar";
+import Footer from "@/components/includes/Footer";
 
 export default {
   components: {
+    Headerbar,
     Navbar,
     Footer
   }

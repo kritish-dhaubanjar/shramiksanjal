@@ -3,8 +3,16 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <nav class="navbar navbar-expand-lg navbar-light px-0">
+            <a class="navbar-brand" href="#">
+              <img
+                src="/images/logo.png"
+                width="52"
+                height="52"
+                alt=""
+                loading="lazy"
+              />
+            </a>
             <!-- <button
             class="navbar-toggler"
             type="button"
@@ -52,35 +60,87 @@
                     <a class="dropdown-item" href="#">Malaysia</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Others</a>
-
-                    <!-- <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a> -->
                   </div>
                 </li>
-                <li class="nav-item px-2">
-                  <a class="nav-link py-4" href="#">EVENTS</a>
+                <li class="nav-item dropdown px-2">
+                  <a
+                    class="nav-link py-4 dropdown-toggle"
+                    href="#"
+                    id="news"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    EVENTS
+                  </a>
+                  <div
+                    class="dropdown-menu is-radiusless py-4 px-3"
+                    aria-labelledby="news"
+                  >
+                    <a class="dropdown-item" href="#">Upcoming Events</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Past Events</a>
+                  </div>
                 </li>
                 <li class="nav-item px-2">
                   <a class="nav-link py-4" href="#">VIDEOS</a>
                 </li>
-                <!-- <li class="nav-item px-2">
-                <a class="nav-link py-4" href="#">FAQs</a>
-              </li> -->
-                <li class="nav-item px-2">
-                  <a class="nav-link py-4" href="#">JOIN US</a>
+
+                <li class="nav-item dropdown px-2">
+                  <a
+                    class="nav-link py-4 dropdown-toggle"
+                    href="#"
+                    id="news"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    JOIN US
+                  </a>
+                  <div
+                    class="dropdown-menu is-radiusless py-4 px-3"
+                    aria-labelledby="news"
+                  >
+                    <a class="dropdown-item" href="#">As a Member</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">As a Supportor</a>
+                  </div>
                 </li>
                 <li class="nav-item px-2">
                   <a class="nav-link py-4" href="#">SHRAMIK COMMUNITY</a>
                 </li>
 
-                <li class="nav-item px-2">
-                  <a class="nav-link py-4" href="#">ABOUT US</a>
+                <li class="nav-item dropdown px-2">
+                  <a
+                    class="nav-link py-4 dropdown-toggle"
+                    href="#"
+                    id="news"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    ABOUT US
+                  </a>
+                  <div
+                    class="dropdown-menu is-radiusless py-4 px-3"
+                    aria-labelledby="news"
+                  >
+                    <a class="dropdown-item" href="#">Who are we?</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Where are we?</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">What are we doing?</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">What have we achieved?</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"
+                      >Our Mission &amp; Vision</a
+                    >
+                  </div>
                 </li>
-                <!-- <li class="nav-item px-2">
-               
-              </li> -->
               </ul>
 
               <button class="btn btn-danger is-radiusless font-weight-bold">
@@ -105,13 +165,21 @@
   }
 }
 
+@media screen and(max-width: 999px) {
+  .collapse.navbar-collapse {
+    display: none !important;
+  }
+}
+
 .dropdown-menu {
   width: 256px;
   top: 64px;
   background-color: #2e2c42;
   .dropdown-item {
     color: #fff;
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       color: $primary;
       background-color: #2e2c42;
     }
@@ -138,7 +206,7 @@
   display: block;
 }
 
-#news:hover ~ .dropdown-menu {
+.dropdown-toggle:hover ~ .dropdown-menu {
   display: block;
 }
 </style>
