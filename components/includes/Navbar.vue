@@ -28,7 +28,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item px-2">
-                  <a class="nav-link py-4 active" href="#">HOME</a>
+                  <nuxt-link to="/" class="nav-link py-4 active"
+                    >HOME</nuxt-link
+                  >
                 </li>
 
                 <li class="nav-item dropdown px-2">
@@ -143,9 +145,13 @@
                 </li>
               </ul>
 
-              <button class="btn btn-danger is-radiusless font-weight-bold">
+              <nuxt-link
+                to="/contact-us"
+                tag="button"
+                class="btn btn-danger is-radiusless font-weight-bold"
+              >
                 CONTACT US
-              </button>
+              </nuxt-link>
             </div>
           </nav>
         </div>
