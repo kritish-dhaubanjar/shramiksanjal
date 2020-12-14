@@ -28,7 +28,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item px-2">
-                  <nuxt-link to="/" class="nav-link py-4 active"
+                  <nuxt-link
+                    to="/"
+                    class="nav-link py-4"
+                    exact-active-class="active"
                     >HOME</nuxt-link
                   >
                 </li>

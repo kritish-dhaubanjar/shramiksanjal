@@ -48,7 +48,7 @@
                 <div class="form-group">
                   <input
                     type="text"
-                    class="form-control is-radiusless is-invalid"
+                    class="form-control is-radiusless"
                     placeholder="Your Name *"
                   />
                   <div id="validationServer03Feedback" class="invalid-feedback">
