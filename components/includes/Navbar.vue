@@ -52,19 +52,31 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <a class="dropdown-item" href="#">Nepal</a>
+                    <nuxt-link class="dropdown-item" to="/news"
+                      >Nepal</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">UAE</a>
+                    <nuxt-link class="dropdown-item" to="/news">UAE</nuxt-link>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Qatar</a>
+                    <nuxt-link class="dropdown-item" to="/news"
+                      >Qatar</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Kuwait</a>
+                    <nuxt-link class="dropdown-item" to="/news"
+                      >Kuwait</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Saudi Arabia</a>
+                    <nuxt-link class="dropdown-item" to="/news"
+                      >Saudi Arabia</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Malaysia</a>
+                    <nuxt-link class="dropdown-item" to="/news"
+                      >Malaysia</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Others</a>
+                    <nuxt-link class="dropdown-item" to="/news"
+                      >Others</nuxt-link
+                    >
                   </div>
                 </li>
                 <li class="nav-item dropdown px-2">
