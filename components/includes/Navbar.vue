@@ -52,7 +52,7 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <nuxt-link class="dropdown-item" to="/news"
+                    <nuxt-link class="dropdown-item active" to="/news"
                       >Nepal</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
@@ -229,5 +229,10 @@
 
 .dropdown-toggle:hover ~ .dropdown-menu {
   display: block;
+}
+//
+.dropdown-item.active {
+  background: transparent;
+  color: $primary !important;
 }
 </style>
