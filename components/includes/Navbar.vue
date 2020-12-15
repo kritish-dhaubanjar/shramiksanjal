@@ -145,7 +145,9 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <a class="dropdown-item" href="#">Who are we?</a>
+                    <nuxt-link class="dropdown-item" to="/about-us"
+                      >Who are we?</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Where are we?</a>
                     <div class="dropdown-divider"></div>

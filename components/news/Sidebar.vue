@@ -138,7 +138,7 @@ tr:first-child {
   }
 }
 .news-image {
-  flex: 100px 1 0;
+  flex: 100px 0 0;
   min-height: 100px;
   height: 100px;
   max-height: 100px;
