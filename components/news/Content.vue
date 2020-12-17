@@ -1,6 +1,10 @@
 <template>
   <section>
     <div class="html">
+      <h4 class="mb-4 font-weight-bold">
+        Pine Forest under High Fire Danger Status
+      </h4>
+
       <p>
         A moderate incline runs towards the foot of Maybury Hill, and down this
         we clattered. Once the lightning had begun, it went on in as rapid a
@@ -11,6 +15,18 @@
         confusing, and a thin hail smote gustily at my face as I drove down the
         slope.
       </p>
+      <br />
+
+      <blockquote class="blockquote">
+        <p class="mb-0">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+          posuere erat a ante.
+        </p>
+        <footer class="blockquote-footer">
+          Someone famous in <cite title="Source Title">Source Title</cite>
+        </footer>
+      </blockquote>
+
       <br />
       <p>
         At first I regarded little but the road before me, and then abruptly my
@@ -131,6 +147,21 @@
     cursor: pointer;
     transition: 128ms;
     color: $primary;
+  }
+}
+
+.blockquote {
+  background-color: #fafafa;
+  padding: 24px 24px;
+  border-left: 3px solid #2f2e41;
+  p {
+    font-size: 24px;
+    line-height: 150%;
+    color: #222;
+  }
+
+  footer {
+    margin-top: 16px;
   }
 }
 </style>

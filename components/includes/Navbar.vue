@@ -95,13 +95,20 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <a class="dropdown-item" href="#">Upcoming Events</a>
+                    <nuxt-link class="dropdown-item active" to="/events"
+                      >Upcoming Events</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Past Events</a>
                   </div>
                 </li>
                 <li class="nav-item px-2">
-                  <a class="nav-link py-4" href="#">VIDEOS</a>
+                  <nuxt-link
+                    class="nav-link py-4"
+                    to="/videos"
+                    exact-active-class="active"
+                    >VIDEOS</nuxt-link
+                  >
                 </li>
 
                 <li class="nav-item dropdown px-2">

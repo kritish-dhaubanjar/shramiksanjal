@@ -35,11 +35,13 @@
             </p>
           </div>
           <div class="col-sm d-flex align-items-center">
-            <button
+            <nuxt-link
+              tag="button"
+              to="/events/event"
               class="btn btn-danger is-radiusless font-weight-bold px-4 py-2 my-3"
             >
               DETAILS
-            </button>
+            </nuxt-link>
           </div>
         </div>
       </div>
