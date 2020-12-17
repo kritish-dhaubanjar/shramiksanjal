@@ -28,7 +28,7 @@
             <small class="ml-3">
               9:00 am - 9:00 pm
             </small>
-            <h5 class="mt-3 font-weight-bold">Along Pines Hike</h5>
+            <h6 class="mt-3 font-weight-bold">Along Pines Hike</h6>
             <p class="mb-0">
               Hands-on activities, student photography exhibit, and more. All
               activities are free and Museum admission fee is not required.
@@ -88,5 +88,9 @@
   hr {
     display: none;
   }
+}
+
+p {
+  font-size: 14px;
 }
 </style>
