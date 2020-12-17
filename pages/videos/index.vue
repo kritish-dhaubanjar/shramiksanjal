@@ -39,12 +39,21 @@
             </div>
             <div class="col-sm-6" v-for="i in 6" :key="i">
               <div class="card is-radiusless is-borderless mb-5">
-                <div class="background-image w-100 position-relative">
+                <!-- <div class="background-image w-100 position-relative">
                   <div
                     class="overlay d-flex h-100 w-100 align-items-center justify-content-center position-absolute"
                   >
                     <i class="las la-play la-4x text-danger" />
                   </div>
+                </div> -->
+
+                <div class="youtube position-relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/Zu4R9dxgdxE"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
                 </div>
 
                 <div class="card-body pb-0">
