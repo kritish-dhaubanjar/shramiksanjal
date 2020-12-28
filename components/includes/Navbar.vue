@@ -152,7 +152,9 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <nuxt-link class="dropdown-item" to="/about-us"
+                    <nuxt-link
+                      class="dropdown-item"
+                      :to="localePath('about-us')"
                       >Who are we?</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
@@ -173,7 +175,7 @@
 
  -->
               <nuxt-link
-                :to="localePath('/contact-us')"
+                :to="localePath('contact-us')"
                 tag="button"
                 class="btn btn-danger is-radiusless font-weight-bold"
               >

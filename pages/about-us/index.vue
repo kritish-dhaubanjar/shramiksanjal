@@ -19,6 +19,12 @@ import Stats from "@/components/about/Stats";
 import History from "@/components/about/History";
 
 export default {
+  nuxtI18n: {
+    paths: {
+      en: "/about-us",
+      es: "/sobre"
+    }
+  },
   components: {
     Banner,
     About,

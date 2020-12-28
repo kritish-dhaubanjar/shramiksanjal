@@ -79,6 +79,16 @@ export default {
               home: "CASA"
             }
           }
+        },
+        pages: {
+          "contact-us": {
+            en: "/contact-us",
+            es: "/contacto"
+          },
+          "about-us": {
+            en: "/about-us",
+            es: "/sobre"
+          }
         }
       }
     ]
