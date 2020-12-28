@@ -32,7 +32,7 @@
                     :to="localePath('/')"
                     class="nav-link py-4"
                     exact-active-class="active"
-                    >{{ $t('home') }}</nuxt-link
+                    >{{ $t("home") }}</nuxt-link
                   >
                 </li>
 
@@ -168,9 +168,12 @@
                   </div>
                 </li>
               </ul>
-
-              <nuxt-link
+              <!-- 
                 to="/contact-us"
+
+ -->
+              <nuxt-link
+                :to="localePath('/contact-us')"
                 tag="button"
                 class="btn btn-danger is-radiusless font-weight-bold"
               >

@@ -150,6 +150,13 @@ import Banner from "@/components/others/Banner";
 import Section from "../components/index/Section.vue";
 
 export default {
+  nuxtI18n: {
+    paths: {
+      en: "/contact-us",
+      es: "/contacto"
+    }
+  },
+
   components: {
     Banner
   }
