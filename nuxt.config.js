@@ -1,42 +1,42 @@
 export default {
-	ssr: false,
+  ssr: false,
   /*
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
+      { charset: "utf-8" },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, shrink-to-fit=no"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
-        rel: 'stylesheet',
+        rel: "stylesheet",
         href:
-          'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'
+          "https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
       },
       {
-        rel: 'stylesheet',
-        href: '/css/line-awesome.min.css'
+        rel: "stylesheet",
+        href: "/css/line-awesome.min.css"
       }
     ],
     script: [
       {
-        src: 'https://code.jquery.com/jquery-3.5.1.slim.min.js',
+        src: "https://code.jquery.com/jquery-3.5.1.slim.min.js",
         body: true
       },
       {
         src:
-          'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js',
+          "https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js",
         body: true
       }
     ]
@@ -44,7 +44,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: "#fff" },
   /*
    ** Global CSS
    */
@@ -62,7 +62,26 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    "@nuxtjs/axios",
+    [
+      "nuxt-i18n",
+      {
+        // strategy: "no_prefix",
+        locales: ["en", "es"],
+        defaultLocale: "en",
+        vueI18n: {
+          fallbackLocale: "en",
+          messages: {
+            en: {
+              home: "HOME"
+            },
+            es: {
+              home: "CASA"
+            }
+          }
+        }
+      }
+    ]
   ],
   /*
    ** Axios module configuration
@@ -78,4 +97,4 @@ export default {
      */
     extend(config, ctx) {}
   }
-}
+};

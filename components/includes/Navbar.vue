@@ -29,10 +29,10 @@
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item px-2">
                   <nuxt-link
-                    to="/"
+                    :to="localePath('/')"
                     class="nav-link py-4"
                     exact-active-class="active"
-                    >HOME</nuxt-link
+                    >{{ $t('home') }}</nuxt-link
                   >
                 </li>
 

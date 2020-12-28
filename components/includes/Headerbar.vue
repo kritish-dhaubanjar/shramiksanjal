@@ -42,9 +42,15 @@
                 class="dropdown-menu is-radiusless"
                 aria-labelledby="dropdownMenuButton"
               >
-                <a class="dropdown-item" href="#">EN</a>
-                <a class="dropdown-item" href="#">NL</a>
-                <a class="dropdown-item" href="#">ES</a>
+                <nuxt-link class="dropdown-item" :to="switchLocalePath('en')">
+                  EN
+                </nuxt-link>
+                <nuxt-link class="dropdown-item" :to="switchLocalePath('es')">
+                  ES
+                </nuxt-link>
+                <!-- <a class="dropdown-item" href="#">EN</a> -->
+                <!-- <a class="dropdown-item" href="#">NL</a> -->
+                <!-- <a class="dropdown-item" href="#">ES</a> -->
                 <a class="dropdown-item" href="#">FR</a>
                 <a class="dropdown-item" href="#">RU</a>
               </div>
