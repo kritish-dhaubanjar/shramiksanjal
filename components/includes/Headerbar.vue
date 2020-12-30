@@ -29,30 +29,28 @@
           <div class="btn-group">
             <div class="dropdown mr-1">
               <button
-                class="btn btn-sm dropdown-toggle is-radiusless"
+                class="btn btn-sm dropdown-toggle is-radiusless text-uppercase"
                 type="button"
                 id="dropdownMenuButton"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                EN
+                {{ $i18n.locale }}
               </button>
               <div
                 class="dropdown-menu is-radiusless"
                 aria-labelledby="dropdownMenuButton"
               >
-                <nuxt-link class="dropdown-item" :to="switchLocalePath('en')">
-                  EN
+                <nuxt-link
+                  class="dropdown-item text-uppercase"
+                  :class="{ active: $i18n.locale == locale }"
+                  :to="switchLocalePath(locale)"
+                  v-for="locale in $i18n.locales"
+                  :key="locale"
+                >
+                  {{ locale }}
                 </nuxt-link>
-                <nuxt-link class="dropdown-item" :to="switchLocalePath('es')">
-                  ES
-                </nuxt-link>
-                <!-- <a class="dropdown-item" href="#">EN</a> -->
-                <!-- <a class="dropdown-item" href="#">NL</a> -->
-                <!-- <a class="dropdown-item" href="#">ES</a> -->
-                <a class="dropdown-item" href="#">FR</a>
-                <a class="dropdown-item" href="#">RU</a>
               </div>
             </div>
 
@@ -86,6 +84,11 @@ ul {
       background-color: $primary;
       color: #fff;
     }
+  }
+
+  .dropdown-item.active {
+    background-color: $primary;
+    color: #fff;
   }
 }
 </style>

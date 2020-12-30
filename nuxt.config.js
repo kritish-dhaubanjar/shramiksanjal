@@ -1,3 +1,6 @@
+import en from "./locales/en.json";
+import es from "./locales/es.json";
+
 export default {
   ssr: false,
   /*
@@ -72,12 +75,14 @@ export default {
         vueI18n: {
           fallbackLocale: "en",
           messages: {
-            en: {
-              home: "HOME"
-            },
-            es: {
-              home: "CASA"
-            }
+            en,
+            es
+            // en: {
+            //   home: "HOME"
+            // },
+            // es: {
+            //   home: "CASA"
+            // }
           }
         },
         pages: {
