@@ -1,5 +1,6 @@
 import en from "./locales/en.json";
 import es from "./locales/es.json";
+import ne from "./locales/ne.json";
 
 export default {
   ssr: false,
@@ -70,13 +71,14 @@ export default {
       "nuxt-i18n",
       {
         // strategy: "no_prefix",
-        locales: ["en", "es"],
+        locales: ["en", "es", "ne"],
         defaultLocale: "en",
         vueI18n: {
           fallbackLocale: "en",
           messages: {
             en,
-            es
+            es,
+            ne
             // en: {
             //   home: "HOME"
             // },
@@ -102,7 +104,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: 'https://api.shramiksanjal.org',
+  },
   /*
    ** Build configuration
    */

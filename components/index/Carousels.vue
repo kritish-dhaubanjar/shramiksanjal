@@ -17,15 +17,15 @@
       <div class="carousel-inner">
         <div
           class="carousel-item"
-          :class="{ active: i == 1 }"
-          v-for="i in 3"
-          :key="i"
+          :class="{ active: i == 0 }"
+          v-for="(carousel, i) in carousels"
+          :key="carousel.id"
         >
           <section class="background-image">
             <div class="container-fluid d-flex align-items-center">
               <div class="jumbotron bg-transparent text-white mb-0">
                 <h1 class="font-weight-bold mb-4">
-                  Aholistic approach to meet your most pressing needs.
+                  {{ carousel[`caption_${$i18n.locale}`] }}
                 </h1>
                 <button
                   class="btn btn-lg btn-dark is-radiusless py-3 px-4 my-2"
@@ -101,6 +101,22 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      carousels: []
+    };
+  },
+
+  beforeCreate() {
+    this.$axios.get("/api/collections/get/carousels").then(({ data }) => {
+      this.carousels = data.entries;
+    });
+  }
+};
+</script>
 
 <style scoped lang="scss">
 .carousel-item {
