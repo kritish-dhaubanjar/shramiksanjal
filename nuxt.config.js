@@ -105,7 +105,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://api.shramiksanjal.org',
+    baseURL: "http://api.shramiksanjal.org"
   },
   /*
    ** Build configuration
