@@ -53,34 +53,51 @@
                     aria-labelledby="news"
                   >
                     <nuxt-link
-                      class="dropdown-item active"
+                      class="dropdown-item "
+                      exact-active-class="active"
                       to="/news?country=Nepal"
                       >Nepal</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news?country=UAE"
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      to="/news?country=UAE"
                       >UAE</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news?country=Qatar"
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      to="/news?country=Qatar"
                       >Qatar</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news?country=Kuwait"
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      to="/news?country=Kuwait"
                       >Kuwait</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
+                      exact-active-class="active"
                       to="/news?country=Saudi Arabia"
                       >Saudi Arabia</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news?country=Malaysia"
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      to="/news?country=Malaysia"
                       >Malaysia</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news?country=Others"
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      to="/news?country=Others"
                       >Others</nuxt-link
                     >
                   </div>
