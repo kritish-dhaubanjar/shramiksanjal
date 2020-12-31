@@ -7,12 +7,12 @@
     >
       <ol class="carousel-indicators">
         <li
+          v-for="i in carousels.length"
+          :key="i"
           data-target="#carouselControls"
-          data-slide-to="0"
-          class="active"
+          :data-slide-to="i - 1"
+          :class="{ active: i == 0 }"
         ></li>
-        <li data-target="#carouselControls" data-slide-to="1"></li>
-        <li data-target="#carouselControls" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
         <div

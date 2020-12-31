@@ -1,13 +1,18 @@
 <template>
-  <section class="background-image">
+  <section
+    class="background-image"
+    :style="
+      `background-image: url(https://api.shramiksanjal.org/${news.image.path})`
+    "
+  >
     <div class="jumbotron mb-0">
       <div class="container-fluid">
         <div class="row text-white">
           <div class="col-12">
-            <ul class="pl-0 mb-5">
+            <ul class="pl-0 mb-5 text-uppercase">
               <li class="pr-3">
                 <i class="las la-user" />
-                <small>RICHARD SEARCH</small>
+                <small>{{ news.author }}</small>
               </li>
               <li class="pr-3">
                 <i class="las la-clock" />
@@ -16,17 +21,22 @@
               <li class="pr-3">
                 <a href="#">
                   <i class="las la-list text-white" />
-                  <small class="text-white">TOWN NEWS </small>
+                  <small
+                    class="text-white"
+                    v-for="tag in news.tags"
+                    :key="tag"
+                    >{{ tag }}</small
+                  >
                 </a>
               </li>
             </ul>
           </div>
           <div class="col-12">
-            <h1 class="mb-3">Waste Industries Garbage Pick Up: Embeds</h1>
+            <h1 class="mb-3">
+              {{ $localeContent(news, "title", $i18n.locale) }}
+            </h1>
             <p class="lead">
-              A moderate incline runs towards the foot of Maybury Hill, and down
-              this we clattered. Once the lightning had begun, it went on in as
-              rapid a succession of flashes as I have ever seen.
+              {{ $localeContent(news, "overview", $i18n.locale) }}
             </p>
           </div>
         </div>
@@ -34,6 +44,12 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ["news"]
+};
+</script>
 
 <style scoped lang="scss">
 .jumbotron {
@@ -43,7 +59,7 @@
 }
 
 .background-image {
-  background-image: url(https://via.placeholder.com/1280x720);
+  // background-image: url(https://via.placeholder.com/1280x720);
 }
 
 ul {

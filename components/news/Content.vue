@@ -1,6 +1,7 @@
 <template>
   <section>
-    <div class="html">
+    <div class="html" v-html="html" />
+    <!-- <div class="html">
       <h4 class="mb-4 font-weight-bold">
         Pine Forest under High Fire Danger Status
       </h4>
@@ -86,7 +87,7 @@
         the first lightning of the gathering storm, and the thunder burst like a
         rocket overhead. The horse took the bit between his teeth and bolted.
       </p>
-    </div>
+    </div> -->
 
     <div class="my-3 py-5">
       <div class="card flex-row is-radiusless">
@@ -116,26 +117,60 @@
   </section>
 </template>
 
+<script>
+export default {
+  props: ["news"],
+
+  computed: {
+    html() {
+      let wysiwyg = document.createElement("div");
+      wysiwyg.innerHTML = this.$localeContent(
+        this.news,
+        "content",
+        this.$i18n.locale
+      );
+
+      wysiwyg.querySelectorAll("iframe").forEach(node => {
+        let div = document.createElement("div");
+        div.className = "my-5 youtube";
+        div.appendChild(node.cloneNode(true));
+        node.parentElement.replaceChild(div, node);
+      });
+
+      wysiwyg.querySelectorAll("img").forEach(node => {
+        node.className = "img-fluid my-5";
+        node.setAttribute(
+          "src",
+          `https://api.shramiksanjal.org/${node.getAttribute("src")}`
+        );
+      });
+
+      return wysiwyg.innerHTML;
+    }
+  }
+};
+</script>
+
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
 
-.html {
-  .youtube {
-    width: 100%;
-    position: relative;
-    padding-bottom: 53%;
-  }
+// .html {
+//   .youtube {
+//     width: 100%;
+//     position: relative;
+//     padding-bottom: 53%;
+//   }
 
-  p {
-    line-height: 190%;
-  }
+//   p {
+//     line-height: 190%;
+//   }
 
-  iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-}
+//   iframe {
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 
 .card-body {
   transition: 128ms;
