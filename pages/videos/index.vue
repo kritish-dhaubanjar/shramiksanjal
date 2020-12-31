@@ -53,7 +53,11 @@
                   href="#"
                   class="background-image w-100 position-relative"
                   :style="
-                    `background-image: url(http://api.shramiksanjal.org/${video.thumbnail.path});`
+                    `background-image: url(https://img.youtube.com/vi/${video.youtube
+                      .split('/')
+                      .pop()
+                      .split('=')
+                      .pop()}/0.jpg);`
                   "
                 >
                   <div
@@ -221,7 +225,7 @@ export default {
 @import "@/assets/scss/colors.scss";
 
 .background-image {
-  min-height: 280px;
+  min-height: 250px;
   // background-image: url(https://via.placeholder.com/485x325);
   .overlay {
     opacity: 0;
