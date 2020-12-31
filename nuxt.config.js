@@ -56,7 +56,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/localeContent.js"],
+  plugins: ["~/plugins/localeContent.js", "~/plugins/paginate.js"],
   /*
    ** Nuxt.js dev-modules
    */

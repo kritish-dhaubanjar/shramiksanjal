@@ -54,9 +54,9 @@
               </div>
             </div>
 
-            <button class="btn btn-outline-danger btn-sm is-radiusless">
+            <!-- <button class="btn btn-outline-danger btn-sm is-radiusless">
               <i class="las la-sign-in-alt" /> Sign In
-            </button>
+            </button> -->
           </div>
         </div>
       </div>

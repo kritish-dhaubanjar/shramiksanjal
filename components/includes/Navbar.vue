@@ -111,7 +111,7 @@
                   >
                 </li>
 
-                <li class="nav-item dropdown px-2">
+                <!-- <li class="nav-item dropdown px-2">
                   <a
                     class="nav-link py-4 dropdown-toggle"
                     href="#"
@@ -131,10 +131,10 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">As a Supportor</a>
                   </div>
-                </li>
-                <li class="nav-item px-2">
+                </li> -->
+                <!-- <li class="nav-item px-2">
                   <a class="nav-link py-4" href="#">SHRAMIK COMMUNITY</a>
-                </li>
+                </li> -->
 
                 <li class="nav-item dropdown px-2">
                   <a

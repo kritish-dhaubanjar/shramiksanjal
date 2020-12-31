@@ -7,8 +7,16 @@
           <div class="row">
             <div class="col-12 mb-5">
               <div class="youtube position-relative">
+                <!-- :src="https://www.youtube.com/embed/Zu4R9dxgdxE" -->
+
                 <iframe
-                  src="https://www.youtube.com/embed/Zu4R9dxgdxE"
+                  :src="
+                    `https://www.youtube.com/embed/${video.youtube
+                      .split('/')
+                      .pop()
+                      .split('=')
+                      .pop()}`
+                  "
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
@@ -17,29 +25,37 @@
 
               <div class="card-body pb-0">
                 <small class="text-muted">
-                  <i class="las la-calendar-alt" /> AUGUST 20, 2016
+                  <i class="las la-calendar-alt" />
+                  {{ new Date(video._created * 1000).toDateString() }}
                   <i class="las la-list ml-3" />
-                  <a href="#"><small>HEALTH</small></a
-                  >,
-                  <a href="#"><small>STRATEGY</small></a>
+                  <a href="#" v-for="(tag, i) in video.tags" :key="tag"
+                    ><small class="text-uppercase"
+                      >{{ tag
+                      }}<span v-if="i != video.tags.length - 1">, </span>
+                    </small></a
+                  >
                 </small>
 
                 <div>
                   <h5 class="font-weight-bold my-3">
-                    Aligning Passive Investment with Paris Climate Goals: Left
-                    Sidebar
+                    {{ $localeContent(video, "title", $i18n.locale) }}
                   </h5>
                   <p>
-                    The purpose of this Request for Proposal (RFP) is to
-                    generate ideas and fund solutions that address climate
-                    change problems.
+                    {{ $localeContent(video, "overview", $i18n.locale) }}
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6" v-for="i in 6" :key="i">
+            <div class="col-sm-6" v-for="video in slice" :key="video._id">
               <div class="card is-radiusless is-borderless mb-5">
-                <div class="background-image w-100 position-relative">
+                <div
+                  @click="play(video)"
+                  href="#"
+                  class="background-image w-100 position-relative"
+                  :style="
+                    `background-image: url(http://api.shramiksanjal.org/${video.thumbnail.path});`
+                  "
+                >
                   <div
                     class="overlay d-flex h-100 w-100 align-items-center justify-content-center position-absolute"
                   >
@@ -57,25 +73,27 @@
                 </div> -->
 
                 <div class="card-body pb-0">
-                  <small class="text-muted">
-                    <i class="las la-calendar-alt" /> AUGUST 20, 2016
+                  <small class="text-muted text-uppercase">
+                    <i class="las la-calendar-alt" />
+                    {{ new Date(video._created * 1000).toDateString() }}
+                    <!-- AUGUST 20, 2016 -->
                     <i class="las la-list ml-3" />
-                    <a href="#"><small>HEALTH</small></a
-                    >,
-                    <a href="#"><small>STRATEGY</small></a>
+                    <a href="#" v-for="(tag, i) in video.tags" :key="tag"
+                      ><small
+                        >{{ tag
+                        }}<span v-if="i != video.tags.length - 1">, </span>
+                      </small></a
+                    >
                   </small>
 
-                  <nuxt-link to="/news/news">
+                  <a href="#" @click.prevent="play(video)">
                     <h5 class="font-weight-bold my-3">
-                      Aligning Passive Investment with Paris Climate Goals: Left
-                      Sidebar
+                      {{ $localeContent(video, "title", $i18n.locale) }}
                     </h5>
                     <p>
-                      The purpose of this Request for Proposal (RFP) is to
-                      generate ideas and fund solutions that address climate
-                      change problems.
+                      {{ $localeContent(video, "overview", $i18n.locale) }}
                     </p>
-                  </nuxt-link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -84,20 +102,33 @@
           <div>
             <nav class="mb-5 mt-4">
               <ul class="pagination">
-                <li class="page-item mr-1 disabled">
-                  <a class="page-link is-radiusless" href="#">Previous</a>
+                <li
+                  class="page-item mr-1"
+                  :class="{ disabled: !range.previous }"
+                >
+                  <a
+                    class="page-link is-radiusless"
+                    href="#"
+                    @click.prevent="goto(range.current - 1)"
+                    >Previous</a
+                  >
                 </li>
-                <li class="page-item mx-1 active">
-                  <a class="page-link" href="#">1</a>
+                <li
+                  class="page-item mx-1"
+                  v-for="i in range.range"
+                  :key="i"
+                  :class="{ active: i == range.current }"
+                  @click.prevent="goto(i)"
+                >
+                  <a class="page-link" href="#">{{ i }}</a>
                 </li>
-                <li class="page-item mx-1">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item mx-1">
-                  <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item ml-1">
-                  <a class="page-link is-radiusless" href="#">Next</a>
+                <li class="page-item ml-1" :class="{ disabled: !range.next }">
+                  <a
+                    class="page-link is-radiusless"
+                    href="#"
+                    @click.prevent="goto(range.current + 1)"
+                    >Next</a
+                  >
                 </li>
               </ul>
             </nav>
@@ -116,6 +147,69 @@ import Banner from "@/components/others/Banner";
 import Sidebar from "@/components/news/Sidebar";
 
 export default {
+  data() {
+    return {
+      videos: [],
+      video: {
+        youtube: "",
+        tags: []
+      },
+      range: {
+        total_pages: -1,
+        current: -1,
+        previous: -1,
+        next: -1,
+        range: []
+      }
+    };
+  },
+
+  beforeCreate() {
+    this.$axios.get("/api/collections/get/videos").then(({ data }) => {
+      this.videos = data.entries;
+
+      if (this.videos.length > 0) {
+        this.video = this.videos[0];
+        this.range = this.$paginate({
+          per: 8,
+          limit: 5,
+          total: data.total,
+          current: 1
+        });
+      }
+    });
+  },
+
+  computed: {
+    slice() {
+      let flag = 8 * (this.range.current - 1);
+      return this.videos.slice(flag, flag + 8);
+    }
+  },
+
+  methods: {
+    play(video) {
+      this.video = video;
+      window.scrollTo({
+        top: 450,
+        behavior: "smooth"
+      });
+    },
+
+    goto(page) {
+      this.range = this.$paginate({
+        per: 8,
+        limit: 5,
+        total: this.videos.length,
+        current: page
+      });
+      window.scrollTo({
+        top: 450,
+        behavior: "smooth"
+      });
+    }
+  },
+
   components: {
     Banner,
     Sidebar
@@ -128,7 +222,7 @@ export default {
 
 .background-image {
   min-height: 280px;
-  background-image: url(https://via.placeholder.com/485x325);
+  // background-image: url(https://via.placeholder.com/485x325);
   .overlay {
     opacity: 0;
     transition: 128ms;
