@@ -7,7 +7,7 @@
         <h5 class="font-weight-bold mb-4 mt-3">RECENT NEWS</h5>
 
         <nuxt-link
-          :to="`/${$i18n.locale}/news/${article._id}`"
+          :to="localePath(`/news/${article._id}`)"
           tag="div"
           v-for="article in news"
           :key="article._id"
