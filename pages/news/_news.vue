@@ -36,9 +36,16 @@ export default {
     };
   },
   created() {
-    this.$axios.get("/api/collections/get/news").then(({ data }) => {
-      this.news = data.entries.pop();
-    });
+    this.$axios
+      .post("/api/collections/get/news", {
+        filter: {
+          _id: this.$route.params.news
+        }
+      })
+      .then(({ data }) => {
+        if (data.entries.length == 0) this.$nuxt.error({ status: 404 });
+        else this.news = data.entries.pop();
+      });
   },
   components: {
     Jumbotron,

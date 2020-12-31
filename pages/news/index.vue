@@ -5,30 +5,38 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
-            <div class="col-sm-6" v-for="i in 12" :key="i">
+            <div class="col-sm-6" v-for="article in news" :key="article._id">
               <div class="card is-radiusless is-borderless mb-5">
-                <div class="background-image w-100" />
+                <div
+                  class="background-image w-100"
+                  :style="
+                    `background-image: url(http://api.shramiksanjal.org/${
+                      article.image ? article.image.path : ''
+                    })`
+                  "
+                />
 
                 <div class="card-body pb-0">
-                  <small class="text-muted">
-                    <i class="las la-calendar-alt" /> AUGUST 20, 2016
+                  <small class="text-muted text-uppercase">
+                    <i class="las la-calendar-alt" />
+                    {{ new Date(article._created * 1000).toDateString() }}
                     <i class="las la-list ml-3" />
-                    <a href="#"><small>HEALTH</small></a
-                    >,
-                    <a href="#"><small>STRATEGY</small></a>
+                    <a href="#" v-for="(tag, i) in article.tags" :key="tag"
+                      ><small class="text-uppercase"
+                        >{{ tag
+                        }}<span v-if="i != article.tags.length - 1">, </span>
+                      </small></a
+                    >
                   </small>
 
-                  <nuxt-link to="/news/news">
+                  <nuxt-link :to="`/news/${article._id}`">
                     <h4 class="font-weight-bold my-3">
-                      Aligning Passive Investment with Paris Climate Goals: Left
-                      Sidebar
+                      {{ $localeContent(article, "title", $i18n.locale) }}
                     </h4>
                   </nuxt-link>
 
                   <p>
-                    The purpose of this Request for Proposal (RFP) is to
-                    generate ideas and fund solutions that address climate
-                    change problems.
+                    {{ $localeContent(article, "overview", $i18n.locale) }}
                   </p>
                 </div>
               </div>
@@ -36,22 +44,35 @@
           </div>
 
           <div>
-            <nav class="mb-5 mt-4">
+            <nav class="mb-5 mt-4" v-if="news.length > 0">
               <ul class="pagination">
-                <li class="page-item mr-1 disabled">
-                  <a class="page-link is-radiusless" href="#">Previous</a>
+                <li
+                  class="page-item mr-1"
+                  :class="{ disabled: !range.previous }"
+                >
+                  <a
+                    class="page-link is-radiusless"
+                    href="#"
+                    @click.prevent="goto(range.current - 1)"
+                    >Previous</a
+                  >
                 </li>
-                <li class="page-item mx-1 active">
-                  <a class="page-link" href="#">1</a>
+                <li
+                  class="page-item mx-1"
+                  v-for="i in range.range"
+                  :key="i"
+                  :class="{ active: i == range.current }"
+                  @click.prevent="goto(i)"
+                >
+                  <a class="page-link" href="#">{{ i }}</a>
                 </li>
-                <li class="page-item mx-1">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item mx-1">
-                  <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item ml-1">
-                  <a class="page-link is-radiusless" href="#">Next</a>
+                <li class="page-item ml-1" :class="{ disabled: !range.next }">
+                  <a
+                    class="page-link is-radiusless"
+                    href="#"
+                    @click.prevent="goto(range.current + 1)"
+                    >Next</a
+                  >
                 </li>
               </ul>
             </nav>
@@ -70,6 +91,91 @@ import Banner from "@/components/others/Banner";
 import Sidebar from "@/components/news/Sidebar";
 
 export default {
+  middleware({ query }) {
+    if (query.country && query.country.length > 0) {
+      switch (query.country.toLowerCase()) {
+        case "nepal":
+        case "uae":
+        case "qatar":
+        case "kuwait":
+        case "saudi arabia":
+        case "malaysia":
+        case "others":
+          break;
+        default:
+          $nuxt.error({ status: 404 });
+          break;
+      }
+    } else {
+      $nuxt.error({ status: 404 });
+    }
+  },
+
+  data() {
+    return {
+      country: "",
+      news: [],
+      range: {
+        total_pages: -1,
+        current: -1,
+        previous: -1,
+        next: -1,
+        range: []
+      }
+    };
+  },
+
+  watch: {
+    $route: function(oldQuery, newQuery) {
+      this.run();
+    }
+  },
+
+  created() {
+    this.run();
+  },
+
+  methods: {
+    run() {
+      this.country = this.$route.query.country;
+      this.news = [];
+      this.$axios
+        .post("/api/collections/get/news", {
+          filter: { country: this.country }
+        })
+        .then(({ data }) => {
+          this.news = data.entries;
+
+          if (this.news.length > 0) {
+            this.range = this.$paginate({
+              per: 8,
+              limit: 5,
+              total: data.total,
+              current: 1
+            });
+          }
+        });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    },
+
+    goto(page) {
+      this.range = this.$paginate({
+        per: 8,
+        limit: 5,
+        total: this.news.length,
+        current: page
+      });
+      window.scrollTo({
+        top: 450,
+        behavior: "smooth"
+      });
+    }
+  },
+
   components: {
     Banner,
     Sidebar

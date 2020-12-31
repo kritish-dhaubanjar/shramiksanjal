@@ -52,29 +52,35 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <nuxt-link class="dropdown-item active" to="/news"
+                    <nuxt-link
+                      class="dropdown-item active"
+                      to="/news?country=Nepal"
                       >Nepal</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news">UAE</nuxt-link>
+                    <nuxt-link class="dropdown-item" to="/news?country=UAE"
+                      >UAE</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news"
+                    <nuxt-link class="dropdown-item" to="/news?country=Qatar"
                       >Qatar</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news"
+                    <nuxt-link class="dropdown-item" to="/news?country=Kuwait"
                       >Kuwait</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news"
+                    <nuxt-link
+                      class="dropdown-item"
+                      to="/news?country=Saudi Arabia"
                       >Saudi Arabia</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news"
+                    <nuxt-link class="dropdown-item" to="/news?country=Malaysia"
                       >Malaysia</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item" to="/news"
+                    <nuxt-link class="dropdown-item" to="/news?country=Others"
                       >Others</nuxt-link
                     >
                   </div>
