@@ -1,11 +1,11 @@
 <template>
   <section>
-    <Jumbotron />
+    <Jumbotron :news="news" />
 
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">
-          <Content />
+          <Content :news="news" />
           <div class="my-5">
             <Comments />
           </div>
@@ -26,6 +26,20 @@ import Comments from "@/components/news/Comments";
 import Sidebar from "@/components/news/Sidebar";
 
 export default {
+  data() {
+    return {
+      news: {
+        author: "",
+        tags: [],
+        image: { path: "" }
+      }
+    };
+  },
+  created() {
+    this.$axios.get("/api/collections/get/news").then(({ data }) => {
+      this.news = data.entries.pop();
+    });
+  },
   components: {
     Jumbotron,
     Content,
