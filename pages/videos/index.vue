@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
-            <div class="col-12 mb-5">
+            <div class="col-12 mb-5" v-if="videos.length > 0">
               <div class="youtube position-relative">
                 <!-- :src="https://www.youtube.com/embed/Zu4R9dxgdxE" -->
 
@@ -100,7 +100,7 @@
           </div>
 
           <div>
-            <nav class="mb-5 mt-4">
+            <nav class="mb-5 mt-4" v-if="videos.length > 0">
               <ul class="pagination">
                 <li
                   class="page-item mr-1"
