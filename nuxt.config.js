@@ -95,6 +95,10 @@ export default {
           "about-us": {
             en: "/about-us",
             es: "/sobre"
+          },
+          news: {
+            en: "/news",
+            es: "/news"
           }
         }
       }

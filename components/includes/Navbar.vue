@@ -55,49 +55,90 @@
                     <nuxt-link
                       class="dropdown-item "
                       exact-active-class="active"
-                      to="/news?country=Nepal"
+                      :to="
+                        localePath({
+                          name: 'news',
+                          query: { country: 'Nepal' }
+                        })
+                      "
                       >Nepal</nuxt-link
                     >
+                    <!-- <nuxt-link
+                      class="dropdown-item "
+                      exact-active-class="active"
+                      to="/news?country=Nepal"
+                      >Nepal</nuxt-link
+                    > -->
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
-                      to="/news?country=UAE"
+                      :to="
+                        localePath({
+                          name: 'news',
+                          query: { country: 'UAE' }
+                        })
+                      "
                       >UAE</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
-                      to="/news?country=Qatar"
+                      :to="
+                        localePath({
+                          name: 'news',
+                          query: { country: 'Qatar' }
+                        })
+                      "
                       >Qatar</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
-                      to="/news?country=Kuwait"
+                      :to="
+                        localePath({
+                          name: 'news',
+                          query: { country: 'Kuwait' }
+                        })
+                      "
                       >Kuwait</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
-                      to="/news?country=Saudi Arabia"
+                      :to="
+                        localePath({
+                          name: 'news',
+                          query: { country: 'Saudi Arabia' }
+                        })
+                      "
                       >Saudi Arabia</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
-                      to="/news?country=Malaysia"
+                      :to="
+                        localePath({
+                          name: 'news',
+                          query: { country: 'Malaysia' }
+                        })
+                      "
                       >Malaysia</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
-                      to="/news?country=Others"
+                      :to="
+                        localePath({
+                          name: 'news',
+                          query: { country: 'Others' }
+                        })
+                      "
                       >Others</nuxt-link
                     >
                   </div>

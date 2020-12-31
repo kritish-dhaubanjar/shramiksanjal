@@ -7,25 +7,31 @@
         <h5 class="font-weight-bold mb-4 mt-3">RECENT NEWS</h5>
 
         <nuxt-link
-          to="/news/news"
+          :to="`/${$i18n.locale}/news/${article._id}`"
           tag="div"
-          v-for="i in 5"
-          :key="i"
+          v-for="article in news"
+          :key="article._id"
           class="recent"
         >
           <div class="d-flex">
             <div class="news-image mr-3">
               <div
                 class="background-image w-100 h-100"
-                style="background-image: url(https://via.placeholder.com/1280x720)"
+                :style="
+                  `background-image: url(http://api.shramiksanjal.org/${
+                    article.image ? article.image.path : ''
+                  })`
+                "
               />
             </div>
 
             <div>
-              <h6 class="font-weight-bold mb-0">
-                HISTORIES OF ARTIFICIAL INTELLIGENCE
+              <h6 class="font-weight-bold mb-0 text-uppercase">
+                {{ $localeContent(article, "title", $i18n.locale) }}
               </h6>
-              <small class="text-small text-muted">MARCH 5,2020</small>
+              <small class="text-small text-muted text-uppercase">{{
+                new Date(article._created * 1000).toDateString()
+              }}</small>
             </div>
           </div>
           <hr />
@@ -92,6 +98,21 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      news: []
+    };
+  },
+  beforeCreate() {
+    this.$axios.get("/api/collections/get/news").then(({ data }) => {
+      this.news = data.entries;
+    });
+  }
+};
+</script>
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
