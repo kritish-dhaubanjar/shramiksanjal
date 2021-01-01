@@ -10,62 +10,99 @@
           </p>
         </div>
 
-        <div class="col-lg-5 col-md-7">
+        <div class="col-lg-5 col-md-7" v-if="news[0]">
           <div class="card is-radiusless is-borderless mb-5">
-            <div class="background-image w-100" />
+            <div
+              class="background-image w-100"
+              :style="
+                `background-image: url(http://api.shramiksanjal.org/${
+                  news[0].image ? news[0].image.path : ''
+                })`
+              "
+            />
 
             <div class="card-body pb-0">
-              <small class="text-muted">
-                <i class="las la-calendar-alt" /> AUGUST 20, 2016
+              <small class="text-muted text-uppercase">
+                <i class="las la-calendar-alt" />
+                {{ new Date(news[0]._created * 1000).toDateString() }}
                 <i class="las la-list ml-3" />
-                <a href="#"><small>HEALTH</small></a
-                >,
-                <a href="#"><small>STRATEGY</small></a>
+                <a href="#" v-for="(tag, i) in news[0].tags" :key="tag"
+                  ><small class="text-uppercase"
+                    >{{ tag
+                    }}<span v-if="i != news[0].tags.length - 1">, </span>
+                  </small></a
+                >
               </small>
 
-              <a href="#">
-                <h4 class="font-weight-bold my-3">
-                  Aligning Passive Investment with Paris Climate Goals: Left
-                  Sidebar
+              <nuxt-link :to="localePath(`/news/${news[0]._id}`)">
+                <h4 class="font-weight-bold my-3" :class="$i18n.locale">
+                  {{ $localeContent(news[0], "title", $i18n.locale) }}
                 </h4>
-              </a>
+              </nuxt-link>
 
-              <p>
-                The purpose of this Request for Proposal (RFP) is to generate
-                ideas and fund solutions that address climate change problems.
+              <p :class="$i18n.locale">
+                {{ $localeContent(news[0], "overview", $i18n.locale) }}
               </p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-5">
           <div class="row">
-            <div class="col-md-12 col-sm-6">
-              <div class="card is-radiusless is-borderless mb-4">
-                <div class="background-image w-100" />
+            <!--  -->
+            <div class="col-md-12 col-sm-6" v-if="news[1]">
+              <div class="card is-radiusless is-borderless">
+                <div
+                  class="background-image w-100"
+                  :style="
+                    `background-image: url(http://api.shramiksanjal.org/${
+                      news[1].image ? news[1].image.path : ''
+                    })`
+                  "
+                />
                 <div class="card-body px-0">
-                  <a href="#">
-                    <h6 class="font-weight-bold">
-                      BUDGET FOR THE ORGANIZATION YOU WANT TO BE
+                  <nuxt-link :to="localePath(`/news/${news[1]._id}`)">
+                    <h6
+                      class="font-weight-bold text-uppercase"
+                      :class="$i18n.locale"
+                    >
+                      {{ $localeContent(news[1], "title", $i18n.locale) }}
                     </h6>
-                  </a>
-                  <a href="#"><small>HEALTH</small></a
-                  >,
-                  <a href="#"><small>STRATEGY</small></a>
+                  </nuxt-link>
+                  <a href="#" v-for="(tag, i) in news[1].tags" :key="tag"
+                    ><small class="text-uppercase"
+                      >{{ tag
+                      }}<span v-if="i != news[1].tags.length - 1">, </span>
+                    </small></a
+                  >
                 </div>
               </div>
             </div>
-            <div class="col-md-12 col-sm-6 mb-4">
+            <!--  -->
+            <div class="col-md-12 col-sm-6 mb-4" v-if="news[2]">
               <div class="card is-radiusless is-borderless">
-                <div class="background-image w-100" />
+                <div
+                  class="background-image w-100"
+                  :style="
+                    `background-image: url(http://api.shramiksanjal.org/${
+                      news[2].image ? news[2].image.path : ''
+                    })`
+                  "
+                />
                 <div class="card-body px-0">
-                  <a href="#">
-                    <h6 class="font-weight-bold">
-                      BUDGET FOR THE ORGANIZATION YOU WANT TO BE
+                  <nuxt-link :to="localePath(`/news/${news[2]._id}`)">
+                    <h6
+                      class="font-weight-bold text-uppercase"
+                      :class="$i18n.locale"
+                    >
+                      {{ $localeContent(news[2], "title", $i18n.locale) }}
                     </h6>
-                  </a>
-                  <a href="#"><small>HEALTH</small></a
-                  >,
-                  <a href="#"><small>STRATEGY</small></a>
+                  </nuxt-link>
+                  <a href="#" v-for="(tag, i) in news[2].tags" :key="tag"
+                    ><small class="text-uppercase"
+                      >{{ tag
+                      }}<span v-if="i != news[2].tags.length - 1">, </span>
+                    </small></a
+                  >
                 </div>
               </div>
             </div>
@@ -128,6 +165,22 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      news: []
+    };
+  },
+
+  created() {
+    this.$axios.get("/api/collections/get/news").then(({ data }) => {
+      this.news = data.entries;
+    });
+  }
+};
+</script>
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
