@@ -139,7 +139,7 @@ export default {
 
   data() {
     return {
-      country: "",
+      past: "",
       events: [],
       range: {
         total_pages: -1,
@@ -159,7 +159,7 @@ export default {
 
   methods: {
     run() {
-      // this.country = this.$route.query.country;
+      this.past = this.$route.query.past;
       this.events = [];
       this.$axios
         .post("/api/collections/get/events", {
@@ -168,6 +168,15 @@ export default {
         .then(({ data }) => {
           this.events = data.entries;
           if (this.events.length > 0) {
+            // check if past events is set to true in query
+            if(this.past && this.past=='true') {
+              let now = new Date();
+              this.events = this.events.filter(e => {
+                return (new Date(e.event_end_date)).getTime() < now.getTime();
+              });
+            }
+
+
             this.range = this.$paginate({
               per: 2,
               limit: 2,
@@ -204,6 +213,12 @@ export default {
 
   created() {
     this.run();
+  },
+
+  watch: {
+    $route: function(oldQuery, newQuery) {
+      this.run();
+    }
   },
 
   components: {
