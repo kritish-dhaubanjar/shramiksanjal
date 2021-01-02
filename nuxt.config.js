@@ -99,6 +99,11 @@ export default {
           news: {
             en: "/news",
             es: "/news"
+          },
+          index: {
+            en: "/",
+            es: "/",
+            ne: "/"
           }
         }
       }

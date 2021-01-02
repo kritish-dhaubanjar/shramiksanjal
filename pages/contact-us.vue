@@ -1,6 +1,6 @@
 <template>
   <section class="bg-light">
-    <Banner />
+    <Banner :breadcrumb="{ name: 'Contact Us' }" />
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-md-6 col-lg-4">

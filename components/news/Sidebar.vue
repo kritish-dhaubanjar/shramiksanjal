@@ -107,9 +107,13 @@ export default {
     };
   },
   beforeCreate() {
-    this.$axios.get("/api/collections/get/news").then(({ data }) => {
-      this.news = data.entries;
-    });
+    this.$axios
+      .post("/api/collections/get/news", {
+        sort: { _created: -1 }
+      })
+      .then(({ data }) => {
+        this.news = data.entries.slice(0, 5);
+      });
   }
 };
 </script>

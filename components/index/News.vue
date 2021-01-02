@@ -175,9 +175,13 @@ export default {
   },
 
   created() {
-    this.$axios.get("/api/collections/get/news").then(({ data }) => {
-      this.news = data.entries;
-    });
+    this.$axios
+      .post("/api/collections/get/news", {
+        sort: { _created: -1 }
+      })
+      .then(({ data }) => {
+        this.news = data.entries;
+      });
   }
 };
 </script>

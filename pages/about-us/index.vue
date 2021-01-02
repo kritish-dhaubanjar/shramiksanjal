@@ -1,6 +1,6 @@
 <template>
   <section class="bg-light">
-    <Banner />
+    <Banner :breadcrumb="{ name: 'About Us' }" />
     <About />
     <Stats />
     <Services />

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Banner />
+    <Banner :breadcrumb="{ name: 'Videos' }" />
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">

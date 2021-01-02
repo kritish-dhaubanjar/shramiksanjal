@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Banner />
+    <Banner :breadcrumb="{ name: `${country}'s News` }" />
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">
@@ -141,7 +141,8 @@ export default {
       this.news = [];
       this.$axios
         .post("/api/collections/get/news", {
-          filter: { country: this.country }
+          filter: { country: this.country },
+          sort: { _created: -1 }
         })
         .then(({ data }) => {
           this.news = data.entries;

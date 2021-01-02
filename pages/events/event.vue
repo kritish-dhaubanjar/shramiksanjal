@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import Jumbotron from "@/components/news/Jumbotron";
+import Jumbotron from "@/components/events/Jumbotron";
 import Events from "@/components/events/Events";
 
 export default {

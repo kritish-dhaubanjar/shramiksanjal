@@ -1,6 +1,6 @@
 <template>
   <section class="bg-light">
-    <Banner />
+    <Banner :breadcrumb="{ name: 'Events' }" />
     <div class="container-fluid">
       <Events />
     </div>
