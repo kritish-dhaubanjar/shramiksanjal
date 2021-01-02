@@ -22,7 +22,7 @@
                 <a href="#">
                   <i class="las la-list text-white" />
                   <small
-                    class="text-white"
+                    class="text-white mr-1"
                     v-for="tag in event.tags"
                     :key="tag"
                     >{{ tag }}</small
