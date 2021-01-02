@@ -16,7 +16,7 @@
               </li>
               <li class="pr-3">
                 <i class="las la-clock" />
-                <small>MARCH 20, 2018</small>
+                <small>{{ (new Date(event._created * 1000 )).toLocaleString('default', {month: 'long', day: '2-digit', year: 'numeric'}) }}</small>
               </li>
               <li class="pr-3">
                 <a href="#">

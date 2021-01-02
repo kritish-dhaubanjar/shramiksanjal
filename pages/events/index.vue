@@ -22,7 +22,7 @@
                       <div>
                         <div class="background-image rounded-circle" 
                           :style="
-                            `background-image: url(https://localhost/${
+                            `background-image: url(https://api.shramiksanjal.org/${
                               event.image ? event.image.path : ''
                             })`
                           "
@@ -34,7 +34,7 @@
                         class="badge badge-dark is-radiusless px-2 font-weight-light py-1"
                       >
                         <!-- Aug 12 - Aug 13 -->
-                        {{ (new Date(event.event_start_date)).toLocaleString('default', { month: 'short' , day: '2-digit'}) }} - {{ (new Date(event.event_end_date)).toLocaleString('default', { month: 'short' , day: '2-digit'}) }}
+                        {{ formatEventDateString(event.event_start_date, event.event_end_date) }}
                       </span>
 
                       <small class="ml-3">
@@ -162,7 +162,7 @@ export default {
       // this.country = this.$route.query.country;
       this.events = [];
       this.$axios
-        .post("https://localhost/cockpit/api/collections/get/events", {
+        .post("/api/collections/get/events", {
           // filter: { country: this.country }
         })
         .then(({ data }) => {
@@ -194,7 +194,12 @@ export default {
         top: 450,
         behavior: "smooth"
       });
-    }
+    },
+
+    formatEventDateString(startDate, endDate) {
+      return (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) + 
+      ' - ' + (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'});
+    },
   },
 
   created() {

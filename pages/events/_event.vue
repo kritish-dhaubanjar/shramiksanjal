@@ -19,7 +19,7 @@
                     <i class="las la-clock la-3x mr-3" />
                     <div>
                       <em>Event Date:</em>
-                      <p><b>{{ (new Date(event.event_start_date)).toLocaleString('default', { month: 'short' , day: '2-digit'}) }}</b> - <b>{{ (new Date(event.event_end_date)).toLocaleString('default', { month: 'short' , day: '2-digit'}) }}</b> at <b>{{ event.event_start_time}}</b> - <b>{{ event.event_end_time}}</b></p>
+                      <p><b>{{ formatEventDateString(event.event_start_date, event.event_end_date) }}</b> at <b>{{ event.event_start_time}}</b> - <b>{{ event.event_end_time}}</b></p>
                     </div>
                   </div>
 
@@ -38,7 +38,7 @@
             </div>
             <!--  -->
             <div class="content">
-              <Content :event="event" />
+              <Content  v-if="event" :event="event" />
 <!--               <p>
                 Presented by the Frisco Heritage Association and the Heritage
                 Museum. Hands-on activities, student photography exhibit, and
@@ -105,7 +105,7 @@ export default {
 
   created() {
     this.$axios
-      .post("https://localhost/cockpit/api/collections/get/events", {
+      .post("/api/collections/get/events", {
         filter: {
           _id: this.$route.params.event
         }
@@ -114,6 +114,14 @@ export default {
         if (data.entries.length == 0) this.$nuxt.error({ status: 404 });
         else this.event = data.entries.pop();
       });
+  },
+
+  methods: {
+    formatEventDateString(startDate, endDate) {
+      if(!startDate && !endDate) return '';
+      return (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) + 
+      ' - ' + (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'});
+    },
   },
 
   components: {

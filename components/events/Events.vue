@@ -6,8 +6,8 @@
 
     <div
       class="card is-radiusless is-borderless mb-1 bg-light"
-      v-for="i in 5"
-      :key="i"
+      v-for="event in events"
+      :key="event._id"
     >
       <div class="card-body">
         <div class="row">
@@ -22,25 +22,27 @@
             <span
               class="badge badge-dark is-radiusless px-2 font-weight-light py-1"
             >
-              Aug 12 - Aug 13
+              <!-- Aug 12 - Aug 13 -->
+              {{ formatEventDateString(event.event_start_date, event.event_end_date) }}
             </span>
 
             <small class="ml-3">
-              9:00 am - 9:00 pm
+              <!-- 9:00 am - 9:00 pm -->
+              {{ event.event_start_time}} - {{ event.event_end_time }}
+
             </small>
-            <h6 class="mt-3 font-weight-bold">Along Pines Hike</h6>
+            <h6 class="mt-3 font-weight-bold">{{ $localeContent(event, "title", $i18n.locale) }}</h6>
             <p class="mb-0">
-              Hands-on activities, student photography exhibit, and more. All
-              activities are free and Museum admission fee is not required.
+              {{ $localeContent(event, "overview", $i18n.locale) }}
             </p>
           </div>
           <div class="col-sm d-flex align-items-center">
             <nuxt-link
               tag="button"
-              to="/events/event"
+              :to="localePath(`/events/${event._id}`)"
               class="btn btn-danger is-radiusless font-weight-bold px-4 py-2 my-3"
             >
-              DETAILS
+              {{ $t("details") }}
             </nuxt-link>
           </div>
         </div>
@@ -49,6 +51,33 @@
     </div>
   </section>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        events: [],
+      };
+    },
+
+    beforeCreate() {
+      this.$axios
+        .post("/api/collections/get/events", {
+          sort: { _created: -1 }
+        })
+        .then(({ data }) => {
+          this.events = data.entries.slice(0, 5);
+        });
+    },
+
+    methods: {
+      formatEventDateString(startDate, endDate) {
+        return (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) + 
+        ' - ' + (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'});
+      },
+    }
+  };  
+</script>
 
 <style scoped lang="scss">
 .background-image {
