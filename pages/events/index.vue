@@ -153,7 +153,8 @@ export default {
 
   computed: {
     slice() {
-      return this.events.slice(2* (this.range.current-1), 2*this.range.current);
+      let perpage = 8;
+      return this.events.slice(perpage* (this.range.current-1), perpage*this.range.current);
     }
   },
 
@@ -178,8 +179,8 @@ export default {
 
 
             this.range = this.$paginate({
-              per: 2,
-              limit: 2,
+              per: 8,
+              limit: 5,
               total: data.total,
               current: 1
             });
@@ -194,8 +195,8 @@ export default {
 
     goto(page) {
       this.range = this.$paginate({
-        per: 2,
-        limit: 2,
+        per: 8,
+        limit: 5,
         total: this.events.length,
         current: page
       });
