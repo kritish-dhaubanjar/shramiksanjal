@@ -1,6 +1,8 @@
 <template>
   <section>
-    <Banner :breadcrumb="{ name: `${country}'s News` }" />
+    <Banner
+      :breadcrumb="{ name: `${$route.params.category.toUpperCase()} NEWS` }"
+    />
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">
@@ -21,14 +23,10 @@
                     <i class="las la-calendar-alt" />
                     {{ new Date(article._created * 1000).toDateString() }}
                     <i class="las la-list ml-3" />
-                    <nuxt-link
-                      :to="
-                        localePath(`/news/categories/${article.tags.tag_en}`)
-                      "
-                      v-if="article.tags"
+                    <a href="#" v-if="article.tags"
                       ><small class="text-uppercase">
                         {{ $localeContent(article.tags, "tag", $i18n.locale) }}
-                      </small></nuxt-link
+                      </small></a
                     >
                   </small>
 
@@ -94,24 +92,28 @@ import Banner from "@/components/others/Banner";
 import Sidebar from "@/components/news/Sidebar";
 
 export default {
-  middleware({ query }) {
-    if (query.country && query.country.length > 0) {
-      switch (query.country.toLowerCase()) {
-        case "nepal":
-        case "uae":
-        case "qatar":
-        case "kuwait":
-        case "saudi arabia":
-        case "malaysia":
-        case "others":
-          break;
-        default:
-          $nuxt.error({ status: 404 });
-          break;
-      }
-    } else {
-      $nuxt.error({ status: 404 });
-    }
+  middleware({ params }) {
+    // fetch("https://api.shramiksanjal.org/api/collections/get/tags", {
+    //   body: JSON.stringify({
+    //     filter: { tag_en: params.category.toUpperCase() }
+    //   })
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data);
+    //   });
+
+    fetch("https://api.shramiksanjal.org/api/collections/get/tags", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        filter: { tag_en: params.category.toUpperCase() }
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.total == 0) $nuxt.error({ status: 404 });
+      });
   },
 
   data() {
@@ -128,27 +130,22 @@ export default {
     };
   },
 
-  watch: {
-    $route: function(oldQuery, newQuery) {
-      this.run();
-    }
-  },
-
   created() {
     this.run();
   },
 
   methods: {
     run() {
-      this.country = this.$route.query.country;
       this.news = [];
       this.$axios
         .post("/api/collections/get/news", {
-          filter: { country: this.country },
+          filter: { "tags.display": this.$route.params.category.toUpperCase() },
           sort: { _created: -1 },
           populate: true
         })
         .then(({ data }) => {
+          if (data.total == 0) $nuxt.error({ status: 404 });
+
           this.news = data.entries;
 
           if (this.news.length > 0) {

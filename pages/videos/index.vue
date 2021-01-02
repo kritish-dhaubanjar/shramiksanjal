@@ -24,7 +24,7 @@
               </div>
 
               <div class="card-body pb-0">
-                <small class="text-muted">
+                <small class="text-muted text-uppercase">
                   <i class="las la-calendar-alt" />
                   {{ new Date(video._created * 1000).toDateString() }}
                   <i class="las la-list ml-3" />

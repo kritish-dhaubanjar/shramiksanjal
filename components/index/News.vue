@@ -26,11 +26,12 @@
                 <i class="las la-calendar-alt" />
                 {{ new Date(news[0]._created * 1000).toDateString() }}
                 <i class="las la-list ml-3" />
-                <a href="#" v-for="(tag, i) in news[0].tags" :key="tag"
+                <nuxt-link
+                  :to="localePath(`/news/categories/${news[0].tags.tag_en}`)"
+                  v-if="news[0].tags"
                   ><small class="text-uppercase"
-                    >{{ tag
-                    }}<span v-if="i != news[0].tags.length - 1">, </span>
-                  </small></a
+                    >{{ $localeContent(news[0].tags, "tag", $i18n.locale) }}
+                  </small></nuxt-link
                 >
               </small>
 
@@ -68,11 +69,12 @@
                       {{ $localeContent(news[1], "title", $i18n.locale) }}
                     </h6>
                   </nuxt-link>
-                  <a href="#" v-for="(tag, i) in news[1].tags" :key="tag"
+                  <nuxt-link
+                    :to="localePath(`/news/categories/${news[1].tags.tag_en}`)"
+                    v-if="news[1].tags"
                     ><small class="text-uppercase"
-                      >{{ tag
-                      }}<span v-if="i != news[1].tags.length - 1">, </span>
-                    </small></a
+                      >{{ $localeContent(news[1].tags, "tag", $i18n.locale) }}
+                    </small></nuxt-link
                   >
                 </div>
               </div>
@@ -97,11 +99,12 @@
                       {{ $localeContent(news[2], "title", $i18n.locale) }}
                     </h6>
                   </nuxt-link>
-                  <a href="#" v-for="(tag, i) in news[2].tags" :key="tag"
+                  <nuxt-link
+                    :to="localePath(`/news/categories/${news[2].tags.tag_en}`)"
+                    v-if="news[2].tags"
                     ><small class="text-uppercase"
-                      >{{ tag
-                      }}<span v-if="i != news[2].tags.length - 1">, </span>
-                    </small></a
+                      >{{ $localeContent(news[2].tags, "tag", $i18n.locale) }}
+                    </small></nuxt-link
                   >
                 </div>
               </div>
@@ -177,7 +180,8 @@ export default {
   created() {
     this.$axios
       .post("/api/collections/get/news", {
-        sort: { _created: -1 }
+        sort: { _created: -1 },
+        populate: true
       })
       .then(({ data }) => {
         this.news = data.entries;
