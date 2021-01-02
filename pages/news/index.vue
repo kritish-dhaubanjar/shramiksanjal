@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
-            <div class="col-sm-6" v-for="article in news" :key="article._id">
+            <div class="col-sm-6" v-for="article in slice" :key="article._id">
               <div class="card is-radiusless is-borderless mb-5">
                 <div
                   class="background-image w-100"
@@ -136,6 +136,13 @@ export default {
 
   created() {
     this.run();
+  },
+
+  computed: {
+    slice() {
+      let flag = 8 * (this.range.current - 1);
+      return this.news.slice(flag, flag + 8);
+    }
   },
 
   methods: {
