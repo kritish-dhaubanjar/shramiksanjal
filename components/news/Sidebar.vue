@@ -46,46 +46,16 @@
         <h5 class="font-weight-bold mb-4 mt-3">CATEGORIES</h5>
         <table class="table">
           <tbody>
-            <tr>
-              <th scope="row"><a href="#">Finance</a></th>
-              <th>
-                <span class="float-right"><em>4</em></span>
+            <tr v-for="tag in tags" :key="tag._id">
+              <th scope="row">
+                <nuxt-link :to="localePath(`/news/categories/${tag.tag_en}`)">{{
+                  $localeContent(tag, "tag", $i18n.locale)
+                }}</nuxt-link>
               </th>
-            </tr>
-            <tr>
-              <th scope="row"><a href="#">Inclusion</a></th>
               <th>
-                <span class="float-right"><em>2</em></span>
-              </th>
-            </tr>
-            <tr>
-              <th scope="row"><a href="#">Leisure</a></th>
-              <th>
-                <span class="float-right"><em>2</em></span>
-              </th>
-            </tr>
-            <tr>
-              <th scope="row"><a href="#">Sport</a></th>
-              <th>
-                <span class="float-right"><em>2</em></span>
-              </th>
-            </tr>
-            <tr>
-              <th scope="row"><a href="#">Health</a></th>
-              <th>
-                <span class="float-right"><em>1</em></span>
-              </th>
-            </tr>
-            <tr>
-              <th scope="row"><a href="#">Strategy</a></th>
-              <th>
-                <span class="float-right"><em>3</em></span>
-              </th>
-            </tr>
-            <tr>
-              <th scope="row"><a href="#">Town News</a></th>
-              <th>
-                <span class="float-right"><em>2</em></span>
+                <span class="float-right"
+                  ><em>{{ tag.count }}</em></span
+                >
               </th>
             </tr>
           </tbody>
@@ -103,13 +73,36 @@
 export default {
   data() {
     return {
-      news: []
+      news: [],
+      tags: []
     };
   },
   beforeCreate() {
-    this.$axios.get("/api/collections/get/news").then(({ data }) => {
-      this.news = data.entries;
-    });
+    this.$axios
+      .post("/api/collections/get/news", {
+        sort: { _created: -1 }
+      })
+      .then(({ data }) => {
+        this.news = data.entries.slice(0, 5);
+      });
+
+    this.$axios
+      .post("/api/collections/get/tags", {
+        sort: { _created: -1 }
+      })
+      .then(({ data }) => {
+        data.entries.map(tag => {
+          return this.$axios
+            .post("/api/collections/get/news", {
+              filter: { "tags.display": tag.tag_en.toUpperCase() }
+            })
+            .then(({ data }) => {
+              tag.count = data.total;
+              this.tags.push(tag);
+              return tag;
+            });
+        });
+      });
   }
 };
 </script>

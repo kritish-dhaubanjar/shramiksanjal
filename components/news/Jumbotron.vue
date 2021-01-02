@@ -21,11 +21,10 @@
               <li class="pr-3">
                 <a href="#">
                   <i class="las la-list text-white" />
-                  <small
-                    class="text-white"
-                    v-for="tag in news.tags"
-                    :key="tag"
-                    >{{ tag }}</small
+                  <a href="#" v-if="news.tags"
+                    ><small class="text-uppercase text-white"
+                      >{{ news.tags.display }}
+                    </small></a
                   >
                 </a>
               </li>

@@ -103,6 +103,11 @@ export default {
           events: {
             en: "/events",
             es: "/events"
+          },
+          index: {
+            en: "/",
+            es: "/",
+            ne: "/"
           }
         }
       }

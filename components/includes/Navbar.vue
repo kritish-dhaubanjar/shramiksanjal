@@ -169,7 +169,7 @@
                 <li class="nav-item px-2">
                   <nuxt-link
                     class="nav-link py-4"
-                    to="/videos"
+                    :to="localePath('/videos')"
                     exact-active-class="active"
                     >VIDEOS</nuxt-link
                   >
