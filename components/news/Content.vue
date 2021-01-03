@@ -91,25 +91,33 @@
 
     <div class="my-3 py-5">
       <div class="card flex-row is-radiusless">
-        <nuxt-link to="/" tag="div" class="card-body py-5">
+        <nuxt-link
+          :to="localePath(`/news/${meta.prev._id}`)"
+          tag="div"
+          class="card-body py-5"
+          v-if="meta.prev"
+        >
           <div class="text-left">
             <i class="las la-arrow-left" />
             <small class="font-weight-bold text-muted">REVIOUS STORY</small>
           </div>
           <h6 class="mb-0 mt-2">
-            What Can Investing in Nonprofit Infrastructure Do? (Testing A
-            Pagination)
+            {{ $localeContent(meta.prev, "title", $i18n.locale) }}
           </h6>
         </nuxt-link>
         <!--  -->
-        <nuxt-link to="/" tag="div" class="card-body py-5 border-left">
+        <nuxt-link
+          :to="localePath(`/news/${meta.next._id}`)"
+          tag="div"
+          class="card-body py-5 border-left"
+          v-if="meta.next"
+        >
           <div class="text-right">
             <small class="font-weight-bold text-muted">NEXT STORY</small>
             <i class="las la-arrow-right" />
           </div>
           <h6 class="mb-0 mt-2">
-            What Can Investing in Nonprofit Infrastructure Do? (Testing A
-            Pagination)
+            {{ $localeContent(meta.next, "title", $i18n.locale) }}
           </h6>
         </nuxt-link>
       </div>
@@ -119,7 +127,7 @@
 
 <script>
 export default {
-  props: ["news"],
+  props: ["news", "meta"],
 
   computed: {
     html() {
@@ -173,6 +181,7 @@ export default {
 // }
 
 .card-body {
+  width: 50%;
   transition: 128ms;
 
   &:hover {

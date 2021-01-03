@@ -16,7 +16,9 @@
               </li>
               <li class="pr-3">
                 <i class="las la-clock" />
-                <small>MARCH 20, 2018</small>
+                <small v-if="news._created">{{
+                  new Date(news._created * 1000).toDateString()
+                }}</small>
               </li>
               <li class="pr-3">
                 <a href="#">

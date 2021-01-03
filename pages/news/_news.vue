@@ -5,7 +5,7 @@
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">
-          <Content :news="news" />
+          <Content :news="news" :meta="meta" />
           <div class="my-5">
             <Comments :comments="comments" :news_id="$route.params.news" />
           </div>
@@ -34,20 +34,52 @@ export default {
         image: { path: "" }
       },
 
+      meta: {
+        prev: null,
+        next: null
+      },
+
       comments: []
     };
   },
   created() {
-    this.$axios
-      .post("/api/collections/get/news", {
-        filter: {
-          _id: this.$route.params.news
+    this.$axios.get("/api/collections/get/news").then(({ data }) => {
+      let news = data.entries.findIndex(
+        news => news._id == this.$route.params.news
+      );
+
+      if (news > -1) {
+        this.news = data.entries[news];
+
+        // NEXT & PREV
+        if (news == 0) {
+          this.meta.prev = null;
+        } else {
+          this.meta.prev = data.entries[news - 1];
         }
-      })
-      .then(({ data }) => {
-        if (data.entries.length == 0) this.$nuxt.error({ status: 404 });
-        else this.news = data.entries.pop();
-      });
+
+        if (news == data.entries.length - 1) {
+          this.meta.next = null;
+        } else {
+          this.meta.next = data.entries[news + 1];
+        }
+
+        //
+      } else {
+        this.$nuxt.error({ status: 404 });
+      }
+    });
+
+    // this.$axios
+    //   .post("/api/collections/get/news", {
+    //     filter: {
+    //       _id: this.$route.params.news
+    //     }
+    //   })
+    //   .then(({ data }) => {
+    //     if (data.entries.length == 0) this.$nuxt.error({ status: 404 });
+    //     else this.news = data.entries.pop();
+    //   });
 
     this.$axios
       .post("/api/collections/get/comments", {
