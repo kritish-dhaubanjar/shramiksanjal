@@ -72,8 +72,10 @@
 
     methods: {
       formatEventDateString(startDate, endDate) {
-        return (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) + 
-        ' - ' + (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'});
+        let s = (startDate  && startDate !="") ? (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
+        let e = (endDate  && endDate !="") ? (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
+        if(e == "" || s == e) return s;
+        return s + ' - ' + e;
       },
     }
   };  
