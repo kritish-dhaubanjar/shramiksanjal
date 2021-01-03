@@ -35,8 +35,7 @@
 
                   <small class="ml-3">
                     <!-- 9:00 am - 9:00 pm -->
-                    {{ event.event_start_time}} - {{ event.event_end_time }}
-
+                    {{ convertTime(event.event_start_time) }} - {{ convertTime(event.event_end_time) }}
                   </small>
                   <h5 class="mt-3 font-weight-bold">{{ $localeContent(event, "title", $i18n.locale) }}</h5>
                   <p class="lead mb-0">
@@ -93,6 +92,14 @@
         let e = (endDate  && endDate !="") ? (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
         if(e == "" || s == e) return s;
         return s + ' - ' + e;
+      },
+
+      convertTime(time) {
+        if (!time || time == "") return "";
+        let H = + time.substring(0, 2);
+        let h = H % 12 || 12;
+        let ampm = (H < 12 || H === 24) ? " am" : " pm";
+        return h + time.substring(2) + ampm;
       },
     }
   };  

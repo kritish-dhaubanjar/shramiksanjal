@@ -19,7 +19,7 @@
                     <i class="las la-clock la-3x mr-3" />
                     <div>
                       <em>Event Date:</em>
-                      <p><b>{{ formatEventDateString(event.event_start_date, event.event_end_date) }}</b> at <b>{{ event.event_start_time}}</b> - <b>{{ event.event_end_time}}</b></p>
+                      <p><b>{{ formatEventDateString(event.event_start_date, event.event_end_date) }}</b> at <b>{{ convertTime(event.event_start_time) }}</b> - <b>{{ convertTime(event.event_end_time) }}</b></p>
                     </div>
                   </div>
 
@@ -122,6 +122,14 @@ export default {
       let e = (endDate  && endDate !="") ? (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
       if(e == "" || s == e) return s;
       return s + ' - ' + e;
+    },
+
+    convertTime(time) {
+      if (!time || time == "") return "";
+      let H = + time.substring(0, 2);
+      let h = H % 12 || 12;
+      let ampm = (H < 12 || H === 24) ? " am" : " pm";
+      return h + time.substring(2) + ampm;
     },
   },
 
