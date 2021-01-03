@@ -1,0 +1,59 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [api-integration]
+  pull_request:
+    branches: [api-integration]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      # Step 1:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run generate
+
+      # Step 2:
+      - name: Generate dist.zip
+        run: zip -r dist.zip dist
+
+      # Step 3:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/deploy.key
+          chmod 600 ~/.ssh/deploy.key
+          cat >>~/.ssh/config <<END
+          Host deploy
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/deploy.key
+            IdentitiesOnly yes
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.DEPLOY_SSH_USER }}
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          SSH_HOST: ${{ secrets.DEPLOY_SSH_HOST }}
+
+      # Step 4:
+      - name: SCP dist.zip
+        run: scp dist.zip deploy:/home/shramiks/deployment_utility
+
+      # Step 5:
+      - name: CD to /home/shramiks/deployment_utility && ./deploy.sh && ./discord_bot_message_script.sh
+        run: ssh deploy "cd /home/shramiks/deployment_utility && ./deploy.sh && ./discord_bot_message_script.sh '' 'Shramiksanjal Nuxt Deployed to server sucessfully!' ''"
