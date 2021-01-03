@@ -15,7 +15,7 @@
             <div
               class="background-image w-100"
               :style="
-                `background-image: url(http://api.shramiksanjal.org/${
+                `background-image: url(https://api.shramiksanjal.org/${
                   news[0].image ? news[0].image.path : ''
                 })`
               "
@@ -55,7 +55,7 @@
                 <div
                   class="background-image w-100"
                   :style="
-                    `background-image: url(http://api.shramiksanjal.org/${
+                    `background-image: url(https://api.shramiksanjal.org/${
                       news[1].image ? news[1].image.path : ''
                     })`
                   "
@@ -85,7 +85,7 @@
                 <div
                   class="background-image w-100"
                   :style="
-                    `background-image: url(http://api.shramiksanjal.org/${
+                    `background-image: url(https://api.shramiksanjal.org/${
                       news[2].image ? news[2].image.path : ''
                     })`
                   "

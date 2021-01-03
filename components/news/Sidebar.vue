@@ -18,7 +18,7 @@
               <div
                 class="background-image w-100 h-100"
                 :style="
-                  `background-image: url(http://api.shramiksanjal.org/${
+                  `background-image: url(https://api.shramiksanjal.org/${
                     article.image ? article.image.path : ''
                   })`
                 "
