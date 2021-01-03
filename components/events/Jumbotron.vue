@@ -1,5 +1,10 @@
 <template>
-  <section class="background-image">
+  <section
+    class="background-image"
+    :style="
+      `background-image: url(https://api.shramiksanjal.org/${event.image.path})`
+    "
+  >
     <div class="jumbotron mb-0">
       <div class="container-fluid">
         <div class="row text-white">
@@ -7,29 +12,31 @@
             <ul class="pl-0 mb-5 text-uppercase">
               <li class="pr-3">
                 <i class="las la-user" />
-                <small>KRITISH DHAUBANJAR</small>
+                <small>{{ event.author }}</small>
               </li>
               <li class="pr-3">
                 <i class="las la-clock" />
-                <small>MARCH 20, 2018</small>
+                <small>{{ (new Date(event._created * 1000 )).toLocaleString('default', {month: 'long', day: '2-digit', year: 'numeric'}) }}</small>
               </li>
               <li class="pr-3">
                 <a href="#">
                   <i class="las la-list text-white" />
-                  <small class="text-white">TOWN NEWS</small>
+                  <small
+                    class="text-white mr-1"
+                    v-for="tag in event.tags"
+                    :key="tag"
+                    >{{ tag }}</small
+                  >
                 </a>
               </li>
             </ul>
           </div>
           <div class="col-12">
             <h1 class="mb-3">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              {{ $localeContent(event, "title", $i18n.locale) }}
             </h1>
             <p class="lead">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
-              nam possimus quo assumenda architecto asperiores? Nobis ducimus
-              unde animi minima minus, aspernatur aliquid fuga? Velit aut
-              accusantium dolore placeat sint?
+              {{ $localeContent(event, "overview", $i18n.locale) }}
             </p>
           </div>
         </div>
@@ -37,6 +44,12 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ["event"]
+};
+</script>
 
 <style scoped lang="scss">
 .jumbotron {
@@ -46,7 +59,7 @@
 }
 
 .background-image {
-  background-image: url(https://via.placeholder.com/1280x720);
+  // background-image: url(https://via.placeholder.com/1280x720);
 }
 
 ul {

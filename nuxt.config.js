@@ -100,6 +100,10 @@ export default {
             en: "/news",
             es: "/news"
           },
+          events: {
+            en: "/events",
+            es: "/events"
+          },
           index: {
             en: "/",
             es: "/",

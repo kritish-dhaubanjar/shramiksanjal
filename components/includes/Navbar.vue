@@ -159,11 +159,21 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <nuxt-link class="dropdown-item active" to="/events"
+                    <nuxt-link class="dropdown-item" exact-active-class="active" :to="localePath('/events')"
                       >Upcoming Events</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Past Events</a>
+                    <nuxt-link class="dropdown-item"
+                      exact-active-class="active"
+                      :to="
+                        localePath({
+                          name: 'events',
+                          query: { past: 'true' }
+                        })
+                      "
+                      >Past Events</nuxt-link
+                    >
+                    <!-- <a class="dropdown-item" href="#">Past Events</a> -->
                   </div>
                 </li>
                 <li class="nav-item px-2">
