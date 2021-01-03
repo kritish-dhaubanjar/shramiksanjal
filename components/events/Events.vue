@@ -36,7 +36,7 @@
               {{ $localeContent(event, "overview", $i18n.locale) }}
             </p>
           </div>
-          <div class="col-sm d-flex align-items-center">
+          <div class="col-12 d-flex align-items-center">
             <nuxt-link
               tag="button"
               :to="localePath(`/events/${event._id}`)"

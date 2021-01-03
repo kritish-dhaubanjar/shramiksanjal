@@ -1,6 +1,6 @@
 <template>
   <section class="bg-light">
-    <Banner :breadcrumb="{ name: 'Events' }" />
+    <Banner :breadcrumb="{ name: `${past== 'true' ? 'Past' : 'Upcoming'} Events` }" />
     <div class="container-fluid">
       
       <section class="my-5 py-5">
@@ -230,6 +230,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/scss/colors.scss";
   .background-image {
     background-image: url(https://via.placeholder.com/128x128);
     height: 100px;
@@ -263,5 +264,25 @@ export default {
     height: 300px;
     width: 100%;
     background-image: url("/images/assets/dot.png");
+  }
+
+  ul.pagination {
+    li {
+      a {
+        background-color: #f8f9fa;
+        padding: 8px 12px;
+        color: $dark;
+        &:hover {
+          background-color: $primary;
+          color: #fff;
+        }
+      }
+    }
+    li.active {
+      a {
+        background: $dark;
+        border-color: $dark;
+      }
+    }
   }
 </style>
