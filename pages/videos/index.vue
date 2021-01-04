@@ -169,19 +169,23 @@ export default {
   },
 
   beforeCreate() {
-    this.$axios.get("/api/collections/get/videos").then(({ data }) => {
-      this.videos = data.entries;
+    this.$axios
+      .post("/api/collections/get/videos", {
+        sort: { _created: -1 }
+      })
+      .then(({ data }) => {
+        this.videos = data.entries;
 
-      if (this.videos.length > 0) {
-        this.video = this.videos[0];
-        this.range = this.$paginate({
-          per: 8,
-          limit: 5,
-          total: data.total,
-          current: 1
-        });
-      }
-    });
+        if (this.videos.length > 0) {
+          this.video = this.videos[0];
+          this.range = this.$paginate({
+            per: 8,
+            limit: 5,
+            total: data.total,
+            current: 1
+          });
+        }
+      });
   },
 
   computed: {

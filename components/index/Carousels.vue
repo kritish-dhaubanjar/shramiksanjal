@@ -21,7 +21,12 @@
           v-for="(carousel, i) in carousels"
           :key="carousel.id"
         >
-          <section class="background-image">
+          <section
+            class="background-image"
+            :style="
+              `background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://api.shramiksanjal.org/${carousel.image.path}');`
+            "
+          >
             <div class="container-fluid d-flex align-items-center">
               <div class="jumbotron bg-transparent text-white mb-0">
                 <h1 class="font-weight-bold mb-4">
@@ -125,8 +130,8 @@ export default {
     .container-fluid {
       min-height: 612px;
     }
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/images/street.jpg");
+    // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    //   url("/images/street.jpg");
   }
 }
 
