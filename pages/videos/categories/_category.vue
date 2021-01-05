@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Banner :breadcrumb="{ name: 'Videos' }" />
+    <Banner :breadcrumb="{ name: $route.params.category + '\'s Videos' }" />
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">
@@ -28,11 +28,14 @@
                   <i class="las la-calendar-alt" />
                   {{ new Date(video._created * 1000).toDateString() }}
                   <i class="las la-list ml-3" />
-                  <a href="#" v-for="(tag, i) in video.tags" :key="tag"
+                  <nuxt-link
+                    :to="localePath(`/videos/categories/${tag}`)"
+                    v-for="(tag, i) in video.tags"
+                    :key="tag"
                     ><small class="text-uppercase"
                       >{{ tag
                       }}<span v-if="i != video.tags.length - 1">, </span>
-                    </small></a
+                    </small></nuxt-link
                   >
                 </small>
 
@@ -82,14 +85,11 @@
                     {{ new Date(video._created * 1000).toDateString() }}
                     <!-- AUGUST 20, 2016 -->
                     <i class="las la-list ml-3" />
-                    <nuxt-link
-                      :to="localePath(`/videos/categories/${tag}`)"
-                      v-for="(tag, i) in video.tags"
-                      :key="tag"
-                      ><small class="text-uppercase"
+                    <a href="#" v-for="(tag, i) in video.tags" :key="tag"
+                      ><small
                         >{{ tag
                         }}<span v-if="i != video.tags.length - 1">, </span>
-                      </small></nuxt-link
+                      </small></a
                     >
                   </small>
 
@@ -177,7 +177,12 @@ export default {
         sort: { _created: -1 }
       })
       .then(({ data }) => {
-        this.videos = data.entries;
+        //
+        this.videos = data.entries.filter(e => {
+          return e.tags.includes(this.$route.params.category);
+        });
+
+        if (this.videos.length == 0) $nuxt.error({ status: 404 });
 
         if (this.videos.length > 0) {
           this.video = this.videos[0];
@@ -200,7 +205,6 @@ export default {
 
   methods: {
     play(video) {
-      console.log(video);
       this.video = video;
       window.scrollTo({
         top: 450,
