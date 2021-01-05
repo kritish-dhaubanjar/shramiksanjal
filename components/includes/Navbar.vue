@@ -159,11 +159,15 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <nuxt-link class="dropdown-item" exact-active-class="active" :to="localePath('/events')"
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      :to="localePath('/events')"
                       >Upcoming Events</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <nuxt-link class="dropdown-item"
+                    <nuxt-link
+                      class="dropdown-item"
                       exact-active-class="active"
                       :to="
                         localePath({
@@ -234,12 +238,12 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Where are we?</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">What are we doing?</a>
+                    <a class="dropdown-item" href="#">Our Team</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">What have we achieved?</a>
+                    <a class="dropdown-item" href="#">Our Programs</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"
-                      >Our Mission &amp; Vision</a
+                      >Our Vision &amp; Mission</a
                     >
                   </div>
                 </li>
