@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 overflow-hidden d-flex">
-          <div class="py-2 breaking-news ml-5">
+          <div class="py-2 breaking-news ml-3">
             // BREAKING NEWS //
           </div>
 
@@ -87,6 +87,12 @@ div.breaking-news {
     height: 64px;
     background-color: #ffe12a;
     transform: rotateZ(20deg);
+  }
+}
+
+@media screen and(max-width: 575px) {
+  div.breaking-news {
+    margin-left: 12px !important;
   }
 }
 </style>
