@@ -13,17 +13,13 @@
                 loading="lazy"
               />
             </a>
-            <!-- <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
+            <button
+              class="navbar-toggler is-radiusless is-borderless"
+              type="button"
+              @click="$emit('show')"
+            >
+              <i class="las la-bars la-2x"></i>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">

@@ -110,3 +110,14 @@ a {
     border: 1px solid $darker;
   }
 }
+
+@media screen and(max-width: 991px) {
+  body.sidebar {
+    position: fixed;
+    transition: transform 128ms;
+    main {
+      transition: transform 128ms;
+      transform: translateX(328px);
+    }
+  }
+}

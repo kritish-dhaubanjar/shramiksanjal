@@ -1,0 +1,232 @@
+<template>
+  <nav class="shadow-sm" :class="{ show: show }">
+    <div class="my-3 text-right text-white">
+      <i class="las la-times la-1x mr-3" @click="$emit('hide')" />
+    </div>
+    <ul class="list-group list-group-flush mb-4">
+      <nuxt-link
+        to="/"
+        tag="li"
+        class="list-group-item sidebar-link"
+        exact-active-class="active"
+        >Home</nuxt-link
+      >
+      <nuxt-link
+        to="/about-us"
+        tag="li"
+        class="list-group-item sidebar-link"
+        exact-active-class="active"
+        >About Us</nuxt-link
+      >
+      <li class="list-group-item sidebar-link" @click="dropdown = !dropdown">
+        Services
+        <span class="float-right">
+          <i class="las la-angle-down" v-if="dropdown"></i>
+          <i class="las la-angle-right" v-else></i>
+        </span>
+      </li>
+      <ul class="list-group list-group-flush sub-menus" v-show="dropdown">
+        <!-- start sub-menu -->
+        <nuxt-link
+          tag="li"
+          to="/services"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          All Services
+        </nuxt-link>
+        <nuxt-link
+          v-for="service in services"
+          :key="service._id"
+          tag="li"
+          :to="`/services/${service._id}`"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          {{ service.name }}
+        </nuxt-link>
+
+        <li class="list-group-item sidebar-link sub-menu p-0"></li>
+      </ul>
+      <!-- end sub-menu -->
+      <li class="list-group-item sidebar-link" @click="projects = !projects">
+        Projects
+        <span class="float-right">
+          <i class="las la-angle-down" v-if="projects"></i>
+          <i class="las la-angle-right" v-else></i>
+        </span>
+      </li>
+      <ul class="list-group list-group-flush sub-menus" v-show="projects">
+        <!-- start sub-menu -->
+        <nuxt-link
+          tag="li"
+          to="/projects"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          All Projects
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/projects/completed-projects"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Completed Projects
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/projects/ongoing-projects"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Ongoing Projects
+        </nuxt-link>
+
+        <li class="list-group-item sidebar-link sub-menu p-0"></li>
+      </ul>
+      <!--  -->
+
+      <nuxt-link
+        to="/careers"
+        tag="li"
+        class="list-group-item sidebar-link"
+        exact-active-class="active"
+        >Careers</nuxt-link
+      >
+
+      <li class="list-group-item text-krish-light d-flex">
+        <i class="las la-phone mr-2" />
+        <span
+          >+977 9851044829<br />
+          +977 9841917909<br />
+          01-5906852</span
+        >
+      </li>
+
+      <li class="list-group-item text-krish-light d-flex">
+        <i class="las la-home mr-2" />
+        <span
+          >Ramjanaki Complex, Chagal,<br />
+          Dallu, Kathmandu, Nepal</span
+        >
+      </li>
+
+      <li class="list-group-item text-krish-light d-flex">
+        <i class="las la-envelope mr-2" />
+        <span>krishttrading@gmail.com</span>
+      </li>
+
+      <li class="list-group-item">
+        <nuxt-link
+          to="/contact-us"
+          class="btn btn-primary is-radiusless btn-block"
+        >
+          <span>Contact Us <i class="las la-arrow-right"/></span>
+        </nuxt-link>
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<script>
+export default {
+  props: ["show"],
+
+  data() {
+    return {
+      dropdown: false,
+      projects: false,
+      services: []
+    };
+  }
+};
+</script>
+
+<style scoped lang="scss">
+@import "@/assets/scss/colors.scss";
+
+nav {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+nav::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 320px;
+  background: #333333;
+  z-index: 1024;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+  transform: translateX(-328px);
+  transition: 128ms;
+  &.show {
+    transform: translateX(0);
+    transition: 128ms;
+  }
+}
+
+ul {
+  .list-group-item {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  li {
+    background-color: #333333;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fff;
+
+    i {
+      font-size: 18px;
+    }
+
+    &.active {
+      color: $primary;
+      background-color: #333333;
+    }
+
+    &.sidebar-link {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &.sub-menu {
+      padding-left: 48px;
+    }
+  }
+}
+
+.btn-primary {
+  background: $primary;
+  border: $primary;
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    background: $primary !important;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.la-times {
+  cursor: pointer;
+}
+
+@media screen and(min-width: 992px) {
+  nav {
+    display: none;
+  }
+}
+</style>
