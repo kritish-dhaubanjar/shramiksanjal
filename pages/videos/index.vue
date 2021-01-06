@@ -200,7 +200,6 @@ export default {
 
   methods: {
     play(video) {
-      console.log(video);
       this.video = video;
       window.scrollTo({
         top: 450,

@@ -4,8 +4,9 @@
     <Carousels />
     <Introduction />
     <About />
-    <Services />
     <News />
+    <Services />
+    <Videos />
     <Events />
     <Section />
   </div>
@@ -18,6 +19,7 @@ import Introduction from "@/components/index/Introduction";
 import Services from "@/components/index/Services";
 import About from "@/components/index/About";
 import News from "@/components/index/News";
+import Videos from "@/components/index/Videos";
 import Events from "@/components/index/Events";
 import Section from "@/components/index/Section";
 
@@ -29,6 +31,7 @@ export default {
     Services,
     About,
     News,
+    Videos,
     Events,
     Section
   }
