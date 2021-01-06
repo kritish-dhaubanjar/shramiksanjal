@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <nav class="navbar navbar-expand-lg navbar-light px-0">
+          <nav class="navbar navbar-expand-md navbar-light px-0">
             <a class="navbar-brand" href="#">
               <img
                 src="/images/logo.png"
@@ -279,9 +279,9 @@
 }
 
 @media screen and(max-width: 999px) {
-  .collapse.navbar-collapse {
-    display: none !important;
-  }
+  // .collapse.navbar-collapse {
+  //   display: none !important;
+  // }
 }
 
 .dropdown-menu {

@@ -1,7 +1,7 @@
 <template>
   <nav class="shadow-sm" :class="{ show: show }">
     <div class="my-3 text-right text-white">
-      <i class="las la-times la-1x mr-3" @click="$emit('hide')" />
+      <i class="las la-times la-1x mr-3 la-2x" @click="$emit('hide')" />
     </div>
     <ul class="list-group list-group-flush mb-4">
       <nuxt-link
@@ -95,7 +95,7 @@
         >Careers</nuxt-link
       >
 
-      <li class="list-group-item text-krish-light d-flex">
+      <li class="list-group-item d-flex">
         <i class="las la-phone mr-2" />
         <span
           >+977 9851044829<br />
@@ -104,7 +104,7 @@
         >
       </li>
 
-      <li class="list-group-item text-krish-light d-flex">
+      <li class="list-group-item d-flex">
         <i class="las la-home mr-2" />
         <span
           >Ramjanaki Complex, Chagal,<br />
@@ -112,7 +112,7 @@
         >
       </li>
 
-      <li class="list-group-item text-krish-light d-flex">
+      <li class="list-group-item d-flex">
         <i class="las la-envelope mr-2" />
         <span>krishttrading@gmail.com</span>
       </li>
@@ -224,7 +224,7 @@ ul {
   cursor: pointer;
 }
 
-@media screen and(min-width: 992px) {
+@media screen and(min-width: 767px) {
   nav {
     display: none;
   }

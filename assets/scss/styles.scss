@@ -111,13 +111,16 @@ a {
   }
 }
 
-@media screen and(max-width: 991px) {
+@media screen and(max-width: 767px) {
   body.sidebar {
-    position: fixed;
     transition: transform 128ms;
-    main {
-      transition: transform 128ms;
-      transform: translateX(328px);
+    overflow: hidden;
+    #app {
+      overflow: hidden;
+      main {
+        transition: transform 128ms;
+        transform: translateX(328px);
+      }
     }
   }
 }

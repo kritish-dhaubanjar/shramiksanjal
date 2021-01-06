@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <SideNav :show="show" @hide="show = false" />
     <main>
       <Headerbar />
