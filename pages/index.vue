@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Marquee />
     <Carousels />
     <Introduction />
     <About />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import Marquee from "@/components/index/Marquee";
 import Carousels from "@/components/index/Carousels";
 import Introduction from "@/components/index/Introduction";
 import Services from "@/components/index/Services";
@@ -21,6 +23,7 @@ import Section from "@/components/index/Section";
 
 export default {
   components: {
+    Marquee,
     Carousels,
     Introduction,
     Services,
