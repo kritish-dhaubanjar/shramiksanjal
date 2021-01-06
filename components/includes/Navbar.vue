@@ -238,7 +238,11 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Where are we?</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Our Team</a>
+                    <nuxt-link
+                      class="dropdown-item"
+                      :to="localePath('/about-us/our-team')"
+                      >Our Team</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Our Programs</a>
                     <div class="dropdown-divider"></div>
