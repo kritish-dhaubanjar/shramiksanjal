@@ -12,12 +12,6 @@ import Section from "@/components/index/Section";
 import History from "@/components/about/History";
 
 export default {
-  nuxtI18n: {
-    paths: {
-      en: "/about-us",
-      es: "/sobre"
-    }
-  },
   components: {
     Banner,
     Section,
