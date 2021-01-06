@@ -11,7 +11,7 @@
         </div>
 
         <div class="col-md-8 mb-5" v-if="videos.length > 0">
-          <div class="youtube position-relative">
+          <div class="youtube position-relative" ref="youtube">
             <iframe
               :src="
                 `https://www.youtube.com/embed/${video.youtube
@@ -113,6 +113,10 @@ export default {
   methods: {
     play(video) {
       this.video = video;
+      window.scrollTo({
+        top: this.$refs.youtube.offsetParent.offsetTop - 100,
+        behavior: "smooth"
+      });
     }
   }
 };
