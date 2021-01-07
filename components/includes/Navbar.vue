@@ -228,11 +228,15 @@
                   >
                     <nuxt-link
                       class="dropdown-item"
-                      :to="localePath('about-us')"
+                      :to="localePath('/about-us/who-are-we')"
                       >Who are we?</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Where are we?</a>
+                    <nuxt-link
+                      :to="localePath('/about-us/where-are-we')"
+                      class="dropdown-item"
+                      >Where are we?</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"

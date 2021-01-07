@@ -4,50 +4,44 @@
       <div class="row">
         <div class="col-md-7 col-lg-8 pt-5 my-5">
           <h1 class="font-weight-bold">
-            Institute for Social Change and Sustainability
+            {{ $localeContent(content, "title", $i18n.locale) }}
           </h1>
           <p class="font-weight-bold lead">
-            Matter of issues of sustainability
+            {{ $localeContent(content, "overview", $i18n.locale) }}
           </p>
         </div>
 
         <div class="col-md-5 col-lg-4 text-center">
           <div class="position-relative">
-            <img src="https://via.placeholder.com/300x350" class="img-fluid" />
+            <img
+              :src="
+                `https://api.shramiksanjal.org/${
+                  content.image ? content.image.path : ''
+                }`
+              "
+              class="img-fluid"
+            />
           </div>
         </div>
       </div>
 
       <div class="row mt-5">
         <div class="col-lg-1"></div>
-        <div class="offset-lg-1 col-md-6 col-lg-4 mb-3">
+        <div class="col-md-12 col-lg-9 mb-3">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
-            voluptas eaque doloremque nulla odio eum laborum mollitia nisi
-            error, similique magni ullam eius dolorem architecto natus sed optio
-            laudantium itaque. Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Quisquam adipisci optio pariatur quam nesciunt
-            cumque! Optio velit iure dignissimos repudiandae voluptatum, harum
-            commodi rerum, nihil obcaecati illo, similique quibusdam neque?
-          </p>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-3">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam
-            adipisci optio pariatur quam nesciunt cumque! Optio velit iure
-            dignissimos repudiandae voluptatum, harum commodi rerum, nihil
-            obcaecati illo, similique quibusdam neque? Lorem ipsum dolor sit,
-            amet consectetur adipisicing elit. Quisquam adipisci optio pariatur
-            quam nesciunt cumque! Optio velit iure dignissimos repudiandae
-            voluptatum, harum commodi rerum, nihil obcaecati illo, similique
-            quibusdam neque?
+            {{ $localeContent(content, "content", $i18n.locale) }}
           </p>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ["content"]
+};
+</script>
 
 <style scoped>
 h1,

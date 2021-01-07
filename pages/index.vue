@@ -3,7 +3,7 @@
     <Marquee />
     <Carousels />
     <Introduction />
-    <About />
+    <!-- <About /> -->
     <News />
     <Services />
     <Videos />

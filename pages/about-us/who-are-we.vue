@@ -1,11 +1,11 @@
 <template>
   <section class="bg-light">
-    <Banner :breadcrumb="{ name: 'About Us' }" />
-    <About />
-    <Stats />
-    <Services />
+    <Banner :breadcrumb="{ name: 'Who are We?' }" />
+    <About :content="who" />
+    <!-- <Stats /> -->
+    <!-- <Services /> -->
     <!-- <History /> -->
-    <About />
+    <!-- <About /> -->
     <Section />
   </section>
 </template>
@@ -20,12 +20,29 @@ import Stats from "@/components/about/Stats";
 import History from "@/components/about/History";
 
 export default {
-  nuxtI18n: {
-    paths: {
-      en: "/about-us",
-      es: "/sobre"
-    }
+  data() {
+    return {
+      who: {}
+    };
   },
+
+  // nuxtI18n: {
+  //   paths: {
+  //     en: "/about-us",
+  //     es: "/sobre"
+  //   }
+  // },
+
+  beforeCreate() {
+    this.$axios
+      .get(
+        "/api/singletons/get/who?token=account-908ef6508fd73bca880c1e9cfbb052"
+      )
+      .then(({ data }) => {
+        this.who = data;
+      });
+  },
+
   components: {
     Banner,
     About,
