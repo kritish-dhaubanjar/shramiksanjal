@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12 overflow-hidden d-flex">
           <div class="py-2 breaking-news ml-3">
-            // BREAKING NEWS //
+            // ANNOUNCEMENT //
           </div>
 
           <nuxt-link
