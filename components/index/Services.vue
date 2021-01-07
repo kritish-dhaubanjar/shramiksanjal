@@ -8,23 +8,41 @@
           </h1>
         </div>
 
-        <div class="col-sm-6 col-lg-3 mb-5" v-for="i in 4" :key="i">
+        <div
+          class="col-sm-6 col-lg-4 col-xl mb-5"
+          v-for="(value, i) in values"
+          :key="value._id"
+        >
           <h5 class="font-weight-bold">0{{ i }}.</h5>
           <hr class="mb-5" />
           <h6 class="font-weight-bold mb-4">
-            Confronting racial and generational gaps
+            {{ $localeContent(value, "title", $i18n.locale) }}
           </h6>
 
           <p>
-            The Institute for Social Change is embedded in the Department of
-            Socio-economics, which has a established focus on issues of
-            sustainability in its teaching programmes.
+            {{ $localeContent(value, "content", $i18n.locale) }}
           </p>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      values: []
+    };
+  },
+
+  beforeCreate() {
+    this.$axios.get("/api/collections/get/values").then(({ data }) => {
+      this.values = data.entries;
+    });
+  }
+};
+</script>
 
 <style scoped lang="scss">
 h1,

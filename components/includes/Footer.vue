@@ -84,23 +84,30 @@
         <div class="row">
           <div class="col-12">
             <ul class="socials mx-auto my-4">
-              <li class="pr-2">
-                <a href="#"><i class="lab la-facebook-square"/></a>
+              <li class="pr-2" :v-if="socials.Facebook.length > 0">
+                <a :href="socials.Facebook" target="_blank"
+                  ><i class="lab la-facebook-square"
+                /></a>
               </li>
-              <li class="px-2">
-                <a href="#"><i class="lab la-twitter"/></a>
+              <li class="px-2" :v-if="socials.Twitter.length > 0">
+                <a :href="socials.Twitter" target="_blank"
+                  ><i class="lab la-twitter"
+                /></a>
               </li>
-              <li class="px-2">
-                <a href="#"><i class="lab la-instagram"/></a>
+              <li class="px-2" :v-if="socials.AnchorFM.length > 0">
+                <a :href="socials.AnchorFM" target="_blank"
+                  ><i class="las la-rss"
+                /></a>
               </li>
-              <li class="px-2">
-                <a href="#"><i class="lab la-google-plus"/></a>
+              <li class="px-2" :v-if="socials.Linkedin.length > 0">
+                <a :href="socials.Linkedin" target="_blank"
+                  ><i class="lab la-linkedin"
+                /></a>
               </li>
-              <li class="px-2">
-                <a href="#"><i class="lab la-linkedin"/></a>
-              </li>
-              <li class="pl-2">
-                <a href="#"><i class="lab la-youtube"/></a>
+              <li class="pl-2" :v-if="socials.Youtube.length > 0">
+                <a :href="socials.Youtube" target="_blank"
+                  ><i class="lab la-youtube"
+                /></a>
               </li>
             </ul>
           </div>
@@ -115,6 +122,12 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ["socials"]
+};
+</script>
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";

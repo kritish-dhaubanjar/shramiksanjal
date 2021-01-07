@@ -2,10 +2,10 @@
   <div id="app">
     <SideNav :show="show" @hide="show = false" />
     <main>
-      <Headerbar />
+      <Headerbar :socials="socials" />
       <Navbar @show="show = true" />
       <nuxt />
-      <Footer />
+      <Footer :socials="socials" />
     </main>
   </div>
 </template>
@@ -19,13 +19,24 @@ import Footer from "@/components/includes/Footer";
 export default {
   data() {
     return {
-      show: false
+      show: false,
+      socials: {
+        Facebook: "",
+        Youtube: "",
+        Twitter: "",
+        AnchorFM: "",
+        Linkedin: ""
+      }
     };
   },
 
   created() {
     this.$router.afterEach(() => {
       this.show = false;
+    });
+
+    this.$axios.get("/api/singletons/get/socials").then(({ data }) => {
+      this.socials = data;
     });
   },
 

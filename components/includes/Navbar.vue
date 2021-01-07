@@ -41,6 +41,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
+                    :class="{ active: this.$route.path.includes('news') }"
                   >
                     NEWS
                   </a>
@@ -48,6 +49,14 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
+                    <nuxt-link
+                      class="dropdown-item font-weight-bold"
+                      exact-active-class="active"
+                      :to="localePath('/news')"
+                      >All News</nuxt-link
+                    >
+                    <div class="dropdown-divider"></div>
+
                     <nuxt-link
                       class="dropdown-item "
                       exact-active-class="active"
@@ -148,6 +157,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
+                    :class="{ active: this.$route.path.includes('events') }"
                   >
                     EVENTS
                   </a>
@@ -219,6 +229,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
+                    :class="{ active: this.$route.path.includes('about-us') }"
                   >
                     ABOUT US
                   </a>
@@ -228,7 +239,8 @@
                   >
                     <nuxt-link
                       class="dropdown-item"
-                      :to="localePath('/about-us/who-are-we')"
+                      exact-active-class="active"
+                      :to="localePath('/about-us')"
                       >Who are we?</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
@@ -244,10 +256,18 @@
                       >Our Team</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Our Programs</a>
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      :to="localePath('/about-us/our-programs')"
+                      >Our Programs</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"
-                      >Our Vision &amp; Mission</a
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      :to="localePath('/about-us/our-vision-and-mission')"
+                      >Our Vision &amp; Mission</nuxt-link
                     >
                   </div>
                 </li>
@@ -270,6 +290,10 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {};
+</script>
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Banner :breadcrumb="{ name: `${country}'s News` }" />
+    <Banner :breadcrumb="{ name: `${country} News` }" />
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">
@@ -106,11 +106,11 @@ export default {
         case "others":
           break;
         default:
-          $nuxt.error({ status: 404 });
+          // $nuxt.error({ status: 404 });
           break;
       }
     } else {
-      $nuxt.error({ status: 404 });
+      // $nuxt.error({ status: 404 });
     }
   },
 
@@ -147,11 +147,18 @@ export default {
 
   methods: {
     run() {
-      this.country = this.$route.query.country;
+      this.country = this.$route.query.country
+        ? this.$route.query.country + "'s"
+        : "";
+
+      let filter = this.$route.query.country
+        ? { country: this.$route.query.country }
+        : {};
+
       this.news = [];
       this.$axios
         .post("/api/collections/get/news", {
-          filter: { country: this.country },
+          filter: { ...filter },
           sort: { _created: -1 },
           populate: true
         })

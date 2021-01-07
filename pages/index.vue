@@ -3,7 +3,7 @@
     <Marquee />
     <Carousels />
     <Introduction />
-    <!-- <About /> -->
+    <About :content="who" />
     <News />
     <Services />
     <Videos />
@@ -24,6 +24,18 @@ import Events from "@/components/index/Events";
 import Section from "@/components/index/Section";
 
 export default {
+  data() {
+    return {
+      who: {}
+    };
+  },
+
+  beforeCreate() {
+    this.$axios.get("/api/singletons/get/who").then(({ data }) => {
+      this.who = data;
+    });
+  },
+
   components: {
     Marquee,
     Carousels,

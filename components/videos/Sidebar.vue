@@ -47,9 +47,20 @@
         <h5 class="font-weight-bold mb-4 mt-3">CATEGORIES</h5>
         <table class="table">
           <tbody>
+            <tr>
+              <th scope="row">
+                <nuxt-link :to="localePath('/videos/')">ALL</nuxt-link>
+              </th>
+              <th>
+                <span class="float-right"
+                  ><em>{{ count }}</em></span
+                >
+              </th>
+            </tr>
             <tr v-for="tag in tags" :key="tag._id">
               <th scope="row">
                 <nuxt-link
+                  class="text-uppercase"
                   :to="localePath(`/videos/categories/${tag.tag_en}`)"
                   >{{ $localeContent(tag, "tag", $i18n.locale) }}</nuxt-link
                 >
@@ -76,7 +87,8 @@ export default {
   data() {
     return {
       videos: [],
-      tags: []
+      tags: [],
+      count: 0
     };
   },
 
@@ -91,6 +103,7 @@ export default {
 
         tags.forEach(tag => {
           tag.forEach(e => {
+            this.count++;
             let index = this.tags.findIndex(t => t.tag_en == e);
             if (index == -1) this.tags.push({ tag_en: e, count: 1 });
             else {

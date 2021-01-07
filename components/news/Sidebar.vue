@@ -46,11 +46,21 @@
         <h5 class="font-weight-bold mb-4 mt-3">CATEGORIES</h5>
         <table class="table">
           <tbody>
+            <th scope="row">
+              <nuxt-link :to="localePath('/news/')">ALL</nuxt-link>
+            </th>
+            <th>
+              <span class="float-right"
+                ><em>{{ count }}</em></span
+              >
+            </th>
             <tr v-for="tag in tags" :key="tag._id">
               <th scope="row">
-                <nuxt-link :to="localePath(`/news/categories/${tag.tag_en}`)">{{
-                  $localeContent(tag, "tag", $i18n.locale)
-                }}</nuxt-link>
+                <nuxt-link
+                  :to="localePath(`/news/categories/${tag.tag_en}`)"
+                  class="text-uppercase"
+                  >{{ $localeContent(tag, "tag", $i18n.locale) }}</nuxt-link
+                >
               </th>
               <th>
                 <span class="float-right"
@@ -74,7 +84,8 @@ export default {
   data() {
     return {
       news: [],
-      tags: []
+      tags: [],
+      count: 0
     };
   },
   beforeCreate() {
@@ -98,6 +109,7 @@ export default {
             })
             .then(({ data }) => {
               tag.count = data.total;
+              this.count += tag.count;
               this.tags.push(tag);
               return tag;
             });
