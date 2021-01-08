@@ -13,7 +13,7 @@
           v-for="(value, i) in values"
           :key="value._id"
         >
-          <h5 class="font-weight-bold">0{{ i }}.</h5>
+          <h5 class="font-weight-bold">0{{ i + 1}}.</h5>
           <hr class="mb-5" />
           <h6 class="font-weight-bold mb-4">
             {{ $localeContent(value, "title", $i18n.locale) }}
