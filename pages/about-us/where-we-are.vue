@@ -167,8 +167,6 @@ export default {
         e.longitude = +e.longitude;
         return e;
       });
-
-      console.log(imageSeries.data);
     });
   }
 };
