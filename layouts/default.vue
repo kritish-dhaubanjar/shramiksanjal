@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Loader v-show="$store.getters.isLoading" />
     <SideNav :show="show" @hide="show = false" />
     <main>
       <Headerbar :socials="socials" />
@@ -15,6 +16,7 @@ import SideNav from "@/components/includes/SideNav";
 import Headerbar from "@/components/includes/Headerbar";
 import Navbar from "@/components/includes/Navbar";
 import Footer from "@/components/includes/Footer";
+import Loader from "@/components/others/Loader";
 
 export default {
   data() {
@@ -54,7 +56,8 @@ export default {
     Headerbar,
     Navbar,
     Footer,
-    SideNav
+    SideNav,
+    Loader
   }
 };
 </script>
