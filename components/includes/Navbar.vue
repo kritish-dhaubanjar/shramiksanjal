@@ -247,6 +247,7 @@
                     <nuxt-link
                       :to="localePath('/about-us/where-we-are')"
                       class="dropdown-item"
+                      exact-active-class="active"
                       >Where are we?</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
