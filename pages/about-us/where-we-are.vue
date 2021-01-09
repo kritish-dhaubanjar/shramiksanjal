@@ -116,7 +116,6 @@ export default {
     imageSeries.mapImages.template.propertyFields.longitude = "longitude";
     imageSeries.mapImages.template.propertyFields.latitude = "latitude";
     imageSeries.mapImages.template.tooltipText = "{title}";
-    imageSeries.mapImages.template.propertyFields.url = "url";
 
     let circle = imageSeries.mapImages.template.createChild(am4core.Circle);
     circle.radius = 6;
