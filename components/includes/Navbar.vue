@@ -245,7 +245,7 @@
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link
-                      :to="localePath('/about-us/where-are-we')"
+                      :to="localePath('/about-us/where-we-are')"
                       class="dropdown-item"
                       >Where are we?</nuxt-link
                     >
