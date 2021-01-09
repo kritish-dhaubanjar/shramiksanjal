@@ -1,6 +1,6 @@
 export default function({ $axios, redirect, store }) {
   $axios.onRequest(request => {
-    store.commit("set");
+    // store.commit("set");
   });
 
   $axios.onResponse(response => {

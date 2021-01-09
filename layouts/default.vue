@@ -33,6 +33,11 @@ export default {
   },
 
   created() {
+    this.$router.beforeEach((from, to, next) => {
+      this.$store.commit("set");
+      next();
+    });
+
     this.$router.afterEach(() => {
       this.show = false;
     });

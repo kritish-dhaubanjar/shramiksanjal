@@ -11,89 +11,176 @@
         exact-active-class="active"
         >Home</nuxt-link
       >
-      <nuxt-link
-        to="/about-us"
-        tag="li"
-        class="list-group-item sidebar-link"
-        exact-active-class="active"
-        >About Us</nuxt-link
-      >
-      <li class="list-group-item sidebar-link" @click="dropdown = !dropdown">
-        Services
+
+      <li class="list-group-item sidebar-link" @click="news = !news">
+        News
         <span class="float-right">
-          <i class="las la-angle-down" v-if="dropdown"></i>
+          <i class="las la-angle-down" v-if="news"></i>
           <i class="las la-angle-right" v-else></i>
         </span>
       </li>
-      <ul class="list-group list-group-flush sub-menus" v-show="dropdown">
+      <ul class="list-group list-group-flush sub-menus" v-show="news">
         <!-- start sub-menu -->
         <nuxt-link
           tag="li"
-          to="/services"
+          to="/news"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
-          All Services
+          All News
         </nuxt-link>
         <nuxt-link
-          v-for="service in services"
-          :key="service._id"
           tag="li"
-          :to="`/services/${service._id}`"
-          exact-active-class="active"
+          to="/news?country=Nepal"
           class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
         >
-          {{ service.name }}
+          Nepal
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/news?country=UAE"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          UAE
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/news?country=Qatar"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          Qatar
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/news?country=Kuwait"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          Kuwait
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/news?country=Saudi Arabia"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          Saudi Arabia
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/news?country=Malaysia"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          Malaysia
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/news?country=Others"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          Others
         </nuxt-link>
 
         <li class="list-group-item sidebar-link sub-menu p-0"></li>
       </ul>
       <!-- end sub-menu -->
-      <li class="list-group-item sidebar-link" @click="projects = !projects">
-        Projects
+
+      <li class="list-group-item sidebar-link" @click="events = !events">
+        Events
         <span class="float-right">
-          <i class="las la-angle-down" v-if="projects"></i>
+          <i class="las la-angle-down" v-if="events"></i>
           <i class="las la-angle-right" v-else></i>
         </span>
       </li>
-      <ul class="list-group list-group-flush sub-menus" v-show="projects">
+      <ul class="list-group list-group-flush sub-menus" v-show="events">
         <!-- start sub-menu -->
         <nuxt-link
           tag="li"
-          to="/projects"
+          to="/events"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
-          All Projects
+          Upcoming Events
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/projects/completed-projects"
-          exact-active-class="active"
+          to="/events?past=true"
           class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
         >
-          Completed Projects
+          Past Events
+        </nuxt-link>
+
+        <li class="list-group-item sidebar-link sub-menu p-0"></li>
+      </ul>
+      <!-- end sub-menu -->
+
+      <nuxt-link
+        to="/videos"
+        tag="li"
+        class="list-group-item sidebar-link"
+        exact-active-class="active"
+        >Videos</nuxt-link
+      >
+
+      <li class="list-group-item sidebar-link" @click="about = !about">
+        About Us
+        <span class="float-right">
+          <i class="las la-angle-down" v-if="about"></i>
+          <i class="las la-angle-right" v-else></i>
+        </span>
+      </li>
+      <ul class="list-group list-group-flush sub-menus" v-show="about">
+        <!-- start sub-menu -->
+        <nuxt-link
+          tag="li"
+          to="/about-us"
+          class="list-group-item sidebar-link sub-menu"
+          exact-active-class="active"
+        >
+          Who are we?
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/projects/ongoing-projects"
+          to="/about-us/where-we-are"
           exact-active-class="active"
           class="list-group-item sidebar-link sub-menu"
         >
-          Ongoing Projects
+          Where are we?
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/about-us/our-team"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Our Team
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/about-us/our-programs"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Our Programs
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/about-us/our-vision-and-mission"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Our Vision &amp; Mission
         </nuxt-link>
 
         <li class="list-group-item sidebar-link sub-menu p-0"></li>
       </ul>
       <!--  -->
-
-      <nuxt-link
-        to="/careers"
-        tag="li"
-        class="list-group-item sidebar-link"
-        exact-active-class="active"
-        >Careers</nuxt-link
-      >
 
       <li class="list-group-item d-flex">
         <i class="las la-phone mr-2" />
@@ -135,9 +222,9 @@ export default {
 
   data() {
     return {
-      dropdown: false,
-      projects: false,
-      services: []
+      events: false,
+      about: false,
+      news: false
     };
   }
 };
