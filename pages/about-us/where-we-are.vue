@@ -33,123 +33,120 @@ export default {
   },
 
   mounted() {
-    this.$axios.get("/api/collections/get/locations").then(({ data }) => {
-      this.imageSeries = data.entries;
+    /* Chart code */
 
-      /* Chart code */
+    // Create map instance
+    let chart = am4core.create("chartdiv", am4maps.MapChart);
 
-      // Create map instance
-      let chart = am4core.create("chartdiv", am4maps.MapChart);
+    // Disable Zoom
+    chart.maxZoomLevel = 1;
 
-      // Disable Zoom
-      chart.maxZoomLevel = 1;
+    // Disable Pan
+    chart.seriesContainer.draggable = false;
+    chart.seriesContainer.resizable = false;
 
-      // Disable Pan
-      chart.seriesContainer.draggable = false;
-      chart.seriesContainer.resizable = false;
+    // Set map definition
+    chart.geodata = am4geodata_continentsLow;
 
-      // Set map definition
-      chart.geodata = am4geodata_continentsLow;
+    // Set projection
+    chart.projection = new am4maps.projections.Miller();
 
-      // Set projection
-      chart.projection = new am4maps.projections.Miller();
+    // Create map polygon series
+    let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 
-      // Create map polygon series
-      let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    // Exclude Antartica
+    polygonSeries.exclude = ["antarctica"];
 
-      // Exclude Antartica
-      polygonSeries.exclude = ["antarctica"];
+    // Make map load polygon (like country names) data from GeoJSON
+    polygonSeries.useGeodata = true;
 
-      // Make map load polygon (like country names) data from GeoJSON
-      polygonSeries.useGeodata = true;
+    let pattern = new am4core.LinePattern();
+    pattern.width = 10;
+    pattern.height = 4;
+    pattern.stroke = am4core.color("#df1a17");
+    pattern.strokeWidth = 4;
+    pattern.rotation = 0;
 
-      let pattern = new am4core.LinePattern();
-      pattern.width = 10;
-      pattern.height = 4;
-      pattern.stroke = am4core.color("#df1a17");
-      pattern.strokeWidth = 4;
-      pattern.rotation = 0;
-
-      polygonSeries.data = [
-        {
-          id: "europe",
-          name: "Europe",
-          fill: pattern
-        },
-        {
-          id: "northAmerica",
-          name: "North America",
-          fill: pattern
-        },
-        {
-          id: "southAmerica",
-          name: "South America",
-          fill: pattern
-        },
-        {
-          id: "africa",
-          name: "Africa",
-          fill: pattern
-        },
-        {
-          id: "asia",
-          name: "Asia",
-          fill: pattern
-        },
-        {
-          id: "oceania",
-          name: "Australia and Oceania",
-          fill: pattern
-        }
-      ];
-
-      // Configure series
-      let polygonTemplate = polygonSeries.mapPolygons.template;
-      polygonTemplate.tooltipText = "{name}";
-      polygonTemplate.propertyFields.fill = "fill";
-
-      // Create hover state and set alternative fill color
-      let hs = polygonTemplate.states.create("hover");
-      hs.properties.fill = am4core.color("#df1a17");
-
-      /*Bullets
-       */
-
-      let imageSeries = chart.series.push(new am4maps.MapImageSeries());
-      imageSeries.mapImages.template.propertyFields.longitude = "longitude";
-      imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-      imageSeries.mapImages.template.tooltipText = "{title}";
-      imageSeries.mapImages.template.propertyFields.url = "url";
-
-      let circle = imageSeries.mapImages.template.createChild(am4core.Circle);
-      circle.radius = 6;
-      circle.propertyFields.fill = "color";
-
-      let circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
-      circle2.radius = 6;
-      circle2.propertyFields.fill = "color";
-
-      circle2.events.on("inited", function(event) {
-        animateBullet(event.target);
-      });
-
-      function animateBullet(circle) {
-        let animation = circle.animate(
-          [
-            { property: "scale", from: 1, to: 5 },
-            { property: "opacity", from: 1, to: 0 }
-          ],
-          1000,
-          am4core.ease.circleOut
-        );
-        animation.events.on("animationended", function(event) {
-          animateBullet(event.target.object);
-        });
+    polygonSeries.data = [
+      {
+        id: "europe",
+        name: "Europe",
+        fill: pattern
+      },
+      {
+        id: "northAmerica",
+        name: "North America",
+        fill: pattern
+      },
+      {
+        id: "southAmerica",
+        name: "South America",
+        fill: pattern
+      },
+      {
+        id: "africa",
+        name: "Africa",
+        fill: pattern
+      },
+      {
+        id: "asia",
+        name: "Asia",
+        fill: pattern
+      },
+      {
+        id: "oceania",
+        name: "Australia and Oceania",
+        fill: pattern
       }
+    ];
 
-      let colorSet = new am4core.ColorSet();
+    // Configure series
+    let polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}";
+    polygonTemplate.propertyFields.fill = "fill";
 
-      /*
+    // Create hover state and set alternative fill color
+    let hs = polygonTemplate.states.create("hover");
+    hs.properties.fill = am4core.color("#df1a17");
+
+    /*Bullets
+     */
+
+    let imageSeries = chart.series.push(new am4maps.MapImageSeries());
+    imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+    imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+    imageSeries.mapImages.template.tooltipText = "{title}";
+    imageSeries.mapImages.template.propertyFields.url = "url";
+
+    let circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+    circle.radius = 6;
+    circle.propertyFields.fill = "color";
+
+    let circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+    circle2.radius = 6;
+    circle2.propertyFields.fill = "color";
+
+    circle2.events.on("inited", function(event) {
+      animateBullet(event.target);
+    });
+
+    function animateBullet(circle) {
+      let animation = circle.animate(
+        [
+          { property: "scale", from: 1, to: 5 },
+          { property: "opacity", from: 1, to: 0 }
+        ],
+        1000,
+        am4core.ease.circleOut
+      );
+      animation.events.on("animationended", function(event) {
+        animateBullet(event.target.object);
+      });
+    }
+
+    let colorSet = new am4core.ColorSet();
+
+    /*
     [
         {
             title: "Copenhagen",
@@ -158,7 +155,8 @@ export default {
             color: "#000"
         },
     ]*/
-
+    this.$axios.get("/api/collections/get/locations").then(({ data }) => {
+      this.imageSeries = data.entries;
       imageSeries.data = this.imageSeries.map(e => {
         e.latitude = +e.latitude;
         e.longitude = +e.longitude;

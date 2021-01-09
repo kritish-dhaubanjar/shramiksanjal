@@ -132,5 +132,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  loading: {
+    color: "#fff",
+    height: "4px"
   }
 };
