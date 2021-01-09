@@ -252,6 +252,7 @@
                     <div class="dropdown-divider"></div>
                     <nuxt-link
                       class="dropdown-item"
+                      exact-active-class="active"
                       :to="localePath('/about-us/our-team')"
                       >Our Team</nuxt-link
                     >
