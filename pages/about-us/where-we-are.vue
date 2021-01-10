@@ -1,7 +1,7 @@
 <template>
   <section class="bg-light">
     <Banner :breadcrumb="{ name: 'Where are we?' }" />
-    <div class="container-fluid py-5 my-5">
+    <div class="container-fluid my-2  py-2 py-md-5 my-md-5">
       <div class="row">
         <div class="col-12 px-0">
           <div class="chartdiv"></div>
@@ -23,7 +23,8 @@ import am4geodata_continentsLow from "@amcharts/amcharts4-geodata/continentsLow"
 export default {
   data() {
     return {
-      imageSeries: []
+      imageSeries: [],
+      chart: null
     };
   },
 
@@ -36,23 +37,31 @@ export default {
     /* Chart code */
 
     // Create map instance
-    let chart = am4core.create("chartdiv", am4maps.MapChart);
+    this.chart = am4core.create("chartdiv", am4maps.MapChart);
+    this.chart.events.on("ready", function(ev) {
+      this.chart.zoomToMapObject(polygonSeries.getPolygonById("IN"));
+    });
 
+    this.chart.homeZoomLevel = 1.75;
+    this.chart.homeGeoPoint = {
+      latitude: 29.3117,
+      longitude: 47.4818
+    };
     // Disable Zoom
-    chart.maxZoomLevel = 1;
-    chart.chartContainer.wheelable = false;
+    this.chart.maxZoomLevel = 5;
+    // this.chart.chartContainer.wheelable = false;
     // Disable Pan
-    chart.seriesContainer.draggable = false;
-    chart.seriesContainer.resizable = false;
+    // this.chart.seriesContainer.draggable = false;
+    // this.chart.seriesContainer.resizable = false;
 
     // Set map definition
-    chart.geodata = am4geodata_continentsLow;
+    this.chart.geodata = am4geodata_continentsLow;
 
     // Set projection
-    chart.projection = new am4maps.projections.Miller();
+    this.chart.projection = new am4maps.projections.Miller();
 
     // Create map polygon series
-    let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    let polygonSeries = this.chart.series.push(new am4maps.MapPolygonSeries());
 
     // Exclude Antartica
     polygonSeries.exclude = ["antarctica"];
@@ -61,11 +70,11 @@ export default {
     polygonSeries.useGeodata = true;
 
     let pattern = new am4core.LinePattern();
-    pattern.width = 10;
+    pattern.width = 4;
     pattern.height = 4;
     pattern.stroke = am4core.color("#df1a17");
-    pattern.strokeWidth = 4;
-    pattern.rotation = 0;
+    pattern.strokeWidth = 0.65;
+    pattern.rotation = 45;
 
     polygonSeries.data = [
       {
@@ -102,27 +111,27 @@ export default {
 
     // Configure series
     let polygonTemplate = polygonSeries.mapPolygons.template;
-    polygonTemplate.tooltipText = "{name}";
+    // polygonTemplate.tooltipText = "{name}";
     polygonTemplate.propertyFields.fill = "fill";
 
     // Create hover state and set alternative fill color
-    let hs = polygonTemplate.states.create("hover");
-    hs.properties.fill = am4core.color("#df1a17");
+    // let hs = polygonTemplate.states.create("hover");
+    // hs.properties.fill = am4core.color("#df1a17");
 
     /*Bullets
      */
 
-    let imageSeries = chart.series.push(new am4maps.MapImageSeries());
+    let imageSeries = this.chart.series.push(new am4maps.MapImageSeries());
     imageSeries.mapImages.template.propertyFields.longitude = "longitude";
     imageSeries.mapImages.template.propertyFields.latitude = "latitude";
     imageSeries.mapImages.template.tooltipText = "{title}";
 
     let circle = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle.radius = 6;
+    circle.radius = 2.5;
     circle.propertyFields.fill = "color";
 
     let circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle2.radius = 6;
+    circle2.radius = 2.5;
     circle2.propertyFields.fill = "color";
 
     circle2.events.on("inited", function(event) {
@@ -132,7 +141,7 @@ export default {
     function animateBullet(circle) {
       let animation = circle.animate(
         [
-          { property: "scale", from: 1, to: 5 },
+          { property: "scale", from: 1, to: 2.5 },
           { property: "opacity", from: 1, to: 0 }
         ],
         1000,
@@ -167,10 +176,18 @@ export default {
 </script>
 
 <style scoped>
+.chartdiv {
+  height: 320px !important;
+}
+
 @media screen and (min-width: 576px) {
   .chartdiv {
-    /* padding: 3rem 0; */
     height: 512px !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .chartdiv {
+    height: 768px !important;
   }
 }
 </style>
