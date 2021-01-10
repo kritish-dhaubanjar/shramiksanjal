@@ -168,6 +168,7 @@ export default {
       imageSeries.data = this.imageSeries.map(e => {
         e.latitude = +e.latitude;
         e.longitude = +e.longitude;
+        e.color = "#2E3094";
         return e;
       });
     });
