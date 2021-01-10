@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 .jumbotron {
-  padding-top: 128px;
-  padding-bottom: 128px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 </style>

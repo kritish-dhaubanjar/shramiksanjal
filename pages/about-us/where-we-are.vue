@@ -1,7 +1,7 @@
 <template>
   <section class="bg-light">
     <Banner :breadcrumb="{ name: 'Where are we?' }" />
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-12 px-0">
           <div class="chartdiv"></div>
@@ -40,7 +40,7 @@ export default {
 
     // Disable Zoom
     chart.maxZoomLevel = 1;
-
+    chart.chartContainer.wheelable = false;
     // Disable Pan
     chart.seriesContainer.draggable = false;
     chart.seriesContainer.resizable = false;
