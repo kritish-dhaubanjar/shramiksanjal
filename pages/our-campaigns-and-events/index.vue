@@ -1,20 +1,20 @@
 <template>
   <section class="bg-light">
-    <Banner :breadcrumb="{ name: `${past== 'true' ? 'Past' : 'Upcoming'} Events` }" />
+    <Banner :breadcrumb="{ name: `Our Campaigns & Events` }" />
     <div class="container-fluid">
       
       <section class="my-5 py-5">
         <div class="container-fluid bg-light py-5">
           <div class="row my-5">
             <div class="col-lg-8">
-              <h2 class="font-weight-bold mb-5">Upcoming Events & Meetings</h2>
+              <h2 class="font-weight-bold mb-5">Our Campaigns & Events</h2>
 
               <div
                 class="card is-radiusless is-borderless mb-3"
                 v-for="event in slice"
                 :key="event._id"
               >
-                <div class="card-body py-5">
+                <div class="card-body py-5" :class="(new Date(event.event_end_date)).getTime() < (new Date()).getTime() ? 'past':''">
                   <div class="row">
                     <div
                       class="col-sm align-items-center d-none d-sm-flex align-items-center"
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-sm">
                       <span
-                        class="badge badge-dark is-radiusless px-2 font-weight-light py-1"
+                        class="badge badge-danger is-radiusless px-2 font-weight-light py-1"
                       >
                         <!-- Aug 12 - Aug 13 -->
                         {{ formatEventDateString(event.event_start_date, event.event_end_date) }}
@@ -49,7 +49,7 @@
                     <div class="col-sm d-flex align-items-center">
                       <nuxt-link
                         tag="button"
-                        :to="localePath(`/events/${event._id}`)"
+                        :to="localePath(`/our-campaigns-and-events/${event._id}`)"
                         class="btn btn-danger is-radiusless font-weight-bold px-4 py-2 my-3"
                       >
                         {{ $t("details") }}
@@ -165,6 +165,7 @@ export default {
       this.$axios
         .post("/api/collections/get/events", {
           // filter: { country: this.country }
+          sort: { event_end_date: -1 }
         })
         .then(({ data }) => {
           this.events = data.entries;
@@ -253,6 +254,10 @@ export default {
   }
   .lead {
     font-size: 16px !important;
+  }
+
+  .past {
+    filter: opacity(0.85) grayscale(1);
   }
 
   .row {
