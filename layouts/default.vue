@@ -34,7 +34,7 @@ export default {
 
   created() {
     this.$router.beforeEach((from, to, next) => {
-      this.$store.commit("set");
+      if (from.path != to.path) this.$store.commit("set");
       next();
     });
 

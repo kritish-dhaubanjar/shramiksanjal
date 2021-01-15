@@ -261,6 +261,17 @@
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
+                      :to="
+                        localePath(
+                          '/about-us/our-vision-and-mission#our-values'
+                        )
+                      "
+                      >Our Values</nuxt-link
+                    >
+                    <div class="dropdown-divider"></div>
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
                       :to="localePath('/about-us/our-team')"
                       >Our Team</nuxt-link
                     >

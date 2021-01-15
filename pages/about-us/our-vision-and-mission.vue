@@ -10,10 +10,13 @@
       <About :content="mission" />
     </div>
     <!--  -->
+
     <Stats />
+    <div id="our-values" />
     <Services />
+
     <!-- <History /> -->
-    <Section />
+    <!-- <Section /> -->
   </section>
 </template>
 
