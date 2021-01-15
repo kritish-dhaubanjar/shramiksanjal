@@ -98,7 +98,7 @@
         >Programs</nuxt-link
       >
 
-      <li class="list-group-item sidebar-link" @click="events = !events">
+      <!-- <li class="list-group-item sidebar-link" @click="events = !events">
         Events
         <span class="float-right">
           <i class="las la-angle-down" v-if="events"></i>
@@ -106,7 +106,6 @@
         </span>
       </li>
       <ul class="list-group list-group-flush sub-menus" v-show="events">
-        <!-- start sub-menu -->
         <nuxt-link
           tag="li"
           to="/events"
@@ -125,8 +124,7 @@
         </nuxt-link>
 
         <li class="list-group-item sidebar-link sub-menu p-0"></li>
-      </ul>
-      <!-- end sub-menu -->
+      </ul> -->
 
       <nuxt-link
         to="/videos"
@@ -168,6 +166,14 @@
           class="list-group-item sidebar-link sub-menu"
         >
           Our Team
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
+          to="/about-us/our-campaigns-and-events"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Our Campaigns &amp; Events
         </nuxt-link>
         <nuxt-link
           tag="li"

@@ -10,13 +10,21 @@
             v-for="event in events"
             :key="event._id"
           >
-            <div class="card-body py-5" :class="(new Date(event.event_end_date)).getTime() < (new Date()).getTime() ? 'past':''" >
+            <div
+              class="card-body py-5"
+              :class="
+                new Date(event.event_end_date).getTime() < new Date().getTime()
+                  ? 'past'
+                  : ''
+              "
+            >
               <div class="row">
                 <div
                   class="col-sm align-items-center d-none d-sm-flex align-items-center"
                 >
                   <div>
-                    <div class="background-image rounded-circle"
+                    <div
+                      class="background-image rounded-circle"
                       :style="
                         `background-image: url(https://api.shramiksanjal.org/${
                           event.image ? event.image.path : ''
@@ -30,14 +38,22 @@
                     class="badge badge-danger is-radiusless px-2 font-weight-light py-1"
                   >
                     <!-- Aug 12 - Aug 13 -->
-                    {{ formatEventDateString(event.event_start_date, event.event_end_date) }}
+                    {{
+                      formatEventDateString(
+                        event.event_start_date,
+                        event.event_end_date
+                      )
+                    }}
                   </span>
 
                   <small class="ml-3">
                     <!-- 9:00 am - 9:00 pm -->
-                    {{ convertTime(event.event_start_time) }} - {{ convertTime(event.event_end_time) }}
+                    {{ convertTime(event.event_start_time) }} -
+                    {{ convertTime(event.event_end_time) }}
                   </small>
-                  <h5 class="mt-3 font-weight-bold">{{ $localeContent(event, "title", $i18n.locale) }}</h5>
+                  <h5 class="mt-3 font-weight-bold">
+                    {{ $localeContent(event, "title", $i18n.locale) }}
+                  </h5>
                   <p class="lead mb-0">
                     {{ $localeContent(event, "overview", $i18n.locale) }}
                   </p>
@@ -45,7 +61,11 @@
                 <div class="col-sm d-flex align-items-center">
                   <nuxt-link
                     tag="button"
-                    :to="localePath(`/our-campaigns-and-events/${event._id}`)"
+                    :to="
+                      localePath(
+                        `/about-us/our-campaigns-and-events/${event._id}`
+                      )
+                    "
                     class="btn btn-danger is-radiusless font-weight-bold px-4 py-2 my-3"
                   >
                     {{ $t("details") }}
@@ -69,40 +89,52 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        events: [],
-      };
+export default {
+  data() {
+    return {
+      events: []
+    };
+  },
+
+  beforeCreate() {
+    this.$axios
+      .post("/api/collections/get/events", {
+        sort: { event_end_date: -1 }
+      })
+      .then(({ data }) => {
+        this.events = data.entries.slice(0, 5);
+      });
+  },
+
+  methods: {
+    formatEventDateString(startDate, endDate) {
+      let s =
+        startDate && startDate != ""
+          ? new Date(startDate).toLocaleString("default", {
+              month: "short",
+              day: "2-digit"
+            })
+          : "";
+      let e =
+        endDate && endDate != ""
+          ? new Date(endDate).toLocaleString("default", {
+              month: "short",
+              day: "2-digit"
+            })
+          : "";
+      if (e == "" || s == e) return s;
+      return s + " - " + e;
     },
 
-    beforeCreate() {
-      this.$axios
-        .post("/api/collections/get/events", {
-          sort: { event_end_date: -1 }
-        })
-        .then(({ data }) => {
-          this.events = data.entries.slice(0, 5);
-        });
-    },
-
-    methods: {
-      formatEventDateString(startDate, endDate) {
-        let s = (startDate  && startDate !="") ? (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
-        let e = (endDate  && endDate !="") ? (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
-        if(e == "" || s == e) return s;
-        return s + ' - ' + e;
-      },
-
-      convertTime(time) {
-        if (!time || time == "") return "";
-        let H = + time.substring(0, 2);
-        let h = H % 12 || 12;
-        let ampm = (H < 12 || H === 24) ? " am" : " pm";
-        return h + time.substring(2) + ampm;
-      },
+    convertTime(time) {
+      if (!time || time == "") return "";
+      let H = +time.substring(0, 2);
+      let h = H % 12 || 12;
+      let ampm = H < 12 || H === 24 ? " am" : " pm";
+      return h + time.substring(2) + ampm;
     }
-  };  
+  }
+};
 </script>
 
 <style scoped lang="scss">

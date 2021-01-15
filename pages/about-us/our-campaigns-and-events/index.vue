@@ -49,7 +49,7 @@
                     <div class="col-sm d-flex align-items-center">
                       <nuxt-link
                         tag="button"
-                        :to="localePath(`/our-campaigns-and-events/${event._id}`)"
+                        :to="localePath(`/about-us/our-campaigns-and-events/${event._id}`)"
                         class="btn btn-danger is-radiusless font-weight-bold px-4 py-2 my-3"
                       >
                         {{ $t("details") }}
