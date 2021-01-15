@@ -1,6 +1,7 @@
 <template>
   <section class="bg-light">
     <Banner :breadcrumb="{ name: 'Our Programs' }" />
+    <div v-if="programs.length == 0" style="min-height: 512px"></div>
     <Program
       v-for="(program, i) in programs"
       :key="program._id"

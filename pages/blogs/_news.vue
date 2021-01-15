@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import Jumbotron from "@/components/news/Jumbotron";
-import Content from "@/components/news/Content";
-import Comments from "@/components/news/Comments";
-import Sidebar from "@/components/news/Sidebar";
+import Jumbotron from "@/components/blogs/Jumbotron";
+import Content from "@/components/blogs/Content";
+import Comments from "@/components/blogs/Comments";
+import Sidebar from "@/components/blogs/Sidebar";
 
 export default {
   data() {

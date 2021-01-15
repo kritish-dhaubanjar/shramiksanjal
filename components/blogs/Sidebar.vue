@@ -4,10 +4,10 @@
       class="card is-radiusless is-borderless background-image px-3 bg-light mb-5 py-4"
     >
       <div class="card-body">
-        <h5 class="font-weight-bold mb-4 mt-3">RECENT NEWS</h5>
+        <h5 class="font-weight-bold mb-4 mt-3">RECENT BLOGS</h5>
 
         <nuxt-link
-          :to="localePath(`/news/${article._id}`)"
+          :to="localePath(`/blogs/${article._id}`)"
           tag="div"
           v-for="article in news"
           :key="article._id"
@@ -47,7 +47,7 @@
         <table class="table">
           <tbody>
             <th scope="row">
-              <nuxt-link :to="localePath('/news/')">ALL</nuxt-link>
+              <nuxt-link :to="localePath('/blogs/')">ALL</nuxt-link>
             </th>
             <th>
               <span class="float-right"
@@ -57,7 +57,7 @@
             <tr v-for="tag in tags" :key="tag._id">
               <th scope="row">
                 <nuxt-link
-                  :to="localePath(`/news/categories/${tag.tag_en}`)"
+                  :to="localePath(`/blogs/categories/${tag.tag_en}`)"
                   class="text-uppercase"
                   >{{ $localeContent(tag, "tag", $i18n.locale) }}</nuxt-link
                 >

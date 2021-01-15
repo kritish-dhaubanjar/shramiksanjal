@@ -3,7 +3,7 @@
     <div class="container-fluid pt-5">
       <div class="row">
         <div class="col-lg-12 mb-5">
-          <h2 class="font-weight-bold">Recent News</h2>
+          <h2 class="font-weight-bold">Recent Blogs</h2>
           <hr />
           <p class="font-weight-bold">
             Enjoy latest successful stories from our journal.
@@ -27,7 +27,7 @@
                 {{ new Date(news[0]._created * 1000).toDateString() }}
                 <i class="las la-list ml-3" />
                 <nuxt-link
-                  :to="localePath(`/news/categories/${news[0].tags.tag_en}`)"
+                  :to="localePath(`/blogs/categories/${news[0].tags.tag_en}`)"
                   v-if="news[0].tags"
                   ><small class="text-uppercase"
                     >{{ $localeContent(news[0].tags, "tag", $i18n.locale) }}
@@ -35,7 +35,7 @@
                 >
               </small>
 
-              <nuxt-link :to="localePath(`/news/${news[0]._id}`)">
+              <nuxt-link :to="localePath(`/blogs/${news[0]._id}`)">
                 <h4 class="font-weight-bold my-3" :class="$i18n.locale">
                   {{ $localeContent(news[0], "title", $i18n.locale) }}
                 </h4>
@@ -61,7 +61,7 @@
                   "
                 />
                 <div class="card-body px-0">
-                  <nuxt-link :to="localePath(`/news/${news[1]._id}`)">
+                  <nuxt-link :to="localePath(`/blogs/${news[1]._id}`)">
                     <h6
                       class="font-weight-bold text-uppercase"
                       :class="$i18n.locale"
@@ -70,7 +70,7 @@
                     </h6>
                   </nuxt-link>
                   <nuxt-link
-                    :to="localePath(`/news/categories/${news[1].tags.tag_en}`)"
+                    :to="localePath(`/blogs/categories/${news[1].tags.tag_en}`)"
                     v-if="news[1].tags"
                     ><small class="text-uppercase"
                       >{{ $localeContent(news[1].tags, "tag", $i18n.locale) }}
@@ -91,7 +91,7 @@
                   "
                 />
                 <div class="card-body px-0">
-                  <nuxt-link :to="localePath(`/news/${news[2]._id}`)">
+                  <nuxt-link :to="localePath(`/blogs/${news[2]._id}`)">
                     <h6
                       class="font-weight-bold text-uppercase"
                       :class="$i18n.locale"
@@ -100,7 +100,7 @@
                     </h6>
                   </nuxt-link>
                   <nuxt-link
-                    :to="localePath(`/news/categories/${news[2].tags.tag_en}`)"
+                    :to="localePath(`/blogs/categories/${news[2].tags.tag_en}`)"
                     v-if="news[2].tags"
                     ><small class="text-uppercase"
                       >{{ $localeContent(news[2].tags, "tag", $i18n.locale) }}
@@ -120,7 +120,7 @@
                   <tr v-for="tag in tags" :key="tag._id">
                     <th scope="row">
                       <nuxt-link
-                        :to="localePath(`/news/categories/${tag.tag_en}`)"
+                        :to="localePath(`/blogs/categories/${tag.tag_en}`)"
                         >{{
                           $localeContent(tag, "tag", $i18n.locale)
                         }}</nuxt-link

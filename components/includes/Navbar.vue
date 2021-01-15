@@ -41,9 +41,9 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    :class="{ active: this.$route.path.includes('news') }"
+                    :class="{ active: this.$route.path.includes('blogs') }"
                   >
-                    NEWS
+                    BLOGS
                   </a>
                   <div
                     class="dropdown-menu is-radiusless py-4 px-3"
@@ -52,8 +52,8 @@
                     <nuxt-link
                       class="dropdown-item font-weight-bold"
                       exact-active-class="active"
-                      :to="localePath('/news')"
-                      >All News</nuxt-link
+                      :to="localePath('/blogs')"
+                      >All Blogs</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
 
@@ -62,7 +62,7 @@
                       exact-active-class="active"
                       :to="
                         localePath({
-                          name: 'news',
+                          name: 'blogs',
                           query: { country: 'Nepal' }
                         })
                       "
@@ -71,7 +71,7 @@
                     <!-- <nuxt-link
                       class="dropdown-item "
                       exact-active-class="active"
-                      to="/news?country=Nepal"
+                      to="/blogs?country=Nepal"
                       >Nepal</nuxt-link
                     > -->
                     <div class="dropdown-divider"></div>
@@ -80,7 +80,7 @@
                       exact-active-class="active"
                       :to="
                         localePath({
-                          name: 'news',
+                          name: 'blogs',
                           query: { country: 'UAE' }
                         })
                       "
@@ -92,7 +92,7 @@
                       exact-active-class="active"
                       :to="
                         localePath({
-                          name: 'news',
+                          name: 'blogs',
                           query: { country: 'Qatar' }
                         })
                       "
@@ -104,7 +104,7 @@
                       exact-active-class="active"
                       :to="
                         localePath({
-                          name: 'news',
+                          name: 'blogs',
                           query: { country: 'Kuwait' }
                         })
                       "
@@ -116,7 +116,7 @@
                       exact-active-class="active"
                       :to="
                         localePath({
-                          name: 'news',
+                          name: 'blogs',
                           query: { country: 'Saudi Arabia' }
                         })
                       "
@@ -128,7 +128,7 @@
                       exact-active-class="active"
                       :to="
                         localePath({
-                          name: 'news',
+                          name: 'blogs',
                           query: { country: 'Malaysia' }
                         })
                       "
@@ -140,7 +140,7 @@
                       exact-active-class="active"
                       :to="
                         localePath({
-                          name: 'news',
+                          name: 'blogs',
                           query: { country: 'Others' }
                         })
                       "
@@ -148,7 +148,15 @@
                     >
                   </div>
                 </li>
-                <li class="nav-item dropdown px-2">
+                <li class="nav-item px-2">
+                  <nuxt-link
+                    class="nav-link py-4"
+                    :to="localePath('/our-programs')"
+                    exact-active-class="active"
+                    >PROGRAMS</nuxt-link
+                  >
+                </li>
+                <!-- <li class="nav-item dropdown px-2">
                   <a
                     class="nav-link py-4 dropdown-toggle"
                     href="#"
@@ -183,9 +191,8 @@
                       "
                       >Past Events</nuxt-link
                     >
-                    <!-- <a class="dropdown-item" href="#">Past Events</a> -->
                   </div>
-                </li>
+                </li> -->
                 <li class="nav-item px-2">
                   <nuxt-link
                     class="nav-link py-4"
@@ -256,13 +263,6 @@
                       exact-active-class="active"
                       :to="localePath('/about-us/our-team')"
                       >Our Team</nuxt-link
-                    >
-                    <div class="dropdown-divider"></div>
-                    <nuxt-link
-                      class="dropdown-item"
-                      exact-active-class="active"
-                      :to="localePath('/about-us/our-programs')"
-                      >Our Programs</nuxt-link
                     >
                     <div class="dropdown-divider"></div>
                     <nuxt-link

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Banner :breadcrumb="{ name: `${country} News` }" />
+    <Banner :breadcrumb="{ name: `${country} Blogs` }" />
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-8">
@@ -91,7 +91,7 @@
 
 <script>
 import Banner from "@/components/others/Banner";
-import Sidebar from "@/components/news/Sidebar";
+import Sidebar from "@/components/blogs/Sidebar";
 
 export default {
   middleware({ query }) {

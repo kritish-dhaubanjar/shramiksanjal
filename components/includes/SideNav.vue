@@ -13,7 +13,7 @@
       >
 
       <li class="list-group-item sidebar-link" @click="news = !news">
-        News
+        Blogs
         <span class="float-right">
           <i class="las la-angle-down" v-if="news"></i>
           <i class="las la-angle-right" v-else></i>
@@ -23,15 +23,15 @@
         <!-- start sub-menu -->
         <nuxt-link
           tag="li"
-          to="/news"
+          to="/blogs"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
-          All News
+          All Blogs
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/news?country=Nepal"
+          to="/blogs?country=Nepal"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
@@ -39,7 +39,7 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/news?country=UAE"
+          to="/blogs?country=UAE"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
@@ -47,7 +47,7 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/news?country=Qatar"
+          to="/blogs?country=Qatar"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
@@ -55,7 +55,7 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/news?country=Kuwait"
+          to="/blogs?country=Kuwait"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
@@ -63,7 +63,7 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/news?country=Saudi Arabia"
+          to="/blogs?country=Saudi Arabia"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
@@ -71,7 +71,7 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/news?country=Malaysia"
+          to="/blogs?country=Malaysia"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
@@ -79,7 +79,7 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/news?country=Others"
+          to="/blogs?country=Others"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
@@ -89,6 +89,14 @@
         <li class="list-group-item sidebar-link sub-menu p-0"></li>
       </ul>
       <!-- end sub-menu -->
+
+      <nuxt-link
+        to="/our-programs"
+        tag="li"
+        class="list-group-item sidebar-link"
+        exact-active-class="active"
+        >Programs</nuxt-link
+      >
 
       <li class="list-group-item sidebar-link" @click="events = !events">
         Events
@@ -160,14 +168,6 @@
           class="list-group-item sidebar-link sub-menu"
         >
           Our Team
-        </nuxt-link>
-        <nuxt-link
-          tag="li"
-          to="/about-us/our-programs"
-          exact-active-class="active"
-          class="list-group-item sidebar-link sub-menu"
-        >
-          Our Programs
         </nuxt-link>
         <nuxt-link
           tag="li"

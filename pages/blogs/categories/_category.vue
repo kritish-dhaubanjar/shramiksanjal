@@ -1,7 +1,7 @@
 <template>
   <section>
     <Banner
-      :breadcrumb="{ name: `${$route.params.category.toUpperCase()} NEWS` }"
+      :breadcrumb="{ name: `${$route.params.category.toUpperCase()} BLOGS` }"
     />
     <div class="container-fluid py-5 my-5">
       <div class="row">
@@ -89,7 +89,7 @@
 
 <script>
 import Banner from "@/components/others/Banner";
-import Sidebar from "@/components/news/Sidebar";
+import Sidebar from "@/components/blogs/Sidebar";
 
 export default {
   middleware({ params }) {
