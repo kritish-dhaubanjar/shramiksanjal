@@ -161,6 +161,14 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
+          to="/about-us/our-vision-and-mission#our-values"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Our Values
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
           to="/about-us/our-team"
           exact-active-class="active"
           class="list-group-item sidebar-link sub-menu"
