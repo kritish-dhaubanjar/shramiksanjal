@@ -157,6 +157,10 @@ export default {
     }
   },
 
+  mounted() {
+    this.$store.commit("reset");
+  },
+
   components: {
     Banner
   }

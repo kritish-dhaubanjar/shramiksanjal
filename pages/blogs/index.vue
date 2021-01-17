@@ -23,7 +23,7 @@
                     <i class="las la-list ml-3" />
                     <nuxt-link
                       :to="
-                        localePath(`/news/categories/${article.tags.tag_en}`)
+                        localePath(`/blogs/categories/${article.tags.tag_en}`)
                       "
                       v-if="article.tags"
                       ><small class="text-uppercase">
@@ -32,7 +32,7 @@
                     >
                   </small>
 
-                  <nuxt-link :to="localePath(`/news/${article._id}`)">
+                  <nuxt-link :to="localePath(`/blogs/${article._id}`)">
                     <h4 class="font-weight-bold my-3" :class="$i18n.locale">
                       {{ $localeContent(article, "title", $i18n.locale) }}
                     </h4>

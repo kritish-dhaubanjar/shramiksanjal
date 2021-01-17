@@ -30,7 +30,7 @@
                     >
                   </small>
 
-                  <nuxt-link :to="localePath(`/news/${article._id}`)">
+                  <nuxt-link :to="localePath(`/blogs/${article._id}`)">
                     <h4 class="font-weight-bold my-3" :class="$i18n.locale">
                       {{ $localeContent(article, "title", $i18n.locale) }}
                     </h4>

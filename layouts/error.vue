@@ -32,7 +32,11 @@
 
 <script>
 export default {
-  components: {}
+  components: {},
+
+  mounted(){
+    this.$store.commit("reset");
+  }
 };
 </script>
 
