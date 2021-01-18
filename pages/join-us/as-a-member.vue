@@ -79,7 +79,7 @@
                     <div class="col-md-4">
                       <input
                         type="text"
-                        class="form-control is-radiusless mb-sm-2 mb-md-0"
+                        class="form-control is-radiusless mb-2 mb-md-0"
                         placeholder="First Name *"
                         required
                         v-model="member.firstName"
@@ -88,7 +88,7 @@
                     <div class="col-md-4">
                       <input
                         type="text"
-                        class="form-control is-radiusless mb-sm-2 mb-md-0"
+                        class="form-control is-radiusless mb-2 mb-md-0"
                         placeholder="Middle Name"
                         v-model="member.middleName"
                       />
@@ -96,7 +96,7 @@
                     <div class="col-md-4">
                       <input
                         type="text"
-                        class="form-control is-radiusless mb-sm-2 mb-md-0"
+                        class="form-control is-radiusless mb-2 mb-md-0"
                         placeholder="Last Name *"
                         required
                         v-model="member.lastName"
