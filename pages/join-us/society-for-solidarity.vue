@@ -164,13 +164,6 @@ export default {
     };
   },
 
-  nuxtI18n: {
-    paths: {
-      en: "/contact-us",
-      es: "/contacto"
-    }
-  },
-
   mounted() {
     this.$store.commit("reset");
   },
