@@ -35,27 +35,27 @@
         <div class="col-lg-8 bg-dark text-white position-relative">
           <div class="row ">
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">24</h1>
+              <h1 class="mb-0">7</h1>
               <small>
-                Active Grantees
+                Countries
               </small>
             </div>
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">41</h1>
+              <h1 class="mb-0">325+</h1>
               <small>
-                Grants Awarded
+                Members
               </small>
             </div>
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">5k</h1>
+              <h1 class="mb-0">22.5k</h1>
               <small>
-                Folks we helped
+                Facebook Followers
               </small>
             </div>
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">$12M</h1>
+              <h1 class="mb-0">1000+</h1>
               <small>
-                Sposored
+                Youtube Subscribers
               </small>
             </div>
           </div>
