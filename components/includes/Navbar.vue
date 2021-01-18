@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <nav class="navbar navbar-expand-md navbar-light px-0">
+          <nav class="navbar navbar-expand-lg navbar-light px-0">
             <a class="navbar-brand" href="#">
               <img
                 src="/images/logo.png"
@@ -202,15 +202,15 @@
                   >
                 </li>
 
-                <!-- <li class="nav-item dropdown px-2">
+                <li class="nav-item dropdown px-2">
                   <a
                     class="nav-link py-4 dropdown-toggle"
                     href="#"
-                    id="news"
                     role="button"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
+                    :class="{ active: this.$route.path.includes('join-us') }"
                   >
                     JOIN US
                   </a>
@@ -218,11 +218,21 @@
                     class="dropdown-menu is-radiusless py-4 px-3"
                     aria-labelledby="news"
                   >
-                    <a class="dropdown-item" href="#">As a Member</a>
+                    <nuxt-link
+                      to="/join-us/as-a-member"
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      >As a Member</nuxt-link
+                    >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">As a Supportor</a>
+                    <nuxt-link
+                      to="/join-us/society-for-solidarity"
+                      class="dropdown-item"
+                      exact-active-class="active"
+                      >Society For Solidarity</nuxt-link
+                    >
                   </div>
-                </li> -->
+                </li>
                 <!-- <li class="nav-item px-2">
                   <a class="nav-link py-4" href="#">SHRAMIK COMMUNITY</a>
                 </li> -->

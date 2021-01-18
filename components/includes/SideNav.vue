@@ -98,8 +98,16 @@
         >Programs</nuxt-link
       >
 
-      <!-- <li class="list-group-item sidebar-link" @click="events = !events">
-        Events
+      <nuxt-link
+        to="/videos"
+        tag="li"
+        class="list-group-item sidebar-link"
+        exact-active-class="active"
+        >Videos</nuxt-link
+      >
+
+      <li class="list-group-item sidebar-link" @click="events = !events">
+        Join Us
         <span class="float-right">
           <i class="las la-angle-down" v-if="events"></i>
           <i class="las la-angle-right" v-else></i>
@@ -108,31 +116,23 @@
       <ul class="list-group list-group-flush sub-menus" v-show="events">
         <nuxt-link
           tag="li"
-          to="/events"
+          to="/join-us/as-a-member"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
-          Upcoming Events
+          As a member
         </nuxt-link>
         <nuxt-link
           tag="li"
-          to="/events?past=true"
+          to="/join-us/society-for-solidarity"
           class="list-group-item sidebar-link sub-menu"
           exact-active-class="active"
         >
-          Past Events
+          Society For Solidarity
         </nuxt-link>
 
         <li class="list-group-item sidebar-link sub-menu p-0"></li>
-      </ul> -->
-
-      <nuxt-link
-        to="/videos"
-        tag="li"
-        class="list-group-item sidebar-link"
-        exact-active-class="active"
-        >Videos</nuxt-link
-      >
+      </ul>
 
       <li class="list-group-item sidebar-link" @click="about = !about">
         About Us
@@ -325,7 +325,7 @@ ul {
   cursor: pointer;
 }
 
-@media screen and(min-width: 767px) {
+@media screen and(min-width: 992px) {
   nav {
     display: none;
   }
