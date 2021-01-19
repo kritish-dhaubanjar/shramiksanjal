@@ -127,6 +127,7 @@
                   <textarea
                     class="form-control is-radiusless"
                     rows="5"
+                    v-model="member.message"
                   ></textarea>
                 </div>
 
@@ -159,7 +160,8 @@ export default {
         email: "",
         code: "",
         name: "",
-        number: ""
+        number: "",
+        message: "",
       }
     };
   },
@@ -181,19 +183,24 @@ export default {
     },
 
     join() {
-      Swal.fire({
-        icon: "success",
-        title: "Oops...",
-        text: "Something went wrong!"
-      }).then(() => {
-        this.$router.replace("/");
-      });
-
-      //   Swal.fire({
-      //     icon: "error",
-      //     title: "Oops...",
-      //     text: "Something went wrong!",
-      //   });
+      //
+      this.$axios.post('/api/collections/save/solidarity', { data: this.member })
+        .then(entry => {
+          Swal.fire({
+            icon: "success",
+            title: "Thank you",
+            text: "Form submitted successfully !"
+          }).then(() => {
+            this.$router.replace("/");
+          });
+        })
+        .catch(err => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+            });
+        });
     }
   },
 

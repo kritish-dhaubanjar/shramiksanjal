@@ -254,6 +254,7 @@
                   <textarea
                     class="form-control is-radiusless"
                     rows="5"
+                    v-model="member.message"
                   ></textarea>
                 </div>
 
@@ -301,19 +302,24 @@ export default {
 
   methods: {
     join() {
-      Swal.fire({
-        icon: "success",
-        title: "Oops...",
-        text: "Something went wrong!"
-      }).then(() => {
-        this.$router.replace("/");
-      });
-
-      //   Swal.fire({
-      //     icon: "error",
-      //     title: "Oops...",
-      //     text: "Something went wrong!",
-      //   });
+      //
+      this.$axios.post('/api/collections/save/members', { data: this.member })
+        .then(entry => {
+          Swal.fire({
+            icon: "success",
+            title: "Thank you",
+            text: "Form submitted successfully !"
+          }).then(() => {
+            this.$router.replace("/");
+          });
+        })
+        .catch(err => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+            });
+        });
     }
   },
 
