@@ -41,34 +41,37 @@
                 <div class="form-group">
                   <label class="font-weight-bold">Title</label>
                   <div class="form-row">
-                    <div class="col-4" @click="member.title = 'Mr.'">
+                    <div class="col-4">
                       <input
+                        @click="member.title = 'Mr.'"
                         type="text"
                         class="form-control is-radiusless mb-sm-2 mb-md-0 "
                         :class="{ active: member.title == 'Mr.' }"
                         required
                         value="Mr."
-                        disabled
+                        readonly
                       />
                     </div>
-                    <div class="col-4" @click="member.title = 'Mrs.'">
+                    <div class="col-4">
                       <input
+                        @click="member.title = 'Mrs.'"
                         type="text"
                         class="form-control is-radiusless mb-sm-2 mb-md-0"
                         :class="{ active: member.title == 'Mrs.' }"
                         required
                         value="Mrs."
-                        disabled
+                        readonly
                       />
                     </div>
-                    <div class="col-4" @click="member.title = 'Other'">
+                    <div class="col-4">
                       <input
+                        @click="member.title = 'Other'"
                         type="text"
                         class="form-control is-radiusless mb-sm-2 mb-md-0"
                         :class="{ active: member.title == 'Other' }"
                         required
                         value="Other"
-                        disabled
+                        readonly
                       />
                     </div>
                   </div>
@@ -303,7 +306,8 @@ export default {
   methods: {
     join() {
       //
-      this.$axios.post('/api/collections/save/members', { data: this.member })
+      this.$axios
+        .post("/api/collections/save/members", { data: this.member })
         .then(entry => {
           Swal.fire({
             icon: "success",
@@ -314,11 +318,11 @@ export default {
           });
         })
         .catch(err => {
-            Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Something went wrong!",
-            });
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!"
+          });
         });
     }
   },
