@@ -105,41 +105,17 @@
                   </div>
                 </div>
 
-                <label class="font-weight-bold mt-3">Gender</label>
                 <div class="form-group">
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="inlineRadioOptions"
-                      id="male"
-                      value="male"
-                      v-model="member.gender"
-                    />
-                    <label class="form-check-label" for="male">Male</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="inlineRadioOptions"
-                      id="female"
-                      value="female"
-                      v-model="member.gender"
-                    />
-                    <label class="form-check-label" for="female">Female</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="inlineRadioOptions"
-                      id="others"
-                      value="others"
-                      v-model="member.gender"
-                    />
-                    <label class="form-check-label" for="others">Others</label>
-                  </div>
+                  <label for="gender">Gender</label>
+                  <select
+                    class="form-control is-radiusless"
+                    id="gender"
+                    v-model="member.gender"
+                  >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                  </select>
                 </div>
 
                 <div class="form-group">
@@ -273,6 +249,14 @@
                   />
                 </div>
 
+                <div class="form-group">
+                  <label class="font-weight-bold">Message</label>
+                  <textarea
+                    class="form-control is-radiusless"
+                    rows="5"
+                  ></textarea>
+                </div>
+
                 <button
                   class="btn btn-danger py-3 px-5 is-radiusless font-weight-bold  mt-4"
                 >
@@ -305,7 +289,8 @@ export default {
         homeAddress: "",
         countryOfResidence: "",
         workingSectors: "Hotel and Hospitality",
-        specification: ""
+        specification: "",
+        message: ""
       }
     };
   },
@@ -348,7 +333,8 @@ h3 {
   }
 }
 
-input {
+input,
+select {
   height: 48px;
   border: 2px solid #e3e3e3;
   &:active,
