@@ -237,10 +237,10 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
 p {
-  font-family: "Ubuntu";
+  font-family: "Noto Sans";
   font-size: 17px;
   color: #333;
-  line-height: 180%;
+  line-height: 160%;
 }
 
 .background-image {

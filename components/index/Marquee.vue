@@ -49,9 +49,8 @@ export default {
 .marquee-container {
   background-color: #df1a17;
 }
-
 marquee {
-  font-family: "Lato";
+  font-family: "Noto Sans";
   font-weight: bolder;
   &:hover {
     cursor: pointer;
