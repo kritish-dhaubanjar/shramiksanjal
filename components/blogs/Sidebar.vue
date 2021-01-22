@@ -105,7 +105,7 @@ export default {
         data.entries.map(tag => {
           return this.$axios
             .post("/api/collections/get/news", {
-              filter: { "tags.display": tag.tag_en.toUpperCase() }
+              filter: { "tags.display": tag.tag_en }
             })
             .then(({ data }) => {
               tag.count = data.total;

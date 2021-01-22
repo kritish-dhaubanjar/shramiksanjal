@@ -102,14 +102,15 @@ export default {
         let tags = data.entries.map(e => e.tags);
 
         tags.forEach(tag => {
-          tag.forEach(e => {
-            this.count++;
-            let index = this.tags.findIndex(t => t.tag_en == e);
-            if (index == -1) this.tags.push({ tag_en: e, count: 1 });
-            else {
-              this.tags[index].count++;
-            }
-          });
+          if (tag.length > 0)
+            tag.forEach(e => {
+              this.count++;
+              let index = this.tags.findIndex(t => t.tag_en == e);
+              if (index == -1) this.tags.push({ tag_en: e, count: 1 });
+              else {
+                this.tags[index].count++;
+              }
+            });
         });
 
         this.videos = data.entries.slice(0, 5);

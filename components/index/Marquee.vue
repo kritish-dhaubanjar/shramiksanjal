@@ -8,7 +8,7 @@
           </div>
 
           <nuxt-link
-            :to="`/news/${flash._id}`"
+            :to="`/blogs/${flash._id}`"
             tag="marquee"
             class="text-white pt-2"
             hover="pause"

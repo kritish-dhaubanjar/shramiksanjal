@@ -37,7 +37,9 @@
                   </nuxt-link>
 
                   <p :class="$i18n.locale">
-                    {{ $localeContent(article, "overview", $i18n.locale) }}
+                    {{
+                      trim($localeContent(article, "overview", $i18n.locale))
+                    }}
                   </p>
                 </div>
               </div>
@@ -107,7 +109,7 @@ export default {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        filter: { tag_en: params.category.toUpperCase() }
+        filter: { tag_en: params.category }
       })
     })
       .then(res => res.json())
@@ -139,7 +141,7 @@ export default {
       this.news = [];
       this.$axios
         .post("/api/collections/get/news", {
-          filter: { "tags.display": this.$route.params.category.toUpperCase() },
+          filter: { "tags.display": this.$route.params.category },
           sort: { _created: -1 },
           populate: true
         })
@@ -175,6 +177,10 @@ export default {
         top: 450,
         behavior: "smooth"
       });
+    },
+
+    trim(content) {
+      return content.length > 128 ? content.slice(0, 128) + "..." : content;
     }
   },
 

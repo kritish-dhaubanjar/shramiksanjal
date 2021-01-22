@@ -98,7 +98,9 @@
                       {{ $localeContent(video, "title", $i18n.locale) }}
                     </h5>
                     <p>
-                      {{ $localeContent(video, "overview", $i18n.locale) }}
+                      {{
+                        trim($localeContent(video, "overview", $i18n.locale))
+                      }}
                     </p>
                   </a>
                 </div>
@@ -218,6 +220,10 @@ export default {
         top: 450,
         behavior: "smooth"
       });
+    },
+
+    trim(content) {
+      return content.length > 128 ? content.slice(0, 128) + "..." : content;
     }
   },
 
