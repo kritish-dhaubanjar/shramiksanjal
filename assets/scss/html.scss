@@ -1,4 +1,11 @@
 .html {
+  * {
+    font-family: "Ubuntu" !important;
+    font-size: 17px;
+    color: #333;
+    line-height: 180%;
+  }
+
   .youtube {
     width: 100%;
     position: relative;
@@ -13,10 +20,6 @@
   h6 {
     font-weight: bolder;
     margin-bottom: 24px;
-  }
-
-  p {
-    line-height: 190%;
   }
 
   iframe {

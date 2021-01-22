@@ -184,6 +184,12 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
+p {
+  font-family: "Ubuntu";
+  font-size: 17px;
+  color: #333;
+  line-height: 180%;
+}
 a {
   h4 {
     font-family: "Lato", sans-serif !important;

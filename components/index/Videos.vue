@@ -124,7 +124,12 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
-
+p {
+  font-family: "Ubuntu";
+  font-size: 17px;
+  color: #333;
+  line-height: 180%;
+}
 .background-image {
   min-height: 250px;
   // background-image: url(https://via.placeholder.com/485x325);
