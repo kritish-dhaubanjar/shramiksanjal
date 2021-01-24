@@ -32,17 +32,21 @@
                 <h1 class="font-weight-bold mb-4">
                   {{ carousel[`caption_${$i18n.locale}`] }}
                 </h1>
-                <button
+                <nuxt-link
+                  tag="button"
+                  :to="localePath('/videos')"
                   class="btn btn-lg btn-dark is-radiusless py-3 px-4 my-2"
                 >
                   <h6 class="mb-0 font-weight-bold">EXPLORE WITH US</h6>
-                </button>
+                </nuxt-link>
                 <em class="mx-3 my-2">or</em>
-                <button
+                <nuxt-link
+                  tag="button"
+                  :to="localePath('/blogs')"
                   class="btn btn-lg btn-danger is-radiusless py-3 px-4 my-2"
                 >
-                  <h6 class="mb-0 font-weight-bold">RECENT NEWS</h6>
-                </button>
+                  <h6 class="mb-0 font-weight-bold">RECENT BLOGS</h6>
+                </nuxt-link>
                 <!-- <p class="lead">
                   This is a simple hero unit, a simple jumbotron-style component
                   for calling extra attention to featured content or

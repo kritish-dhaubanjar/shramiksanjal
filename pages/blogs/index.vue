@@ -1,5 +1,6 @@
 <template>
   <section>
+    <Marquee />
     <Banner :breadcrumb="{ name: `${country} Blogs` }" />
     <div class="container-fluid py-5 my-5">
       <div class="row">
@@ -94,6 +95,7 @@
 <script>
 import Banner from "@/components/others/Banner";
 import Sidebar from "@/components/blogs/Sidebar";
+import Marquee from "@/components/blogs/Marquee";
 
 export default {
   middleware({ query }) {
@@ -203,7 +205,8 @@ export default {
 
   components: {
     Banner,
-    Sidebar
+    Sidebar,
+    Marquee
   }
 };
 </script>
