@@ -146,13 +146,31 @@
                   <label class="font-weight-bold"
                     >Country of Residence (Current Country)</label
                   >
-                  <input
+                  <select
+                    class="form-control is-radiusless"
+                    id="gender"
+                    v-model="member.countryOfResidence"
+                    required
+                  >
+                    <option
+                      value=""
+                      disabled
+                      >Your Country of Residence (Current Country) *</option
+                    >
+                    <option value="Nepal">Nepal</option>
+                    <option value="UAE">UAE</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="Kuwait">Kuwait</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="Malaysia">Malaysia</option>
+                  </select>
+                  <!-- <input
                     type="text"
                     class="form-control is-radiusless"
                     placeholder="Your Country of Residence (Current Country) *"
                     required
                     v-model="member.countryOfResidence"
-                  />
+                  /> -->
                 </div>
 
                 <label class="font-weight-bold mt-3">Working Sectors</label>
@@ -277,7 +295,6 @@
 
 <script>
 import Banner from "@/components/others/Banner";
-import Section from "@/components/index/Section.vue";
 import Swal from "sweetalert2";
 
 export default {
