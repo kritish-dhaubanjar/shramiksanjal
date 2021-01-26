@@ -3,22 +3,22 @@
     <div class="container-fluid py-5">
       <div class="row">
         <div class="col-12 mb-5">
-          <h1 class="font-weight-bold">
+          <h1 class="font-weight-bold">Our Values</h1>
+          <h5 class="font-weight-bold">
             We respect people, value diversity and are committed to workers’
             dignity, power and safety.
-          </h1>
+          </h5>
         </div>
 
         <div
           class="col-sm-6 col-lg-4 col-xl mb-5"
-          v-for="(value, i) in values"
+          v-for="value in values"
           :key="value._id"
         >
-          <h5 class="font-weight-bold">0{{ i + 1 }}.</h5>
-          <hr class="mb-5" />
-          <h6 class="font-weight-bold mb-4">
+          <h5 class="font-weight-bold">
             {{ $localeContent(value, "title", $i18n.locale) }}
-          </h6>
+          </h5>
+          <hr class="mb-4" />
 
           <p>
             {{ $localeContent(value, "content", $i18n.locale) }}

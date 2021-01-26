@@ -5,20 +5,20 @@
         <div class="col-lg-6 d-flex mt-4">
           <i class="las la-headphones la-3x mr-3" />
           <div>
-            <h4>
+            <h4 class="font-weight-bold">
               Call Us 24/7 880.234.9234
             </h4>
-            <h5>For general inquiries</h5>
+            <h5 class="font-weight-bold">For general inquiries</h5>
           </div>
         </div>
 
         <div class="col-lg-6 d-flex my-4">
           <i class="las la-map-marker la-3x mr-3" />
           <div>
-            <h4>
+            <h4 class="font-weight-bold">
               London city govt
             </h4>
-            <h5>
+            <h5 class="font-weight-bold">
               46, The queen's walk london 5241, UK
             </h5>
           </div>
@@ -26,12 +26,12 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6 mb-4">
+        <div class="col-lg-4 mb-4">
           <h6 class="letter-spacing">SUBSCRIBE TO OUR NEWSLETTER</h6>
           <hr class="mt-2 mb-4" />
           <p>Sign up for weekly News, Trainings & Webinars</p>
 
-          <div class="input-group my-4">
+          <div class="input-group my-4 pr-lg-4">
             <input
               type="email"
               class="form-control is-radiusless is-borderless font-weight-bold px-3"
@@ -47,34 +47,107 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-2 mb-4">
-          <h6 class="letter-spacing">IMPORTANT</h6>
-          <hr class="mt-2 mb-4" />
-          <ul>
-            <li><a href="#">Departments</a></li>
-            <li><a href="#">Perceptions</a></li>
-            <li><a href="#">Low Cases</a></li>
-            <li><a href="#">Fiskal Empowered</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-2 mb-4">
+        <div class="col-sm-4 col-md-4 col-lg-3 mb-4">
           <h6 class="letter-spacing">USEFUL LINKS</h6>
           <hr class="mt-2 mb-4" />
           <ul>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Social Changes</a></li>
-            <li><a href="#">Sustainability</a></li>
-            <li><a href="#">Fiskal Sponsorship</a></li>
+            <li>
+              <a
+                href="https://dofe.gov.np"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://dofe.gov.np"
+                >Foreign Employment Board</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.nhrcnepal.org"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://www.nhrcnepal.org"
+                >National Human Rights Commission</a
+              >
+            </li>
           </ul>
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-2 mb-4">
-          <h6 class="letter-spacing">LIVING HERE</h6>
+        <div class="col-sm-4 col-md-4 col-lg-3 mb-4">
+          <h6 class="letter-spacing">EMBASSY OF NEPAL</h6>
           <hr class="mt-2 mb-4" />
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">About Us</a></li>
+            <li>
+              <a
+                href="https://qa.nepalembassy.gov.np"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://qa.nepalembassy.gov.np"
+                >Doha, Qatar</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://ae.nepalembassy.gov.np"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://ae.nepalembassy.gov.np"
+                >Abu Dhabi, UAE</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://sa.nepalembassy.gov.np"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://sa.nepalembassy.gov.np"
+                >Riyad, Saudi Arabia</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://om.nepalembassy.gov.np"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://om.nepalembassy.gov.np"
+                >Muscat, Oman</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://bh.nepalembassy.gov.np"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://bh.nepalembassy.gov.np"
+                >Manama, Bahrain</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://my.nepalembassy.gov.np"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://my.nepalembassy.gov.np"
+                >Kuala Lumpur Malaysia</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-2 mb-4">
+          <h6 class="letter-spacing">QUICK LINKS</h6>
+          <hr class="mt-2 mb-4" />
+          <ul>
+            <li><nuxt-link to="/">Home</nuxt-link></li>
+            <li><nuxt-link to="/blogs">Blogs</nuxt-link></li>
+            <li><nuxt-link to="/our-programs">Programs</nuxt-link></li>
+            <li><nuxt-link to="/videos">Videos</nuxt-link></li>
           </ul>
         </div>
       </div>

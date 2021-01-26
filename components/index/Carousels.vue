@@ -34,10 +34,10 @@
                 </h1>
                 <nuxt-link
                   tag="button"
-                  :to="localePath('/videos')"
+                  :to="localePath('/our-programs')"
                   class="btn btn-lg btn-dark is-radiusless py-3 px-4 my-2"
                 >
-                  <h6 class="mb-0 font-weight-bold">EXPLORE WITH US</h6>
+                  <h6 class="mb-0 font-weight-bold">OUR PROGRAMS</h6>
                 </nuxt-link>
                 <em class="mx-3 my-2">or</em>
                 <nuxt-link

@@ -132,14 +132,63 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="font-weight-bold">Home Address</label>
-                  <input
-                    type="text"
-                    class="form-control is-radiusless"
-                    placeholder="Your Home Address *"
-                    required
-                    v-model="member.homeAddress"
-                  />
+                  <label class="font-weight-bold">Nationality</label>
+                  <select class="form-control is-radiusless">
+                    <option value="" selected>Nepali</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-4">
+                      <label class="font-weight-bold">Province</label>
+                      <select
+                        class="form-control is-radiusless"
+                        required
+                        v-model="member.province"
+                        @change="member.district = ''"
+                      >
+                        <option value="" disabled selected
+                          >Select Province</option
+                        >
+                        <option
+                          v-for="province in Object.keys(provinces)"
+                          :key="province"
+                          :value="province"
+                          >{{ province }}</option
+                        >
+                      </select>
+                    </div>
+                    <!--  -->
+                    <div class="col-md-4">
+                      <label class="font-weight-bold">District</label>
+                      <select
+                        class="form-control is-radiusless"
+                        required
+                        v-model="member.district"
+                      >
+                        <option value="" disabled selected
+                          >Select District</option
+                        >
+                        <option
+                          v-for="district in provinces[member.province]"
+                          :key="district"
+                          :value="district"
+                          >{{ district }}</option
+                        >
+                      </select>
+                    </div>
+                    <!--  -->
+                    <div class="col-md-4">
+                      <label class="font-weight-bold">Ward No.</label>
+                      <input
+                        type="number"
+                        class="form-control is-radiusless"
+                        placeholder="Ward No. *"
+                        required
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div class="form-group">
@@ -152,9 +201,7 @@
                     v-model="member.countryOfResidence"
                     required
                   >
-                    <option
-                      value=""
-                      disabled
+                    <option value="" disabled
                       >Your Country of Residence (Current Country) *</option
                     >
                     <option value="Nepal">Nepal</option>
@@ -171,6 +218,41 @@
                     required
                     v-model="member.countryOfResidence"
                   /> -->
+                </div>
+
+                <div class="form-group">
+                  <label class="font-weight-bold">Phone Number</label>
+                  <div class="form-row">
+                    <div class="col-3 col-md-2">
+                      <input
+                        type="number"
+                        class="form-control is-radiusless"
+                        placeholder="+977"
+                        required
+                        v-model="member.code"
+                      />
+                    </div>
+                    <div class="col-9 col-md-10">
+                      <input
+                        type="number"
+                        class="form-control is-radiusless"
+                        placeholder="987-654321"
+                        required
+                        v-model="member.number"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="font-weight-bold">Email</label>
+                  <input
+                    type="email"
+                    class="form-control is-radiusless"
+                    placeholder="johndoe@example.org"
+                    required
+                    v-model="member.email"
+                  />
                 </div>
 
                 <label class="font-weight-bold mt-3">Working Sectors</label>
@@ -300,7 +382,106 @@ import Swal from "sweetalert2";
 export default {
   data() {
     return {
+      provinces: {
+        "Province No. 1": [
+          "Bhojpur",
+          "Dhankuta",
+          "Jhapa",
+          "Khotang",
+          "Morang",
+          "Okhaldhunga",
+          "Panchthar",
+          "Sankhuwasabha",
+          "Solukhumbu",
+          "Sunsari",
+          "Taplejung",
+          "Terhathum",
+          "Udayapur"
+        ],
+        "Province No. 2": [
+          "Parsa",
+          "Bara",
+          "Rautahat",
+          "Sarlahi",
+          "Dhanusa",
+          "Siraha",
+          "Mahottari",
+          "Saptari"
+        ],
+        "Bagmati Province": [
+          "Sindhuli",
+          "Ramechhap",
+          "Dolakha",
+          "Bhaktapur",
+          "Dhading",
+          "Kathmandu",
+          "Kavrepalanchok",
+          "Lalitpur",
+          "Nuwakot",
+          "Rasuwa",
+          "Sindhupalchok",
+          "Chitwan",
+          "Makwanpur"
+        ],
+        "Gandaki Province": [
+          "Baglung",
+          "Gorkha",
+          "Kaski",
+          "Lamjung",
+          "Manang",
+          "Mustang",
+          "Myagdi",
+          "Nawalpur",
+          "Parbat",
+          "Syangja",
+          "Tanahun"
+        ],
+        "Lumbini Province": [
+          "Kapilvastu",
+          "Parasi",
+          "Rupandehi",
+          "Arghakhanchi",
+          "Gulmi",
+          "Palpa",
+          "Dang Deukhuri",
+          "Pyuthan",
+          "Rolpa",
+          "Eastern Rukum",
+          "Banke",
+          "Bardiya"
+        ],
+        "Karnali Province": [
+          "Rukum",
+          "Salyan",
+          "Dolpa",
+          "Humla",
+          "Jumla",
+          "Kalikot",
+          "Mugu",
+          "Surkhet",
+          "Dailekh",
+          "Jajarkot"
+        ],
+        "Sudurpashchim Province": [
+          "Kailali",
+          "Achham",
+          "Doti",
+          "Bajhang",
+          "Bajura",
+          "Kanchanpur",
+          "Dadeldhura",
+          "Baitadi",
+          "Darchula"
+        ]
+      },
       member: {
+        //
+        province: "",
+        district: "",
+        code: "",
+        number: "",
+        email: "",
+        //
         title: "Mr.",
         firstName: "",
         middleName: "",
@@ -385,5 +566,17 @@ textarea {
 
 input.active {
   border-color: #000;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>

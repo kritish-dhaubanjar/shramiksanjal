@@ -2,7 +2,10 @@
   <section class="bg-light pb-5">
     <div class="container-fluid py-5">
       <div class="row">
-        <div class="col-md-7 col-lg-8 pt-5 my-5">
+        <div
+          class="pt-5 mt-4 mb-4"
+          :class="content.image ? 'col-md-7 col-lg-8' : 'col-12'"
+        >
           <h1 class="font-weight-bold">
             {{ $localeContent(content, "title", $i18n.locale) }}
           </h1>
@@ -11,7 +14,10 @@
           </p>
         </div>
 
-        <div class="col-md-5 col-lg-4 text-center">
+        <div
+          class="col-md-5 col-lg-4 text-center"
+          v-if="content.image && content.image.path"
+        >
           <div class="position-relative">
             <img
               :src="
@@ -19,13 +25,17 @@
                   content.image ? content.image.path : ''
                 }`
               "
+              style="max-height: 256px"
               class="img-fluid"
             />
           </div>
         </div>
       </div>
 
-      <div class="row mt-5">
+      <div
+        class="row mb-4"
+        :class="content.image && content.image.path ? 'mt-5' : 'mt-4'"
+      >
         <div class="col-lg-1"></div>
         <div class="col-md-12 col-lg-9 mb-3">
           <p>

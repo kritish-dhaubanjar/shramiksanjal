@@ -6,7 +6,7 @@
           <h2 class="font-weight-bold">Recent Videos</h2>
           <hr />
           <p class="font-weight-bold">
-            Enjoy latest successful stories from our journal.
+            Video is one of the most powerful tools of visual communication.
           </p>
         </div>
 

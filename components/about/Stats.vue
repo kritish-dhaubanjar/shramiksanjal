@@ -2,12 +2,34 @@
   <section>
     <div class="container-fluid bg-white shadow-sm mx-auto">
       <div class="row py-3">
-        <div class="col-lg-4 py-4" v-for="i in 3" :key="i">
+        <div class="col-lg-4 py-4">
           <div class="d-flex align-items-center">
             <i class="las la-comments la-4x text-danger mr-3"></i>
             <p class="font-weight-bold text-danger mb-0">
-              Youth report to feel more empowered to end a relationship if their
-              partner wants sex as a condition to continue.
+              The colour of the passport should not undermine the value of
+              humanity. Fair treatment and equal opportunities should be a
+              minimum norm to respect the migrants’ humanity.
+            </p>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-lg-4 py-4">
+          <div class="d-flex align-items-center">
+            <i class="las la-comments la-4x text-danger mr-3"></i>
+            <p class="font-weight-bold text-danger mb-0">
+              Migrant workers are often overlooked for having their
+              representation in the mainstream global dialogue. Migrant voices
+              matters; lets our voices be heard and shared.
+            </p>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-lg-4 py-4">
+          <div class="d-flex align-items-center">
+            <i class="las la-comments la-4x text-danger mr-3"></i>
+            <p class="font-weight-bold text-danger mb-0">
+              Let’s work together for bringing about a positive change in our
+              time.
             </p>
           </div>
         </div>
@@ -22,7 +44,7 @@ p {
 }
 @media screen and(min-width:1200px) {
   section {
-    margin-bottom: 110px;
+    margin-bottom: 150px;
     .container-fluid {
       position: absolute;
       left: 0;

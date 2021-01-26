@@ -78,10 +78,10 @@
 
         <div class="col-lg-4 d-none d-lg-block">
           <div class="pattern mt-5" />
-          <img
+          <!-- <img
             src="https://via.placeholder.com/720x1080"
             class="img-fluid mt-5"
-          />
+          /> -->
         </div>
       </div>
     </div>

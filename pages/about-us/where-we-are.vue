@@ -33,14 +33,18 @@ export default {
     Banner
   },
 
+  beforeDestroy() {
+    this.chart.dispose();
+  },
+
   mounted() {
     /* Chart code */
 
     // Create map instance
     this.chart = am4core.create("chartdiv", am4maps.MapChart);
-    this.chart.events.on("ready", function(ev) {
-      this.chart.zoomToMapObject(polygonSeries.getPolygonById("IN"));
-    });
+    // this.chart.events.on("ready", ev => {
+    //   this.chart.zoomToMapObject(polygonSeries.getPolygonById("IN"));
+    // });
 
     this.chart.homeZoomLevel = 1.75;
     this.chart.homeGeoPoint = {
@@ -152,7 +156,7 @@ export default {
       });
     }
 
-    let colorSet = new am4core.ColorSet();
+    // let colorSet = new am4core.ColorSet();
 
     /*
     [

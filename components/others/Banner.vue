@@ -17,6 +17,10 @@ export default {
 </script>
 
 <style scoped>
+h1,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
 .jumbotron {
   padding-top: 80px;
   padding-bottom: 80px;

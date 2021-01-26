@@ -6,7 +6,7 @@
           <h2 class="font-weight-bold">Recent Blogs</h2>
           <hr />
           <p class="font-weight-bold">
-            Enjoy latest successful stories from our journal.
+            For more latest news and blogs explore with us:
           </p>
         </div>
 
