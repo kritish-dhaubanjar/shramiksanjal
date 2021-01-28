@@ -2,9 +2,10 @@
   <section class="my-5 pt-5 overflow-hidden">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6 col-lg-5 mb-5 pb-5">
-          <div class="card is-radiusless">
-            <div class="card-body text-center py-5">
+        <div class="col-md-12 col-lg-12 mb-5 pb-5 text-center">
+          <!-- <div class="card is-radiusless"> -->
+          <img src="/images/timeline.png" class="img-fluid" />
+          <!-- <div class="card-body text-center py-5">
               <h2 class="font-weight-bold">
                 Drive Change with<br />
                 Actionable Insight
@@ -24,12 +25,12 @@
                 successful politics of sustainability.
               </small>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6 offset-lg-1 col-lg-5">
+          </div> -->
+          <!-- </div> -->
+          <!-- <div class="col-md-6 offset-lg-1 col-lg-5">
           <div class="image-holder text-center">
             <img src="https://via.placeholder.com/550x660" class="img-fluid" />
-          </div>
+          </div>-->
         </div>
 
         <div class="col-lg-8 bg-dark text-white position-relative">
