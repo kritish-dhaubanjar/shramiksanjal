@@ -4,7 +4,7 @@
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
-          <h3 class="font-weight-bold">
+          <!-- <h3 class="font-weight-bold">
             Who Do you want to communicate with
           </h3>
           <p>
@@ -25,7 +25,7 @@
               Ph: (+01) 123 456 7899 <br />
               Email: info@example.com
             </div>
-          </div>
+          </div> -->
 
           <div class="card is-radiusless my-3 is-borderless">
             <div class="card-body py-5 form-card bg-white shadow-sm">
@@ -33,8 +33,10 @@
                 Need more information or want to get in touch?
               </h5>
               <p>
-                Questions or Comments? Please complete the form below. We’ll
-                follow up with you in 1-2 business days.
+                All current Nepali migrant workers working in foreign
+                employment, without any affiliation with any recruitment
+                agencies or manpower company, will be able to subscribe to our
+                membership.
               </p>
 
               <form class="mt-4 pt-3" @submit.prevent="join">

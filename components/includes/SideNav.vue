@@ -195,6 +195,7 @@
         <li class="list-group-item sidebar-link sub-menu p-0"></li>
       </ul>
       <!--  -->
+      <!-- 
 
       <li class="list-group-item d-flex">
         <i class="las la-phone mr-2" />
@@ -217,7 +218,6 @@
         <i class="las la-envelope mr-2" />
         <span>krishttrading@gmail.com</span>
       </li>
-
       <li class="list-group-item">
         <nuxt-link
           to="/contact-us"
@@ -225,7 +225,7 @@
         >
           <span>Contact Us <i class="las la-arrow-right"/></span>
         </nuxt-link>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </template>

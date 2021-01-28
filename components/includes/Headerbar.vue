@@ -63,10 +63,11 @@
                 </nuxt-link>
               </div>
             </div>
-
-            <button class="btn btn-outline-danger btn-sm is-radiusless">
-              <i class="las la-sign-in-alt" /> Sign In
-            </button>
+            <a href="https://api.shramiksanjal.org" target="_blank">
+              <button class="btn btn-outline-danger btn-sm is-radiusless">
+                <i class="las la-sign-in-alt" /> Sign In
+              </button>
+            </a>
           </div>
         </div>
       </div>

@@ -4,15 +4,15 @@
     <div class="container-fluid py-5 my-5">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
-          <h3 class="font-weight-bold">
+          <!-- <h3 class="font-weight-bold">
             Who Do you want to communicate with
-          </h3>
+          </h3> 
           <p>
             For more information here we provide separate department contact
             person details, please contact them.
           </p>
 
-          <div class="row mt-5">
+           <div class="row mt-5">
             <div class="col-sm-6 col-lg-6 mb-5">
               <h5 class="font-weight-bold mb-4">Career Inquiries</h5>
               <h6 class="font-weight-bold mb-2">John Martin</h6>
@@ -25,7 +25,7 @@
               Ph: (+01) 123 456 7899 <br />
               Email: info@example.com
             </div>
-          </div>
+          </div> -->
 
           <div class="card is-radiusless my-3 is-borderless">
             <div class="card-body py-5 form-card bg-white shadow-sm">
@@ -33,8 +33,10 @@
                 Need more information or want to get in touch?
               </h5>
               <p>
-                Questions or Comments? Please complete the form below. We’ll
-                follow up with you in 1-2 business days.
+                We strongly believe in the power of unity. Our work needs
+                multidimensional collaboration between like-minded people and
+                institutions, so we seek for any individual or institution to
+                exchange and support our work with each other.
               </p>
 
               <form class="mt-4 pt-3" @submit.prevent="join">
@@ -130,7 +132,17 @@
                     v-model="member.message"
                   ></textarea>
                 </div>
-
+                <p>
+                  “We offer grassroots expertise and empirical narratives in the
+                  field of work we do”
+                </p>
+                <p>
+                  <em
+                    >* Please note that we will not use your personal details
+                    for any other purposes except our references for
+                    verification. Thank you.</em
+                  >
+                </p>
                 <button
                   class="btn btn-danger py-3 px-5 is-radiusless font-weight-bold  mt-4"
                 >
@@ -161,7 +173,7 @@ export default {
         code: "",
         name: "",
         number: "",
-        message: "",
+        message: ""
       }
     };
   },
@@ -184,7 +196,8 @@ export default {
 
     join() {
       //
-      this.$axios.post('/api/collections/save/solidarity', { data: this.member })
+      this.$axios
+        .post("/api/collections/save/solidarity", { data: this.member })
         .then(entry => {
           Swal.fire({
             icon: "success",
@@ -195,11 +208,11 @@ export default {
           });
         })
         .catch(err => {
-            Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Something went wrong!",
-            });
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!"
+          });
         });
     }
   },

@@ -306,13 +306,13 @@
                 to="/contact-us"
 
  -->
-              <nuxt-link
+              <!-- <nuxt-link
                 :to="localePath('contact-us')"
                 tag="button"
                 class="btn btn-danger is-radiusless font-weight-bold"
               >
                 CONTACT US
-              </nuxt-link>
+              </nuxt-link> -->
             </div>
           </nav>
         </div>
