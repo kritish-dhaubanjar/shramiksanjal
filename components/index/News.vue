@@ -117,9 +117,24 @@
               <h5 class="font-weight-bold mb-4 mt-3">CATEGORIES</h5>
               <table class="table">
                 <tbody>
+                  <tr>
+                    <th scope="row">
+                      <nuxt-link
+                        class="text-uppercase"
+                        :to="localePath('/blogs')"
+                        >ALL</nuxt-link
+                      >
+                    </th>
+                    <th>
+                      <span class="float-right"
+                        ><em>{{ total }}</em></span
+                      >
+                    </th>
+                  </tr>
                   <tr v-for="tag in tags" :key="tag._id">
                     <th scope="row">
                       <nuxt-link
+                        class="text-uppercase"
                         :to="localePath(`/blogs/categories/${tag.tag_en}`)"
                         >{{
                           $localeContent(tag, "tag", $i18n.locale)
@@ -151,6 +166,14 @@ export default {
     };
   },
 
+  computed: {
+    total() {
+      return this.tags.reduce((acc, current, index) => {
+        return acc + current.count;
+      }, 0);
+    }
+  },
+
   created() {
     this.$axios
       .post("/api/collections/get/news", {
@@ -169,7 +192,7 @@ export default {
         data.entries.map(tag => {
           return this.$axios
             .post("/api/collections/get/news", {
-              filter: { "tags.display": tag.tag_en.toUpperCase() }
+              filter: { "tags.display": tag.tag_en }
             })
             .then(({ data }) => {
               tag.count = data.total;
