@@ -30,22 +30,25 @@
           <h6 class="letter-spacing">SUBSCRIBE TO OUR NEWSLETTER</h6>
           <hr class="mt-2 mb-4" />
           <p>Sign up for weekly News, Trainings & Webinars</p>
-
-          <div class="input-group my-4 pr-lg-4">
-            <input
-              type="email"
-              class="form-control is-radiusless is-borderless font-weight-bold px-3"
-              placeholder="YOUR EMAIL ADDRESS"
-            />
-            <div class="input-group-append">
-              <button
-                class="btn btn-danger is-borderless is-radiusless font-weight-bold px-4"
-                type="button"
-              >
-                SIGN UP
-              </button>
+          <form @submit.prevent="subscribe">
+            <div class="input-group my-4 pr-lg-4">
+              <input
+                v-model="email"
+                type="email"
+                required
+                class="form-control is-radiusless is-borderless font-weight-bold px-3"
+                placeholder="YOUR EMAIL ADDRESS"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-danger is-borderless is-radiusless font-weight-bold px-4"
+                  type="submit"
+                >
+                  SIGN UP
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-3 mb-4">
           <h6 class="letter-spacing">USEFUL LINKS</h6>
@@ -197,8 +200,39 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
+
 export default {
-  props: ["socials"]
+  props: ["socials"],
+
+  data() {
+    return {
+      email: ""
+    };
+  },
+
+  methods: {
+    subscribe() {
+      this.$axios
+        .post("/api/collections/save/subscriptions", { data: {email: this.email} })
+        .then(entry => {
+          Swal.fire({
+            icon: "success",
+            title: "Thank you",
+            text: "Form submitted successfully !"
+          }).then(() => {
+            this.email = "";
+          });
+        })
+        .catch(err => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!"
+          });
+        });
+    }
+  }
 };
 </script>
 
