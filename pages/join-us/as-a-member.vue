@@ -182,12 +182,13 @@
                     </div>
                     <!--  -->
                     <div class="col-md-4">
-                      <label class="font-weight-bold">Ward No.</label>
+                      <label class="font-weight-bold">VDC/Municipality</label>
                       <input
-                        type="number"
+                        type="text"
                         class="form-control is-radiusless"
-                        placeholder="Ward No. *"
+                        placeholder="VDC/Municipality *"
                         required
+                        v-model="member.vdcMunicipality"
                       />
                     </div>
                   </div>
@@ -480,6 +481,7 @@ export default {
         //
         province: "",
         district: "",
+        vdcMunicipality: "",
         code: "",
         number: "",
         email: "",
