@@ -19,7 +19,7 @@
                     <i class="las la-clock la-3x mr-3" />
                     <div>
                       <em>Event Date:</em>
-                      <p><b>{{ formatEventDateString(event.event_start_date, event.event_end_date) }}</b> at <b>{{ convertTime(event.event_start_time) }}</b> - <b>{{ convertTime(event.event_end_time) }}</b></p>
+                      <p><b>{{ formatEventDateString(event.event_start_date, event.event_end_date) }}</b> {{ (event.event_start_time || event.event_end_time) ? 'at': '' }} <b>{{ formatEventTimeString(event.event_start_time, event.event_end_time) }}</b></p>
                     </div>
                   </div>
 
@@ -121,7 +121,10 @@ export default {
       let s = (startDate  && startDate !="") ? (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
       let e = (endDate  && endDate !="") ? (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
       if(e == "" || s == e) return s;
-      return s + ' - ' + e;
+      if(s && !e) return s;
+      if (!s && e) return e;
+      if(s && e) return s + ' - ' + e;
+      return "";
     },
 
     convertTime(time) {
@@ -130,6 +133,21 @@ export default {
       let h = H % 12 || 12;
       let ampm = (H < 12 || H === 24) ? " am" : " pm";
       return h + time.substring(2) + ampm;
+    },
+
+    formatEventTimeString(startTime, endTime) {
+      if(!startTime && !endTime) {
+        return '';
+      }
+      if(startTime && !endTime) {
+        return this.convertTime(startTime);
+      }
+      if(!startTime && endTime) {
+        return this.convertTime(endTime);
+      }
+      if(startTime && endTime) {
+        return this.convertTime(startTime) + ' - ' + this.convertTime(endTime);
+      }
     },
   },
 
