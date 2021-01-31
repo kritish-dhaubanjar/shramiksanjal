@@ -10,7 +10,7 @@
           <nuxt-link
             :to="`/blogs/${flash._id}`"
             tag="marquee"
-            class="text-white pt-2"
+            class="text-white pt-1"
             hover="pause"
             onmouseover="this.stop();"
             onmouseout="this.start();"
