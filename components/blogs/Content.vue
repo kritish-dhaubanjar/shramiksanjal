@@ -5,7 +5,7 @@
     <div class="my-3 py-5">
       <div class="card flex-row is-radiusless">
         <nuxt-link
-          :to="localePath(`/news/${meta.prev._id}`)"
+          :to="localePath(`/blogs/${meta.prev._id}`)"
           tag="div"
           class="card-body py-5"
           v-if="meta.prev"
@@ -20,7 +20,7 @@
         </nuxt-link>
         <!--  -->
         <nuxt-link
-          :to="localePath(`/news/${meta.next._id}`)"
+          :to="localePath(`/blogs/${meta.next._id}`)"
           tag="div"
           class="card-body py-5 border-left"
           v-if="meta.next"
