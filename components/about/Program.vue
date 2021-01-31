@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-md-7 col-lg-8 pt-5">
           <h2 class="font-weight-bold text-danger">
-            0{{ index }}. {{ $localeContent(content, "title", $i18n.locale) }}
+            <!-- 0{{ index }}. -->
+            {{ $localeContent(content, "title", $i18n.locale) }}
           </h2>
         </div>
         <!-- <div class="col-md-5 col-lg-4 text-center">

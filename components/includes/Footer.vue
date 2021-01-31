@@ -6,7 +6,7 @@
           <i class="las la-headphones la-3x mr-3" />
           <div>
             <h4 class="font-weight-bold">
-              Call Us 24/7 880.234.9234
+              Call Us +977 9880639580
             </h4>
             <h5 class="font-weight-bold">For general inquiries</h5>
           </div>
@@ -16,10 +16,10 @@
           <i class="las la-map-marker la-3x mr-3" />
           <div>
             <h4 class="font-weight-bold">
-              London city govt
+              Kathmandu, Nepal
             </h4>
             <h5 class="font-weight-bold">
-              46, The queen's walk london 5241, UK
+              Visit Us or Call us Today
             </h5>
           </div>
         </div>
@@ -214,7 +214,9 @@ export default {
   methods: {
     subscribe() {
       this.$axios
-        .post("/api/collections/save/subscriptions", { data: {email: this.email} })
+        .post("/api/collections/save/subscriptions", {
+          data: { email: this.email }
+        })
         .then(entry => {
           Swal.fire({
             icon: "success",

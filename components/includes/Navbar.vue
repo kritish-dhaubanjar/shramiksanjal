@@ -5,13 +5,7 @@
         <div class="col-12">
           <nav class="navbar navbar-expand-lg navbar-light px-0">
             <a class="navbar-brand" href="#">
-              <img
-                src="/images/logo.png"
-                width="52"
-                height="52"
-                alt=""
-                loading="lazy"
-              />
+              <img src="/images/logo.png" width="200" alt="" loading="lazy" />
             </a>
             <button
               class="navbar-toggler is-radiusless is-borderless"
@@ -336,7 +330,7 @@ export default {};
   }
 }
 
-@media screen and(max-width: 999px) {
+@media screen and(max-width: 992px) {
   // .collapse.navbar-collapse {
   //   display: none !important;
   // }

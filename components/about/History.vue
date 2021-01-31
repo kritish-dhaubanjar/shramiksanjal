@@ -3,10 +3,16 @@
     <div class="container-fluid py-5">
       <div class="row">
         <div class="col-12 mb-5">
-          <h1 class="font-weight-bold">
-            Strong project team is a key for success!
-          </h1>
+          <h2 class="font-weight-bold">
+            We are a team led by self-motivated, low-wage migrant workers in the
+            Gulf states & Malaysia.<br />
+          </h2>
           <hr />
+
+          <h5>
+            We offer grassroots expertise and empirical narratives in the field
+            of work.
+          </h5>
         </div>
 
         <div
