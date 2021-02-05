@@ -19,7 +19,7 @@
             <p class="font-weight-bold text-danger mb-0">
               Migrant workers are often overlooked for having their
               representation in the mainstream global dialogue. Migrant voices
-              matters; lets our voices be heard and shared.
+              matters; let our voices be heard and shared.
             </p>
           </div>
         </div>

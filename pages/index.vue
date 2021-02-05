@@ -36,6 +36,8 @@ export default {
     });
   },
 
+  mounted() {},
+
   components: {
     Marquee,
     Carousels,

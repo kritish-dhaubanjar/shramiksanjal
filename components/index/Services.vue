@@ -53,7 +53,7 @@ p.lead {
 }
 
 section {
-  background-color: #ffe12a;
+  background-color: #9BD5E4;
 }
 
 hr {

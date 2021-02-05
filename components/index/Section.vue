@@ -6,28 +6,37 @@
     "
   >
     <div class="container-fluid my-5 pb-5">
-      <div class="col-lg-6 offset-lg-6 text-white">
-        <div class="my-5 py-5">
-          <h1 class="no-letter-spacing font-weight-bold">
-            {{ $localeContent(data, "title", $i18n.locale) }}
-          </h1>
-          <hr />
-          <p class="font-weight-bold">
-            {{ $localeContent(data, "overview", $i18n.locale) }}
-          </p>
+      <div class="row">
+        <div
+          class="col-md-5 col-lg-6 text-center d-flex align-items-center justify-content-center"
+        >
+          <div class="mt-5 mt-md-0">
+            <img src="/images/banner.png" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-7 col-lg-6 text-white">
+          <div class="my-5 py-5">
+            <h1 class="no-letter-spacing font-weight-bold">
+              {{ $localeContent(data, "title", $i18n.locale) }}
+            </h1>
+            <hr />
+            <p class="font-weight-bold">
+              {{ $localeContent(data, "overview", $i18n.locale) }}
+            </p>
 
-          <nuxt-link
-            to="/our-programs"
-            class="btn btn-dark btn-lg is-radiusless mr-3 font-weight-bold p-3 mb-2"
-          >
-            OUR PROGRAMS
-          </nuxt-link>
-          <nuxt-link
-            to="/blogs"
-            class="btn btn-dark btn-lg is-radiusless font-weight-bold p-3 mb-2"
-          >
-            RECENT BLOGS
-          </nuxt-link>
+            <nuxt-link
+              to="/our-programs"
+              class="btn btn-dark btn-lg is-radiusless mr-3 font-weight-bold p-3 mb-2"
+            >
+              OUR PROGRAMS
+            </nuxt-link>
+            <nuxt-link
+              to="/blogs"
+              class="btn btn-dark btn-lg is-radiusless font-weight-bold p-3 mb-2"
+            >
+              RECENT BLOGS
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -73,5 +82,9 @@ hr {
 .btn {
   font-size: 16px;
   font-family: "Poppins", sans-serif;
+}
+
+.container-fluid {
+  background: rgba(0, 0, 0, 0.65);
 }
 </style>

@@ -201,8 +201,9 @@ export default {
         .then(entry => {
           Swal.fire({
             icon: "success",
-            title: "Thank you",
-            text: "Form submitted successfully !"
+            title: "Thank you for getting in touch! ",
+            html:
+              "We appreciate you contacting us. One of our colleagues will get back in touch with you soon! <br><br> Have a great day!"
           }).then(() => {
             this.$router.replace("/");
           });

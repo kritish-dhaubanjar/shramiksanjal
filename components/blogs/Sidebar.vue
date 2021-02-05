@@ -73,8 +73,45 @@
       </div>
     </div>
     <!--  -->
-    <div class="text-center py-5 bg-light">
-      <img src="https://via.placeholder.com/300x510" class="img-fluid" />
+    <div class="text-center mb-5">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-12">
+          <a
+            class="twitter-timeline"
+            href="https://twitter.com/ShramikSanjal"
+            data-height="512"
+            data-theme="light"
+          >
+            Tweets by ShramikSanjal
+          </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-12">
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fshramik.sanjal&tabs=timeline&height=512&width=512&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            height="512"
+            width="512"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          ></iframe>
+        </div>
+      </div>
+      <!-- <a
+        class="twitter-timeline"
+        data-height="512"
+        data-dnt="true"
+        data-theme="light"
+        href="https://twitter.com/ShramikSanjal?ref_src=twsrc%5Etfw"
+        >Tweets by ShramikSanjal</a
+      >
+      <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"
+      ></script> -->
+      <!-- <img src="https://via.placeholder.com/300x510" class="img-fluid" /> -->
     </div>
   </section>
 </template>
@@ -115,6 +152,14 @@ export default {
             });
         });
       });
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        twttr.widgets.load(document.getElementById("twitter"));
+      }, 0);
+    });
   }
 };
 </script>
@@ -168,5 +213,8 @@ tr:first-child {
   min-height: 100px;
   height: 100px;
   max-height: 100px;
+}
+iframe {
+  width: 100%;
 }
 </style>

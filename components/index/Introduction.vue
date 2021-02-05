@@ -36,25 +36,25 @@
         <div class="col-lg-8 bg-dark text-white position-relative">
           <div class="row ">
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">7</h1>
+              <h1 class="mb-0">{{ data.countries }}</h1>
               <small>
                 Countries
               </small>
             </div>
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">325+</h1>
+              <h1 class="mb-0">{{ data.members }}</h1>
               <small>
                 Members
               </small>
             </div>
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">22.5k</h1>
+              <h1 class="mb-0">{{ data.facebook_followers }}</h1>
               <small>
                 Facebook Followers
               </small>
             </div>
             <div class="col-6 col-sm-3 text-center py-3">
-              <h1 class="mb-0">1000+</h1>
+              <h1 class="mb-0">{{ data.youtube_subscribers }}</h1>
               <small>
                 Youtube Subscribers
               </small>
@@ -65,6 +65,27 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      data: {
+        countries: "",
+        members: "",
+        facebook_followers: "",
+        youtube_subscribers: ""
+      }
+    };
+  },
+
+  beforeCreate() {
+    this.$axios.get("/api/singletons/get/statistics").then(({ data }) => {
+      this.data = data;
+    });
+  }
+};
+</script>
 
 <style scoped lang="scss">
 .card {
