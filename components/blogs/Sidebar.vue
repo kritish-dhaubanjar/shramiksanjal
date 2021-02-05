@@ -155,11 +155,11 @@ export default {
   },
 
   mounted() {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        twttr.widgets.load(this.$el);
-      }, 0);
+   this.$nextTick(()=>{
+      twttr.ready().then(e => {
+      twttr.widgets.load(this.$el);
     });
+   })
   }
 };
 </script>

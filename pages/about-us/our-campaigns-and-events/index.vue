@@ -177,9 +177,9 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      setTimeout(() => {
+      twttr.ready().then(e => {
         twttr.widgets.load(this.$el);
-      }, 0);
+      });
     });
   },
 
