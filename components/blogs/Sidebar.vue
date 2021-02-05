@@ -75,7 +75,7 @@
     <!--  -->
     <div class="text-center mb-5">
       <div class="row">
-        <div class="col-12 col-sm-6 col-lg-12">
+        <div class="col-12 col-sm-6 col-lg-12" ref="twitterBlog">
           <a
             class="twitter-timeline"
             href="https://twitter.com/ShramikSanjal"
@@ -155,11 +155,11 @@ export default {
   },
 
   mounted() {
-   this.$nextTick(()=>{
+    this.$nextTick(() => {
       twttr.ready().then(e => {
-      twttr.widgets.load(this.$el);
+        e.widgets.load(this.$refs.twitterEvent);
+      }, 0);
     });
-   })
   }
 };
 </script>
