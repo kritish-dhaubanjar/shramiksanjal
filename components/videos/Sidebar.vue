@@ -143,7 +143,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       setTimeout(() => {
-        twttr.widgets.load(document.getElementById("twitter"));
+        twttr.widgets.load();
       }, 0);
     });
   }
