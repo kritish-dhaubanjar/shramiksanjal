@@ -157,7 +157,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       setTimeout(() => {
-        twttr.widgets.load();
+        twttr.widgets.load(this.$el);
       }, 0);
     });
   }

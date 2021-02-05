@@ -45,7 +45,8 @@ export default {
       },
       {
         src: "https://platform.twitter.com/widgets.js",
-        body: true
+        async: true,
+        defer: true
       }
     ]
   },
