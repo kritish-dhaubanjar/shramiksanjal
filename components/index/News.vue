@@ -249,8 +249,8 @@ tr:first-child {
 
 .col-lg-4 {
   .card {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("https://via.placeholder.com/485x325");
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("/images/background.jpg");
 
     color: #fff;
     table {
