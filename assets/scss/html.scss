@@ -27,4 +27,13 @@
     width: 100%;
     height: 100%;
   }
+
+  table {
+    td {
+      padding: 4px !important;
+    }
+    p {
+      margin: 0 !important;
+    }
+  }
 }

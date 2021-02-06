@@ -66,6 +66,13 @@ export default {
         );
       });
 
+      wysiwyg.querySelectorAll("table").forEach(node => {
+        let div = document.createElement("div");
+        div.className = "table-responsive";
+        div.appendChild(node.cloneNode(true));
+        node.parentElement.replaceChild(div, node);
+      });
+
       return wysiwyg.innerHTML;
     }
   }
