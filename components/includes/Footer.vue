@@ -211,6 +211,15 @@ export default {
     };
   },
 
+  mounted() {
+    Swal.fire({
+      icon: "success",
+      title: "Thank you for subscribing",
+      text:
+        "You will be the first to know about Shramiksanjal news, helpful tips and events. Get updates from Shramiksanjal that are most important to you. Let us know what type of emails you would like to recieve."
+    });
+  },
+
   methods: {
     subscribe() {
       this.$axios
@@ -220,8 +229,9 @@ export default {
         .then(entry => {
           Swal.fire({
             icon: "success",
-            title: "Thank you",
-            text: "Form submitted successfully !"
+            title: "Thank you for subscribing",
+            text:
+              "You will be the first to know about Shramiksanjal news, helpful tips and events. Get updates from Shramiksanjal that are most important to you. Let us know what type of emails you would like to recieve."
           }).then(() => {
             this.email = "";
           });

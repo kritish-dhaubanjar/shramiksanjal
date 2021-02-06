@@ -125,3 +125,13 @@ a {
     }
   }
 }
+
+.swal2-popup {
+  border-radius: 0 !important;
+  .swal2-confirm {
+    border-radius: 0;
+    // background-color: #df1a17;
+    box-shadow: none;
+    outline: none;
+  }
+}
