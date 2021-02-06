@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <nav class="navbar navbar-expand-lg navbar-light px-0">
+          <nav class="navbar navbar-expand-lg navbar-light px-0 py-0">
             <a class="navbar-brand" href="#">
               <img src="/images/logo.png" width="200" alt="" loading="lazy" />
             </a>
