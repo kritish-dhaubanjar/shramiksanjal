@@ -10,6 +10,7 @@ export default {
   head: {
     title: "Shramiksanjal" || process.env.npm_package_name,
     meta: [
+      { name: "twitter:widgets:autoload", content: "off" },
       { charset: "utf-8" },
       {
         name: "viewport",
@@ -45,6 +46,7 @@ export default {
       },
       {
         src: "https://platform.twitter.com/widgets.js",
+        body: true,
         async: true,
         defer: true
       }
