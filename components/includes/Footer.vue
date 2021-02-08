@@ -102,6 +102,16 @@
             </li>
             <li>
               <a
+                href="https://kw.nepalembassy.gov.np/"
+                target="_blank"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="https://kw.nepalembassy.gov.np/"
+                >Kuwait City, Sate of Kuwait</a
+              >
+            </li>
+            <li>
+              <a
                 href="https://sa.nepalembassy.gov.np"
                 target="_blank"
                 data-toggle="tooltip"
