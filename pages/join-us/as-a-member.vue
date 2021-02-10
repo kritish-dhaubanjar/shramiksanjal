@@ -383,6 +383,19 @@ import Banner from "@/components/others/Banner";
 import Swal from "sweetalert2";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: Join us as a Member`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "All current Nepali migrant workers working in foreign employment, without any affiliation with any recruitment agencies or manpower company, will be able to subscribe to our membership."
+        }
+      ]
+    };
+  },
   data() {
     return {
       provinces: {

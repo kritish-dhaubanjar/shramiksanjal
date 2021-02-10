@@ -26,6 +26,22 @@ import Comments from "@/components/blogs/Comments";
 import Sidebar from "@/components/blogs/Sidebar";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: ${this.$localeContent(
+        this.news,
+        "title",
+        this.$i18n.locale
+      )}`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.$localeContent(this.news, "overview", this.$i18n.locale)
+        }
+      ]
+    };
+  },
   data() {
     return {
       news: {

@@ -98,6 +98,23 @@ import Sidebar from "@/components/blogs/Sidebar";
 import Marquee from "@/components/blogs/Marquee";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: ${
+        this.$route.query.country && this.$route.query.country.length > 0
+          ? this.$route.query.country + "'s"
+          : "Our"
+      } Blogs`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Shramik Sanjal unites, educated and empowers Nepalese migrant workers. We provide them with information, knowledge, skills and confidence to raise their voice for the workers’ Unity, Dignity, Power & Safety."
+        }
+      ]
+    };
+  },
   middleware({ query }) {
     if (query.country && query.country.length > 0) {
       switch (query.country.toLowerCase()) {

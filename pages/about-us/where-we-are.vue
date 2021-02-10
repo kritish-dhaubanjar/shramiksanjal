@@ -21,6 +21,19 @@ import * as am4maps from "@amcharts/amcharts4/maps";
 import am4geodata_continentsLow from "@amcharts/amcharts4-geodata/continentsLow";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: Where are we?`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Shramik Sanjal unites, educated and empowers Nepalese migrant workers. We provide them with information, knowledge, skills and confidence to raise their voice for the workers’ Unity, Dignity, Power & Safety."
+        }
+      ]
+    };
+  },
   data() {
     return {
       imageSeries: [],

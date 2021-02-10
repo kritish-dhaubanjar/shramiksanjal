@@ -171,6 +171,20 @@ export default {
     };
   },
 
+  head() {
+    return {
+      title: `Shramiksanjal :: ${this.$route.params.category}'s Videos`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Video is one of the most powerful tools of visual communication."
+        }
+      ]
+    };
+  },
+
   beforeCreate() {
     this.$axios
       .post("/api/collections/get/videos", {

@@ -30,6 +30,19 @@ import Stats from "@/components/about/Stats";
 import History from "@/components/about/History";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: Our Vision & Mission`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "A world where all migrant workers are empowered to decide on their choice of life to live with dignity. It is a world in which all workers live peacefully and free of all discriminations."
+        }
+      ]
+    };
+  },
   data() {
     return {
       vision: {},

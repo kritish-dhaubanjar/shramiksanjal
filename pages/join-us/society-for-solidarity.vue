@@ -163,6 +163,19 @@ import Section from "@/components/index/Section.vue";
 import Swal from "sweetalert2";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: Society for Solidarity`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "We strongly believe in the power of unity. Our work needs multidimensional collaboration between like-minded people and institutions, so we seek for any individual or institution to exchange and support our work with each other."
+        }
+      ]
+    };
+  },
   data() {
     return {
       member: {

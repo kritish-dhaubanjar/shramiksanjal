@@ -1,6 +1,6 @@
 <template>
   <section class="mb-5 pb-5">
-    <Jumbotron v-if="event" :event="event"/>
+    <Jumbotron v-if="event" :event="event" />
 
     <div class="container-fluid">
       <div class="row">
@@ -19,7 +19,25 @@
                     <i class="las la-clock la-3x mr-3" />
                     <div>
                       <em>Event Date:</em>
-                      <p><b>{{ formatEventDateString(event.event_start_date, event.event_end_date) }}</b> {{ (event.event_start_time || event.event_end_time) ? 'at': '' }} <b>{{ formatEventTimeString(event.event_start_time, event.event_end_time) }}</b></p>
+                      <p>
+                        <b>{{
+                          formatEventDateString(
+                            event.event_start_date,
+                            event.event_end_date
+                          )
+                        }}</b>
+                        {{
+                          event.event_start_time || event.event_end_time
+                            ? "at"
+                            : ""
+                        }}
+                        <b>{{
+                          formatEventTimeString(
+                            event.event_start_time,
+                            event.event_end_time
+                          )
+                        }}</b>
+                      </p>
                     </div>
                   </div>
 
@@ -29,7 +47,9 @@
                       <em>Location:</em>
                       <p>
                         <!-- <b>Macky Auditorium Concert Hall,</b> 1595 Pleasant St, Boulder -->
-                        <b>{{ $localeContent(event, "location", $i18n.locale) }}</b>
+                        <b>{{
+                          $localeContent(event, "location", $i18n.locale)
+                        }}</b>
                       </p>
                     </div>
                   </div>
@@ -38,8 +58,8 @@
             </div>
             <!--  -->
             <div class="content">
-              <Content  v-if="event" :event="event" />
-<!--               <p>
+              <Content v-if="event" :event="event" />
+              <!--               <p>
                 Presented by the Frisco Heritage Association and the Heritage
                 Museum. Hands-on activities, student photography exhibit, and
                 more. All activities are free and Museum admission fee is not
@@ -93,14 +113,34 @@ import Events from "@/components/events/Events";
 import Content from "@/components/events/Content";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: ${this.$localeContent(
+        this.event,
+        "event_title",
+        this.$i18n.locale
+      )}`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: `${this.$localeContent(
+            this.event,
+            "event_title",
+            this.$i18n.locale
+          )}`
+        }
+      ]
+    };
+  },
   data() {
     return {
       event: {
         author: "",
         tags: [],
         image: { path: "" }
-      },
-    }
+      }
+    };
   },
 
   created() {
@@ -118,37 +158,49 @@ export default {
 
   methods: {
     formatEventDateString(startDate, endDate) {
-      let s = (startDate  && startDate !="") ? (new Date(startDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
-      let e = (endDate  && endDate !="") ? (new Date(endDate)).toLocaleString('default', { month: 'short' , day: '2-digit'}) : "";
-      if(e == "" || s == e) return s;
-      if(s && !e) return s;
+      let s =
+        startDate && startDate != ""
+          ? new Date(startDate).toLocaleString("default", {
+              month: "short",
+              day: "2-digit"
+            })
+          : "";
+      let e =
+        endDate && endDate != ""
+          ? new Date(endDate).toLocaleString("default", {
+              month: "short",
+              day: "2-digit"
+            })
+          : "";
+      if (e == "" || s == e) return s;
+      if (s && !e) return s;
       if (!s && e) return e;
-      if(s && e) return s + ' - ' + e;
+      if (s && e) return s + " - " + e;
       return "";
     },
 
     convertTime(time) {
       if (!time || time == "") return "";
-      let H = + time.substring(0, 2);
+      let H = +time.substring(0, 2);
       let h = H % 12 || 12;
-      let ampm = (H < 12 || H === 24) ? " am" : " pm";
+      let ampm = H < 12 || H === 24 ? " am" : " pm";
       return h + time.substring(2) + ampm;
     },
 
     formatEventTimeString(startTime, endTime) {
-      if(!startTime && !endTime) {
-        return '';
+      if (!startTime && !endTime) {
+        return "";
       }
-      if(startTime && !endTime) {
+      if (startTime && !endTime) {
         return this.convertTime(startTime);
       }
-      if(!startTime && endTime) {
+      if (!startTime && endTime) {
         return this.convertTime(endTime);
       }
-      if(startTime && endTime) {
-        return this.convertTime(startTime) + ' - ' + this.convertTime(endTime);
+      if (startTime && endTime) {
+        return this.convertTime(startTime) + " - " + this.convertTime(endTime);
       }
-    },
+    }
   },
 
   components: {

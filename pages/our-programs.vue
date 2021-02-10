@@ -26,6 +26,20 @@ export default {
     };
   },
 
+  head() {
+    return {
+      title: "Shramiksanjal :: Our Programs",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "We build a community of grassroots fellow migrant workers from different sectors including constructions, hotel hospitality, Retail, Domestic Services. We believe building worker communities enable us to drive and thrive. This is the community where members feel free to speak the voice of their lived experiences, the natural way they think. Coming together as a community comforts us to be united, connected, feel protected, and enables us to set the different narrative of being equal and empowered. We encourage our members to build an inclusive community of grassroots from diverse sectors, a profession that allows us to feel a sense of belonging to each other."
+        }
+      ]
+    };
+  },
+
   created() {
     this.$axios.get("/api/collections/get/programs").then(({ data }) => {
       this.programs = data.entries;

@@ -173,6 +173,20 @@ export default {
     };
   },
 
+  head() {
+    return {
+      title: "Shramiksanjal :: Videos",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Video is one of the most powerful tools of visual communication."
+        }
+      ]
+    };
+  },
+
   beforeCreate() {
     this.$axios
       .post("/api/collections/get/videos", {

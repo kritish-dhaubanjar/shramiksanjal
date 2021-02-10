@@ -94,6 +94,20 @@ import Banner from "@/components/others/Banner";
 import Sidebar from "@/components/blogs/Sidebar";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: ${this.$route.params.category} Blogs`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Shramik Sanjal unites, educated and empowers Nepalese migrant workers. We provide them with information, knowledge, skills and confidence to raise their voice for the workers’ Unity, Dignity, Power & Safety."
+        }
+      ]
+    };
+  },
+
   middleware({ params }) {
     // fetch("https://api.shramiksanjal.org/api/collections/get/tags", {
     //   body: JSON.stringify({
