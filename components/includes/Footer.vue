@@ -200,7 +200,8 @@
 
           <div class="col-12">
             <p class="text-center copyright">
-              Copyright &copy; 2020 - ShramikSanjal
+              Copyright &copy; 2020 - ShramikSanjal. &nbsp; Crafted with
+              <i class="las la-heart text-danger" /> by theGimmickBox.
             </p>
           </div>
         </div>

@@ -161,6 +161,19 @@ import Banner from "@/components/others/Banner";
 import Events from "@/components/index/Events";
 
 export default {
+  head() {
+    return {
+      title: `Shramiksanjal :: Our Campaigns & Events`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Shramik Sanjal (SS), is a membership-based a worker-led network of migrant workers, most of whom are low-income migrants in the Gulf states and Malaysia. We are a voluntary network that aspires to be the voice of the voiceless, working for the well-being of fellow migrant workers. We work closely to educate, empower, and support migrant workers and advocates for their right to live with dignity and work in a decent and safe condition."
+        }
+      ]
+    };
+  },
   data() {
     return {
       past: "",
