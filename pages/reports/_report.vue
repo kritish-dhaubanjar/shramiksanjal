@@ -15,6 +15,7 @@
                 aria-current="true"
                 v-for="(chapter, i) in report.chapters"
                 :key="i"
+                @click.prevent="setPage(chapter.page)"
               >
                 <a href="#" @click.prevent="setPage(chapter.page)">
                   {{ chapter.chapter }}
@@ -128,7 +129,10 @@ export default {
       let body = document.body;
 
       window.scroll({
-        top: canvas.getBoundingClientRect().y - body.getBoundingClientRect().y,
+        top:
+          canvas.getBoundingClientRect().y -
+          body.getBoundingClientRect().y +
+          -80,
         behavior: "smooth"
       });
     }
@@ -146,9 +150,12 @@ export default {
   position: sticky;
   top: 98px;
 
-  .list-group-item.active {
-    background-color: #e3e3e3 !important;
-    border: none;
+  .list-group-item {
+    cursor: pointer;
+    &.active {
+      background-color: #e3e3e3 !important;
+      border: none;
+    }
   }
 }
 </style>
