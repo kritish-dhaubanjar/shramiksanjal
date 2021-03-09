@@ -1,17 +1,39 @@
 <template>
   <section class="bg-light">
-    <Banner :breadcrumb="{ name: 'Our Reports' }" />
+    <Banner
+      :breadcrumb="{ name: $localeContent(report, 'title', $i18n.locale) }"
+    />
 
     <section class="bg-light">
       <div class="container-fluid my-5 py-5">
         <div class="row">
-          <div class="col-lg-2">
-            <button class="btn btn-primary" @click="renderPage(43)">
-              Goto 31
-            </button>
+          <div class="col-lg-3">
+            <ul class="list-group mb-5">
+              <li
+                class="list-group-item"
+                :class="{ active: page == chapter.page }"
+                aria-current="true"
+                v-for="(chapter, i) in report.chapters"
+                :key="i"
+              >
+                <a href="#" @click.prevent="setPage(chapter.page)">
+                  {{ chapter.chapter }}
+                  <span class="badge badge-danger float-right">
+                    {{ chapter.page }}
+                  </span>
+                </a>
+              </li>
+            </ul>
           </div>
-          <div class="col-lg-8">
-            <canvas id="the-canvas" class="w-100"></canvas>
+          <div class="col-lg-7">
+            <div>
+              <canvas
+                :id="`pdf-${i}`"
+                class="w-100"
+                v-for="i in numPages"
+                :key="i"
+              ></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -26,14 +48,15 @@ import Banner from "@/components/others/Banner";
 import Section from "@/components/index/Section";
 
 var pdfjsLib = window["pdfjs-dist/build/pdf"];
-// pdfjsLib.GlobalWorkerOptions.workerSrc =
-//   "//mozilla.github.io/pdf.js/build/pdf.worker.js";
+
 var pdfDoc = null;
 
 export default {
   data() {
     return {
-      report: {}
+      report: {},
+      numPages: 0,
+      page: -1
     };
   },
 
@@ -51,42 +74,62 @@ export default {
     };
   },
 
-  mounted() {
-    this.$axios.get("/api/collections/get/Report").then(({ data }) => {
-      this.report = data.entries.pop();
+  beforeCreate() {
+    this.$axios
+      .post("/api/collections/get/Report", {
+        filter: { _id: this.$route.params.report }
+      })
+      .then(({ data }) => {
+        if (data.entries.length == 0) $nuxt.error({ status: 404 });
 
-      // Asynchronous download of PDF
-      var loadingTask = pdfjsLib.getDocument(
-        `https://api.shramiksanjal.org/${this.report.pdf}`
-      );
-      loadingTask.promise.then(pdf => {
-        pdfDoc = pdf;
-        this.renderPage(1);
-        console.log("PDF loaded");
+        this.report = data.entries.pop();
+
+        // Asynchronous download of PDF
+        var loadingTask = pdfjsLib.getDocument(
+          `https://api.shramiksanjal.org/${this.report.pdf}`
+        );
+        loadingTask.promise.then(pdf => {
+          pdfDoc = pdf;
+          this.renderPage();
+          console.log("PDF loaded");
+        });
       });
-    });
   },
 
   methods: {
-    renderPage(num) {
+    renderPage() {
+      this.numPages = pdfDoc.numPages;
       // Using promise to fetch the page
-      pdfDoc.getPage(num).then(page => {
-        var viewport = page.getViewport({ scale: 1.5 });
-        var canvas = document.getElementById("the-canvas");
-        var ctx = canvas.getContext("2d");
+      for (let num = 1; num <= pdfDoc.numPages; num++) {
+        pdfDoc.getPage(num).then(page => {
+          var viewport = page.getViewport({ scale: 1.5 });
+          var canvas = document.getElementById(`pdf-${num}`);
+          var ctx = canvas.getContext("2d");
 
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
 
-        // Render PDF page into canvas context
-        var renderContext = {
-          canvasContext: ctx,
-          viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
+          // Render PDF page into canvas context
+          var renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+          };
+          var renderTask = page.render(renderContext);
 
-        // Wait for rendering to finish
-        renderTask.promise.then(() => {});
+          // Wait for rendering to finish
+          renderTask.promise.then(() => {});
+        });
+      }
+    },
+
+    setPage(page) {
+      this.page = page;
+      let canvas = document.getElementById(`pdf-${page}`);
+      let body = document.body;
+
+      window.scroll({
+        top: canvas.getBoundingClientRect().y - body.getBoundingClientRect().y,
+        behavior: "smooth"
       });
     }
   },
@@ -97,3 +140,15 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.list-group {
+  position: sticky;
+  top: 98px;
+
+  .list-group-item.active {
+    background-color: #e3e3e3 !important;
+    border: none;
+  }
+}
+</style>

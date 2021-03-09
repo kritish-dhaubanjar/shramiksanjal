@@ -106,6 +106,14 @@
         >Videos</nuxt-link
       >
 
+      <nuxt-link
+        to="/reports"
+        tag="li"
+        class="list-group-item sidebar-link"
+        exact-active-class="active"
+        >Reports</nuxt-link
+      >
+
       <li class="list-group-item sidebar-link" @click="events = !events">
         Join Us
         <span class="float-right">
@@ -194,6 +202,7 @@
 
         <li class="list-group-item sidebar-link sub-menu p-0"></li>
       </ul>
+
       <!--  -->
       <!-- 
 

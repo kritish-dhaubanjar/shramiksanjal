@@ -1,6 +1,6 @@
 <template>
   <section class="bg-light">
-    <Banner :breadcrumb="{ name: 'Our Reports' }" />
+    <Banner :breadcrumb="{ name: $route.params.category + ' Reports' }" />
 
     <section class="bg-light">
       <div class="container-fluid py-5">
@@ -25,7 +25,6 @@
                   ></div>
                   <canvas :id="report._id" class="w-100 h-100 d-none" />
                 </nuxt-link>
-                <!--  -->
                 <div class="mb-4">
                   <nuxt-link
                     :to="`/reports/${report._id}`"
@@ -104,7 +103,13 @@ export default {
         sort: { _created: -1 }
       })
       .then(({ data }) => {
-        this.reports = data.entries;
+        this.reports = data.entries.filter(report => {
+          return report.categories.some(
+            category => category.category_en == this.$route.params.category
+          );
+        });
+
+        if (this.reports.length == 0) $nuxt.error({ status: 404 });
 
         this.reports.forEach(report => {
           let loadingTask = pdfjsLib.getDocument(

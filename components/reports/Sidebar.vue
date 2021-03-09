@@ -8,7 +8,7 @@
         <table class="table">
           <tbody>
             <th scope="row">
-              <nuxt-link :to="localePath('/blogs/')">ALL</nuxt-link>
+              <nuxt-link :to="localePath('/reports/')">ALL</nuxt-link>
             </th>
             <th>
               <span class="float-right"
@@ -19,7 +19,9 @@
             <tr v-for="category in categories" :key="category._id">
               <th scope="row">
                 <nuxt-link
-                  :to="localePath(`/blogs/categories/${category.category_en}`)"
+                  :to="
+                    localePath(`/reports/categories/${category.category_en}`)
+                  "
                   class="text-uppercase"
                   >{{
                     $localeContent(category, "category", $i18n.locale)
