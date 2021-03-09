@@ -196,6 +196,15 @@
                   >
                 </li>
 
+                <li class="nav-item px-2">
+                  <nuxt-link
+                    class="nav-link py-4"
+                    :to="localePath('/reports')"
+                    exact-active-class="active"
+                    >REPORTS</nuxt-link
+                  >
+                </li>
+
                 <li class="nav-item dropdown px-2">
                   <a
                     class="nav-link py-4 dropdown-toggle"

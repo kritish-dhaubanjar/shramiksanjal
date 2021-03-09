@@ -49,6 +49,11 @@ export default {
         body: true,
         async: true,
         defer: true
+      },
+      {
+        src: "/pdfjs-2.6.347-dist/build/pdf.js",
+        async: true,
+        defer: true
       }
     ]
   },
