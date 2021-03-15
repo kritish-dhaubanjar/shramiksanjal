@@ -1,38 +1,8 @@
 <template>
   <section class="my-5 pt-5 overflow-hidden">
+    <Timeline />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12 col-lg-12 mb-5 pb-5 text-center">
-          <!-- <div class="card is-radiusless"> -->
-          <img src="/images/timeline.png" class="img-fluid" />
-          <!-- <div class="card-body text-center py-5">
-              <h2 class="font-weight-bold">
-                Drive Change with<br />
-                Actionable Insight
-              </h2>
-
-              <hr class="my-4 mx-auto" />
-
-              <ul class="font-weight-bold mb-5 px-0">
-                <li>Fiscal Sponsorship</li>
-                <li>Accounting Assistance</li>
-                <li>Fiscal Sponsorship</li>
-                <li>Attend a Training</li>
-              </ul>
-
-              <small>
-                Evolutionary change constantly remoulds the conditions for a
-                successful politics of sustainability.
-              </small>
-            </div>
-          </div> -->
-          <!-- </div> -->
-          <!-- <div class="col-md-6 offset-lg-1 col-lg-5">
-          <div class="image-holder text-center">
-            <img src="https://via.placeholder.com/550x660" class="img-fluid" />
-          </div>-->
-        </div>
-
         <div class="col-lg-12 bg-dark text-white position-relative">
           <div class="row">
             <div
@@ -74,6 +44,8 @@
 </template>
 
 <script>
+import Timeline from "@/components/index/Timeline";
+
 export default {
   data() {
     return {
@@ -90,6 +62,10 @@ export default {
     this.$axios.get("/api/singletons/get/statistics").then(({ data }) => {
       this.data = data;
     });
+  },
+
+  components: {
+    Timeline
   }
 };
 </script>
@@ -123,7 +99,7 @@ ul {
 }
 
 .bg-dark {
-  top: -97px;
+  // top: -97px;
 }
 
 @media screen and (max-width: 767px) {
