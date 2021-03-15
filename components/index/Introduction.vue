@@ -33,27 +33,34 @@
           </div>-->
         </div>
 
-        <div class="col-lg-8 bg-dark text-white position-relative">
-          <div class="row ">
-            <div class="col-6 col-sm-3 text-center py-3">
+        <div class="col-lg-12 bg-dark text-white position-relative">
+          <div class="row">
+            <div
+              class="col-12 col-lg-3 offset-xl-1 col-xl-2 py-3 d-flex align-items-center justify-content-center"
+            >
+              <h4 class="mb-0">
+                Our network by the numbers:
+              </h4>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 text-center py-3">
               <h1 class="mb-0">{{ data.countries }}</h1>
               <small>
                 Countries
               </small>
             </div>
-            <div class="col-6 col-sm-3 text-center py-3">
+            <div class="col-6 col-md-3 col-lg-2 text-center py-3">
               <h1 class="mb-0">{{ data.members }}</h1>
               <small>
                 Members
               </small>
             </div>
-            <div class="col-6 col-sm-3 text-center py-3">
+            <div class="col-6 col-md-3 col-lg-2 text-center py-3">
               <h1 class="mb-0">{{ data.facebook_followers }}</h1>
               <small>
                 Facebook Followers
               </small>
             </div>
-            <div class="col-6 col-sm-3 text-center py-3">
+            <div class="col-6 col-md-3 col-lg-2 text-center py-3">
               <h1 class="mb-0">{{ data.youtube_subscribers }}</h1>
               <small>
                 Youtube Subscribers

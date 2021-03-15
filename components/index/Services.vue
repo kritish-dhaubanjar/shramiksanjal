@@ -14,7 +14,7 @@
           class="col-sm-6 col-lg-4 col-xl mb-5"
           v-for="value in values"
           :key="value._id"
-          data-aos="fade-up"
+          data-aos="flip-left"
         >
           <h5 class="font-weight-bold">
             {{ $localeContent(value, "title", $i18n.locale) }}
