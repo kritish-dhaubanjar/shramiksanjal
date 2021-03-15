@@ -9,7 +9,7 @@
               class="col-12 col-lg-3 offset-xl-1 col-xl-2 py-3 d-flex align-items-center justify-content-center"
             >
               <h4 class="mb-0">
-                Our network by the numbers:
+                Our outreach:
               </h4>
             </div>
             <div class="col-6 col-md-3 col-lg-2 text-center py-3">

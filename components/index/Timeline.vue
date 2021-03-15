@@ -1,5 +1,8 @@
 <template>
   <div class="mb-5 pb-5 position-relative">
+    <center class="mb-5">
+      <h2 class="font-weight-bold">How we evolve?</h2>
+    </center>
     <section id="timeline">
       <div class="d-flex top-row pl-5">
         <div class="card" v-for="time in timeline_odd" :key="time._id">
@@ -122,6 +125,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/scss/colors.scss";
 p {
   font-size: 15px;
 }
