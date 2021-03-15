@@ -2,7 +2,7 @@
   <section class="my-5">
     <div class="container-fluid pt-5">
       <div class="row">
-        <div class="col-lg-12 mb-5">
+        <div class="col-lg-12 mb-5" data-aos="fade-up">
           <h2 class="font-weight-bold">Recent Videos</h2>
           <hr />
           <p class="font-weight-bold">
@@ -10,7 +10,7 @@
           </p>
         </div>
 
-        <div class="col-md-8 mb-5" v-if="videos.length > 0">
+        <div class="col-md-8 mb-5" v-if="videos.length > 0" data-aos="fade-up">
           <div class="youtube position-relative" ref="youtube">
             <iframe
               :src="
@@ -55,6 +55,7 @@
             v-for="video in videos"
             :key="video._id"
             class="recent"
+            data-aos="fade-up"
           >
             <div class="d-flex">
               <div class="news-image mr-3">

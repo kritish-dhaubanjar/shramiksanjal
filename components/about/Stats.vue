@@ -47,6 +47,7 @@ p {
     margin-bottom: 150px;
     .container-fluid {
       position: absolute;
+      z-index: 3;
       left: 0;
       right: 0;
     }

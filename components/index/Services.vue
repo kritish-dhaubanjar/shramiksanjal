@@ -2,7 +2,7 @@
   <section class="pt-5">
     <div class="container-fluid py-5">
       <div class="row">
-        <div class="col-12 mb-5">
+        <div class="col-12 mb-5" data-aos="fade-up">
           <h1 class="font-weight-bold">Our Values</h1>
           <h5 class="font-weight-bold">
             We respect people, value diversity and are committed to workers’
@@ -14,6 +14,7 @@
           class="col-sm-6 col-lg-4 col-xl mb-5"
           v-for="value in values"
           :key="value._id"
+          data-aos="fade-up"
         >
           <h5 class="font-weight-bold">
             {{ $localeContent(value, "title", $i18n.locale) }}
@@ -53,7 +54,7 @@ p.lead {
 }
 
 section {
-  background-color: #9BD5E4;
+  background-color: #9bd5e4;
 }
 
 hr {

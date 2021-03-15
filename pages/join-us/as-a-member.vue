@@ -27,7 +27,7 @@
             </div>
           </div> -->
 
-          <div class="card is-radiusless my-3 is-borderless">
+          <div class="card is-radiusless my-3 is-borderless" data-aos="fade-up">
             <div class="card-body py-5 form-card bg-white shadow-sm">
               <h5 class="font-weight-bold mb-3">
                 Need more information or want to get in touch?
@@ -363,7 +363,13 @@
                     v-model="member.message"
                   ></textarea>
                 </div>
-
+                <p>
+                  <em
+                    >* Please note that we will not use your personal details
+                    for any other purposes except our references for
+                    verification. Thank you.</em
+                  >
+                </p>
                 <button
                   class="btn btn-danger py-3 px-5 is-radiusless font-weight-bold  mt-4"
                 >

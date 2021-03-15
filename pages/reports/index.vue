@@ -17,6 +17,7 @@
                 class="col-lg-3 col-md-4 col-sm-6 col-6"
                 v-for="report in reports"
                 :key="report._id"
+                data-aos="fade-up"
               >
                 <nuxt-link :to="`/reports/${report._id}`" tag="div">
                   <div

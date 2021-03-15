@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <section class="my-5 py-5">
         <div class="container-fluid bg-light py-5">
-          <div class="row my-5">
+          <div class="row my-5" data-aos="fade-up">
             <div class="col-lg-8">
               <h2 class="font-weight-bold mb-5">Our Campaigns & Events</h2>
 

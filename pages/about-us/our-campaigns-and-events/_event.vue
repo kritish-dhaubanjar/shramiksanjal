@@ -6,7 +6,10 @@
       <div class="row">
         <div class="col-lg-8 mt-3">
           <main class="mb-5">
-            <div class="card bg-light is-radiusless is-borderless mb-4 pt-5">
+            <div
+              class="card bg-light is-radiusless is-borderless mb-4 pt-5"
+              data-aos="fade-up"
+            >
               <div class="card-body">
                 <h5>
                   {{ $localeContent(event, "event_title", $i18n.locale) }}
@@ -57,7 +60,7 @@
               </div>
             </div>
             <!--  -->
-            <div class="content">
+            <div class="content" data-aos="fade-up">
               <Content v-if="event" :event="event" />
               <!--               <p>
                 Presented by the Frisco Heritage Association and the Heritage

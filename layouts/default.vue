@@ -18,6 +18,9 @@ import Navbar from "@/components/includes/Navbar";
 import Footer from "@/components/includes/Footer";
 import Loader from "@/components/others/Loader";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default {
   data() {
     return {
@@ -44,6 +47,13 @@ export default {
 
     this.$axios.get("/api/singletons/get/socials").then(({ data }) => {
       this.socials = data;
+    });
+  },
+
+  mounted() {
+    AOS.init({
+      once: false,
+      offset: 124
     });
   },
 

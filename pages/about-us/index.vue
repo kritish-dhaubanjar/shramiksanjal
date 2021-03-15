@@ -1,7 +1,7 @@
 <template>
   <section class="bg-light">
     <Banner :breadcrumb="{ name: 'Who are We?' }" />
-    <About :content="who" />
+    <About :content="who" data-aos="fade-up" />
     <!-- <Stats /> -->
     <!-- <Services /> -->
     <!-- <History /> -->

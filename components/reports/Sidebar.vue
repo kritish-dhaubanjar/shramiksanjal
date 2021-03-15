@@ -3,7 +3,7 @@
     <div
       class="card is-radiusless is-borderless background-image px-3 bg-light my-5"
     >
-      <div class="card-body">
+      <div class="card-body" data-aos="fade-up">
         <h5 class="font-weight-bold mb-4 mt-3">CATEGORIES</h5>
         <table class="table">
           <tbody>

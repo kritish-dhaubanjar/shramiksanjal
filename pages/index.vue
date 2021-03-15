@@ -2,12 +2,12 @@
   <div>
     <Marquee />
     <Carousels />
-    <Introduction />
-    <About :content="who" />
+    <Introduction data-aos="fade-up" />
+    <About :content="who" data-aos="fade-up" />
     <News />
     <Services />
     <Videos />
-    <Events />
+    <Events data-aos="fade-up" />
     <Section />
   </div>
 </template>
@@ -35,8 +35,6 @@ export default {
       this.who = data;
     });
   },
-
-  mounted() {},
 
   components: {
     Marquee,

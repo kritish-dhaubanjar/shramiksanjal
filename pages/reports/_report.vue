@@ -8,7 +8,7 @@
       <div class="container-fluid my-5 py-5">
         <div class="row">
           <div class="col-lg-3">
-            <ul class="list-group mb-5">
+            <ul class="list-group mb-5" data-aos="fade-up">
               <li
                 class="list-group-item"
                 :class="{ active: page == chapter.page }"
@@ -26,7 +26,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-lg-7">
+          <div class="col-lg-7" data-aos="fade-up">
             <div>
               <canvas
                 :id="`pdf-${i}`"

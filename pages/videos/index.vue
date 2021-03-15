@@ -6,7 +6,7 @@
         <div class="col-lg-8">
           <div class="row">
             <div class="col-12 mb-5" v-if="videos.length > 0">
-              <div class="youtube position-relative">
+              <div class="youtube position-relative" data-aos="fade-up">
                 <!-- :src="https://www.youtube.com/embed/Zu4R9dxgdxE" -->
 
                 <iframe
@@ -23,7 +23,7 @@
                 ></iframe>
               </div>
 
-              <div class="card-body pb-0">
+              <div class="card-body pb-0" data-aos="fade-up">
                 <small class="text-muted text-uppercase">
                   <i class="las la-calendar-alt" />
                   {{ new Date(video._created * 1000).toDateString() }}
@@ -47,7 +47,10 @@
               </div>
             </div>
             <div class="col-sm-6" v-for="video in slice" :key="video._id">
-              <div class="card is-radiusless is-borderless mb-5">
+              <div
+                class="card is-radiusless is-borderless mb-5"
+                data-aos="fade-up"
+              >
                 <div
                   @click="play(video)"
                   href="#"

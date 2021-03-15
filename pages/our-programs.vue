@@ -3,6 +3,7 @@
     <Banner :breadcrumb="{ name: 'Our Programs' }" />
     <div v-if="programs.length == 0" style="min-height: 512px"></div>
     <Program
+      data-aos="fade-up"
       v-for="(program, i) in programs"
       :key="program._id"
       :content="program"

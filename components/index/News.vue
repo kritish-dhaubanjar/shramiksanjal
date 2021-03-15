@@ -2,7 +2,7 @@
   <section class="my-5">
     <div class="container-fluid pt-5">
       <div class="row">
-        <div class="col-lg-12 mb-5">
+        <div class="col-lg-12 mb-5" data-aos="fade-up">
           <h2 class="font-weight-bold">Recent Blogs</h2>
           <hr />
           <p class="font-weight-bold">
@@ -10,7 +10,7 @@
           </p>
         </div>
 
-        <div class="col-lg-5 col-md-7" v-if="news[0]">
+        <div class="col-lg-5 col-md-7" v-if="news[0]" data-aos="fade-up">
           <div class="card is-radiusless is-borderless mb-5">
             <div
               class="background-image w-100"
@@ -21,7 +21,7 @@
               "
             />
 
-            <div class="card-body pb-0">
+            <div class="card-body pb-0" data-aos="fade-up">
               <small class="text-muted text-uppercase">
                 <i class="las la-calendar-alt" />
                 {{ new Date(news[0]._created * 1000).toDateString() }}
@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-5">
+        <div class="col-lg-3 col-md-5" data-aos="fade-up">
           <div class="row">
             <!--  -->
             <div class="col-md-12 col-sm-6" v-if="news[1]">
@@ -80,7 +80,11 @@
               </div>
             </div>
             <!--  -->
-            <div class="col-md-12 col-sm-6 mb-4" v-if="news[2]">
+            <div
+              class="col-md-12 col-sm-6 mb-4"
+              v-if="news[2]"
+              data-aos="fade-up"
+            >
               <div class="card is-radiusless is-borderless">
                 <div
                   class="background-image w-100"
@@ -112,7 +116,10 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="card is-radiusless is-borderless background-image">
+          <div
+            class="card is-radiusless is-borderless background-image"
+            data-aos="fade-up"
+          >
             <div class="card-body">
               <h5 class="font-weight-bold mb-4 mt-3">CATEGORIES</h5>
               <table class="table">

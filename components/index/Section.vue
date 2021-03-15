@@ -5,7 +5,7 @@
       `background-image: url(https://api.shramiksanjal.org/${data.image.path})`
     "
   >
-    <div class="container-fluid my-5 pb-5">
+    <div class="container-fluid my-5 pb-5" data-aos="fade-up">
       <div class="row">
         <div
           class="col-md-5 col-lg-6 text-center d-flex align-items-center justify-content-center"

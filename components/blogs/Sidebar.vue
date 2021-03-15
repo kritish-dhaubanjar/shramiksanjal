@@ -3,7 +3,7 @@
     <div
       class="card is-radiusless is-borderless background-image px-3 bg-light mb-5 py-4"
     >
-      <div class="card-body">
+      <div class="card-body" data-aos="fade-up">
         <h5 class="font-weight-bold mb-4 mt-3">RECENT BLOGS</h5>
 
         <nuxt-link
@@ -41,6 +41,7 @@
     <!--  -->
     <div
       class="card is-radiusless is-borderless background-image px-3 bg-light my-5"
+      data-aos="fade-up"
     >
       <div class="card-body">
         <h5 class="font-weight-bold mb-4 mt-3">CATEGORIES</h5>
@@ -73,7 +74,7 @@
       </div>
     </div>
     <!--  -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-5" data-aos="fade-up">
       <div class="row">
         <div class="col-12 col-sm-6 col-lg-12">
           <a

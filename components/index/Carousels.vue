@@ -128,6 +128,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+section.overflow-hidden {
+  min-height: 612px;
+}
+
 .carousel-item {
   section {
     min-height: 612px;

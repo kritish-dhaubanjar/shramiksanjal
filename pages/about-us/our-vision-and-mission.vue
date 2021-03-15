@@ -2,17 +2,17 @@
   <section class="bg-light">
     <Banner :breadcrumb="{ name: 'Our Vision & Mission' }" />
     <!--  -->
-    <div class="pt-5">
+    <div class="pt-5" data-aos="fade-up">
       <About :content="vision" />
     </div>
     <!--  -->
-    <div class="pb-5 mb-4">
+    <div class="pb-5 mb-4" data-aos="fade-up">
       <About :content="mission" />
     </div>
     <!--  -->
 
     <Stats />
-    <div id="our-values" />
+    <div id="our-values" data-aos="fade-up" />
     <Services />
 
     <!-- <History /> -->

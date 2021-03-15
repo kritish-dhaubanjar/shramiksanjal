@@ -1,7 +1,7 @@
 <template>
   <section class="bg-light">
     <Banner :breadcrumb="{ name: 'Our Team' }" />
-    <History />
+    <History data-aos="fade-up" />
     <Section />
   </section>
 </template>

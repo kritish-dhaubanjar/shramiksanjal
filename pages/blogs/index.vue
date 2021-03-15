@@ -7,7 +7,10 @@
         <div class="col-lg-8">
           <div class="row">
             <div class="col-sm-6" v-for="article in slice" :key="article._id">
-              <div class="card is-radiusless is-borderless mb-5">
+              <div
+                class="card is-radiusless is-borderless mb-5"
+                data-aos="fade-up"
+              >
                 <div
                   class="background-image w-100"
                   :style="

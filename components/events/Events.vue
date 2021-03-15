@@ -8,6 +8,7 @@
       class="card is-radiusless is-borderless mb-1 bg-light"
       v-for="event in events"
       :key="event._id"
+      data-aos="fade-up"
     >
       <div
         class="card-body"
@@ -40,7 +41,12 @@
 
             <small class="ml-3">
               <!-- 9:00 am - 9:00 pm -->
-              {{ formatEventTimeString(event.event_start_time, event.event_end_time) }}
+              {{
+                formatEventTimeString(
+                  event.event_start_time,
+                  event.event_end_time
+                )
+              }}
             </small>
             <h6 class="mt-3 font-weight-bold">
               {{ $localeContent(event, "title", $i18n.locale) }}
@@ -102,9 +108,9 @@ export default {
             })
           : "";
       if (e == "" || s == e) return s;
-      if(s && !e) return s;
+      if (s && !e) return s;
       if (!s && e) return e;
-      if(s && e) return s + ' - ' + e;
+      if (s && e) return s + " - " + e;
       return "";
     },
 
@@ -117,19 +123,19 @@ export default {
     },
 
     formatEventTimeString(startTime, endTime) {
-      if(!startTime && !endTime) {
-        return '';
+      if (!startTime && !endTime) {
+        return "";
       }
-      if(startTime && !endTime) {
+      if (startTime && !endTime) {
         return this.convertTime(startTime);
       }
-      if(!startTime && endTime) {
+      if (!startTime && endTime) {
         return this.convertTime(endTime);
       }
-      if(startTime && endTime) {
-        return this.convertTime(startTime) + ' - ' + this.convertTime(endTime);
+      if (startTime && endTime) {
+        return this.convertTime(startTime) + " - " + this.convertTime(endTime);
       }
-    },
+    }
   }
 };
 </script>

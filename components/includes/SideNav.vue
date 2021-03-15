@@ -177,6 +177,14 @@
         </nuxt-link>
         <nuxt-link
           tag="li"
+          to="/about-us/our-vision-and-mission"
+          exact-active-class="active"
+          class="list-group-item sidebar-link sub-menu"
+        >
+          Our Vision &amp; Mission
+        </nuxt-link>
+        <nuxt-link
+          tag="li"
           to="/about-us/our-team"
           exact-active-class="active"
           class="list-group-item sidebar-link sub-menu"
@@ -190,14 +198,6 @@
           class="list-group-item sidebar-link sub-menu"
         >
           Our Campaigns &amp; Events
-        </nuxt-link>
-        <nuxt-link
-          tag="li"
-          to="/about-us/our-vision-and-mission"
-          exact-active-class="active"
-          class="list-group-item sidebar-link sub-menu"
-        >
-          Our Vision &amp; Mission
         </nuxt-link>
 
         <li class="list-group-item sidebar-link sub-menu p-0"></li>

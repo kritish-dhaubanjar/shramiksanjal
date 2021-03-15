@@ -274,6 +274,13 @@
                     <nuxt-link
                       class="dropdown-item"
                       exact-active-class="active"
+                      :to="localePath('/about-us/our-vision-and-mission')"
+                      >Our Vision &amp; Mission</nuxt-link
+                    >
+                    <div class="dropdown-divider"></div>
+                    <nuxt-link
+                      class="dropdown-item"
+                      exact-active-class="active"
                       :to="
                         localePath(
                           '/about-us/our-vision-and-mission#our-values'
@@ -294,13 +301,6 @@
                       exact-active-class="active"
                       :to="localePath('/about-us/our-campaigns-and-events')"
                       >Our Campaigns &amp; Events</nuxt-link
-                    >
-                    <div class="dropdown-divider"></div>
-                    <nuxt-link
-                      class="dropdown-item"
-                      exact-active-class="active"
-                      :to="localePath('/about-us/our-vision-and-mission')"
-                      >Our Vision &amp; Mission</nuxt-link
                     >
                   </div>
                 </li>

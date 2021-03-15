@@ -27,7 +27,7 @@
             </div>
           </div> -->
 
-          <div class="card is-radiusless my-3 is-borderless">
+          <div class="card is-radiusless my-3 is-borderless" data-aos="fade-up">
             <div class="card-body py-5 form-card bg-white shadow-sm">
               <h5 class="font-weight-bold mb-3">
                 Need more information or want to get in touch?
