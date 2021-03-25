@@ -1,6 +1,10 @@
-# nuxt-boilerplate
+# ShramikSanjal
 
-> My exceptional Nuxt.js project
+
+Shramik Sanjal (SS), is a membership-based a worker-led network of migrant workers, most of whom are low-income migrants in the Gulf states and Malaysia. We are a voluntary network that aspires to be the voice of the voiceless, working for the well-being of fellow migrant workers. We work closely to educate, empower, and support migrant workers and advocates for their right to live with dignity and work in a decent and safe condition.
+
+![image](https://user-images.githubusercontent.com/25634165/112479050-c08fdb80-8d9c-11eb-9c7a-cd5b9b087511.png)
+
 
 ## Build Setup
 
