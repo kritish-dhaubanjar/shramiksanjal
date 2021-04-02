@@ -4,8 +4,8 @@
     <Carousels />
     <Introduction />
     <About :content="who" />
-    <News />
     <Services />
+    <News />
     <Videos />
     <Events />
     <Section />
