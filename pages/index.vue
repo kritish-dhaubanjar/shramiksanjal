@@ -4,8 +4,8 @@
     <Carousels />
     <Introduction data-aos="fade-up" />
     <About :content="who" data-aos="fade-up" />
-    <News />
     <Services />
+    <News />
     <Videos />
     <Events data-aos="fade-up" />
     <Section />
