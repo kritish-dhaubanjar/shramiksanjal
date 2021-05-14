@@ -60,10 +60,12 @@ export default {
 
       wysiwyg.querySelectorAll("img").forEach(node => {
         node.className = "img-fluid my-5";
-        node.setAttribute(
-          "src",
-          `https://api.shramiksanjal.org/${node.getAttribute("src")}`
-        );
+        if (!node.getAttribute("src").includes("http")) {
+          node.setAttribute(
+            "src",
+            `https://api.shramiksanjal.org/${node.getAttribute("src")}`
+          );
+        }
       });
 
       wysiwyg.querySelectorAll("table").forEach(node => {
