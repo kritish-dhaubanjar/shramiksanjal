@@ -3,6 +3,7 @@
     <Banner :breadcrumb="{ name: 'Our Team' }" />
     <History data-aos="fade-up" />
     <Section />
+    <FAB />
   </section>
 </template>
 
@@ -10,6 +11,7 @@
 import Banner from "@/components/others/Banner";
 import Section from "@/components/index/Section";
 import History from "@/components/about/History";
+import FAB from "@/components/about/FAB";
 
 export default {
   head() {
@@ -28,7 +30,8 @@ export default {
   components: {
     Banner,
     Section,
-    History
+    History,
+    FAB
   }
 };
 </script>
