@@ -213,6 +213,8 @@
                     <option value="Kuwait">Kuwait</option>
                     <option value="Saudi Arabia">Saudi Arabia</option>
                     <option value="Malaysia">Malaysia</option>
+                    <option value="Oman">Oman</option>
+                    <option value="Others">Others</option>
                   </select>
                   <!-- <input
                     type="text"
