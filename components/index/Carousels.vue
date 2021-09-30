@@ -129,14 +129,14 @@ export default {
 
 <style scoped lang="scss">
 section.overflow-hidden {
-  min-height: 612px;
+  min-height: 428px;
 }
 
 .carousel-item {
   section {
-    min-height: 612px;
+    min-height: 428px;
     .container-fluid {
-      min-height: 612px;
+      min-height: 428px;
     }
     // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     //   url("/images/street.jpg");
